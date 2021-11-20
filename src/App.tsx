@@ -1,5 +1,13 @@
-export const App = () => {
-  const someLogic = 'Hello world!'
+import { Header } from './components/Header'
 
-  return <div>{someLogic}</div>
+export const App = () => {
+  // const someLogic = 'Hello world!'
+
+  return (
+    <>
+      <Header href={'https://www.anilibria.tv/bok'} />
+      <main>main</main>
+      <footer>footer</footer>
+    </>
+  )
 }

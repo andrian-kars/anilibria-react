@@ -1,0 +1,11 @@
+@import './_normalize';
+@import './variables';
+
+body {
+  background-color: $main-background;
+  min-width: 1175px;
+  max-width: 1175px;
+  margin: 0 auto;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 16px;
+}
