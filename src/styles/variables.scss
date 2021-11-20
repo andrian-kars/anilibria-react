@@ -1,13 +1,23 @@
 // Colors
 $main-background: #d3d3d3;
+$footer-background: #383838;
 $black: #000;
 $white: #fff;
+$color-grey: #ddd;
 
 // Sizes
 $header-height: 215px;
 $header-logo-height: 92px;
 $header-logo-width: 213px;
 
+$footer-heght: 100px;
+
 // Images
-$header-logo: 'public/assets/images/logo-header.png';
+$header-logo: 'public/assets/images/header-logo.png';
 $header-ad: 'https://static.anilibria.tv/img/other/a/bok.png';
+
+$footer-thanks: 'public/assets/images/footer-thanks.png';
+
+// Margins
+$layout-margin: 10px;
+$bigger-layout-margin: 15px;

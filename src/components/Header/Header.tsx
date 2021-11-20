@@ -6,7 +6,7 @@ type propsType = {
 
 export const Header: React.FC<propsType> = ({ href }) => {
   return (
-    <header className={s.header}>
+    <header className={s.content}>
       <div className={s.logo} />
       <div className={s.adLink}>
         <a href={href} target="_blank" rel="noreferrer">

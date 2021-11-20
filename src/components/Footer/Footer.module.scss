@@ -1,0 +1,25 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+
+.content {
+  display: flex;
+  width: 100%;
+  height: $footer-heght;
+  background-color: $footer-background;
+  margin-top: $bigger-layout-margin;
+  color: $color-grey;
+}
+
+.left {
+  width: 340px;
+}
+
+.center {
+  width: 350px;
+  height: 100%;
+  @include background-image($footer-thanks, no-repeat, top center, auto);
+}
+
+.right {
+  width: 485px;
+}

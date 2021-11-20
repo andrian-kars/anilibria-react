@@ -1,3 +1,4 @@
+import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 
 export const App = () => {
@@ -7,7 +8,7 @@ export const App = () => {
     <>
       <Header href={'https://www.anilibria.tv/bok'} />
       <main>main</main>
-      <footer>footer</footer>
+      <Footer />
     </>
   )
 }
