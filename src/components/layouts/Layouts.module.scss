@@ -1,0 +1,19 @@
+@import 'src/styles/_mixins';
+@import 'src/styles/_variables';
+
+.main {
+  margin-top: $layout-margin;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content {
+  width: $content-width;
+}
+
+.side {
+  width: $side-width;
+  min-height: 1580px;
+  background-color: $footer-background;
+  border-radius: 4px;
+}

@@ -2,6 +2,9 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { Footer } from './components/Footer'
 import { GlobalNavigation } from './components/GlobalNavigation'
 import { Header } from './components/Header'
+import { Content } from './components/layouts/Content'
+import { Main } from './components/layouts/Main'
+import { Side } from './components/layouts/Side'
 
 export const App = () => {
   const GlobalNavigationItems = [
@@ -16,7 +19,7 @@ export const App = () => {
 
   return (
     <Router>
-      <Header
+      {/* <Header
         // href={'https://www.anilibria.tv/dg'}
         // adImgUrl={'https://static.anilibria.tv/img/other/a/DG.png'}
         defaultImgUrl={'https://static.anilibria.tv/img/29.png'}
@@ -25,8 +28,8 @@ export const App = () => {
         // top={70}
         // marginLeft={360}
         adOff={true}
-      />
-      {/* <Header
+      /> */}
+      <Header
         href={'https://www.anilibria.tv/bok'}
         adImgUrl={'https://static.anilibria.tv/img/other/a/bok.png'}
         defaultImgUrl={'https://static.anilibria.tv/img/29.png'}
@@ -35,12 +38,13 @@ export const App = () => {
         top={138}
         marginLeft={150}
         adOff={false}
-      /> */}
-      <main>
-        <section style={{ width: '880px' }}>
+      />
+      <Main>
+        <Content>
           <GlobalNavigation items={GlobalNavigationItems} />
-        </section>
-      </main>
+        </Content>
+        <Side></Side>
+      </Main>
       <Footer />
     </Router>
   )
@@ -50,3 +54,7 @@ export const App = () => {
 // $height: 70px;
 // $top: 70px;
 // $margin-left: 360px;
+// width: 280px;
+// min-height: 1580px;
+// float: right;
+// background-color: #383838;
