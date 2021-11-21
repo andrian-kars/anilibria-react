@@ -1,10 +1,9 @@
 import { BrowserRouter as Router } from 'react-router-dom'
+import { BannerPatreon } from './components/BannerPatreon'
 import { Footer } from './components/Footer'
 import { GlobalNavigation } from './components/GlobalNavigation'
 import { Header } from './components/Header'
-import { Content } from './components/layouts/Content'
-import { Main } from './components/layouts/Main'
-import { Side } from './components/layouts/Side'
+import { Content, Main, Side } from './components/layouts'
 
 export const App = () => {
   const GlobalNavigationItems = [
@@ -42,6 +41,7 @@ export const App = () => {
       <Main>
         <Content>
           <GlobalNavigation items={GlobalNavigationItems} />
+          <BannerPatreon href={'https://www.patreon.com/anilibria/posts'} />
         </Content>
         <Side></Side>
       </Main>

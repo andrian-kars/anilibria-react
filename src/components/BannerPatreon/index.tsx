@@ -1,0 +1,1 @@
+export { BannerPatreon } from './BannerPatreon'

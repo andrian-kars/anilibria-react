@@ -1,0 +1,11 @@
+@import 'src/styles/_mixins';
+@import 'src/styles/_variables';
+
+.link {
+  display: block;
+  width: $content-width;
+  height: $patreon-banner-height;
+  margin-top: $layout-margin;
+  @include background-image($patreon-banner);
+  border-radius: $border-radius;
+}
