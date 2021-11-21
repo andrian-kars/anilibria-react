@@ -1,0 +1,1 @@
+export { GlobalNavigation } from './GlobalNavigation'

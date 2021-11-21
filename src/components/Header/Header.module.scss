@@ -1,11 +1,11 @@
-@import 'src/styles/mixins';
-@import 'src/styles/variables';
+@import 'src/styles/_mixins';
+@import 'src/styles/_variables';
 
 .content {
   position: relative;
   width: 100%;
   height: $header-height;
-  @include background-image($header-ad);
+  @include background-image();
 }
 
 .logo {
@@ -15,17 +15,10 @@
 }
 
 // Костыль
-$width: 240px;
-$height: 70px;
-
 .adLink {
   position: absolute;
-  width: $width;
-  height: $height;
-  top: 138px;
   left: 50%;
   transform: translate(-50%);
-  margin-left: 150px;
 
   &:hover {
     .title {
@@ -43,20 +36,19 @@ $height: 70px;
 }
 
 .title {
+  max-width: 200px;
+  width: 200px;
   visibility: hidden;
   opacity: 0;
   position: absolute;
   top: 0;
-  left: calc($width + 8px);
-  top: calc($height / 2);
   transform: translate(0, -50%);
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 12px;
   font-weight: 400;
-  line-height: 1.42857143;
+  line-height: 1.4;
   background-color: $black;
   color: $white;
-  white-space: nowrap;
   text-align: center;
   padding: 3px 8px;
   border-radius: 4px;
