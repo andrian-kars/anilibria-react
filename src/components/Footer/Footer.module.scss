@@ -8,7 +8,8 @@
   background-color: $footer-background;
   margin-top: $bigger-layout-margin;
   color: $color-grey;
-  border-radius: $border-radius;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
 }
 
 .left {

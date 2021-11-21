@@ -1,19 +1,32 @@
-import { BrowserRouter as Router } from 'react-router-dom'
+// hash rounter is being used for dev purposes
+import { HashRouter as Router, Route, Routes } from 'react-router-dom'
 import { BannerPatreon } from './components/BannerPatreon'
 import { Footer } from './components/Footer'
 import { GlobalNavigation } from './components/GlobalNavigation'
 import { Header } from './components/Header'
 import { Content, Main, Side } from './components/layouts'
+import {
+  Catalog,
+  Donate,
+  Favorites,
+  Initial,
+  Login,
+  Page404,
+  Profile,
+  Rules,
+  Schedule,
+  Team,
+} from './pages'
 
 export const App = () => {
   const GlobalNavigationItems = [
     { to: '/', text: 'ГЛАВНАЯ', backgroundColor: '#b32121' },
-    { to: '/pages/catalog.php', text: 'РЕЛИЗЫ', backgroundColor: '#a01e1e' },
-    { to: '/pages/schedule.php', text: 'РАСПИСАНИЕ', backgroundColor: '#881919' },
-    { to: '/public/random.php', text: 'СЛУЧАЙНОЕ', backgroundColor: '#731515' },
+    { to: '/pages/catalog', text: 'РЕЛИЗЫ', backgroundColor: '#a01e1e' },
+    { to: '/pages/schedule', text: 'РАСПИСАНИЕ', backgroundColor: '#881919' },
+    { to: '/public/random', text: 'СЛУЧАЙНОЕ', backgroundColor: '#731515' },
     { to: 'https://anilibria.app', text: 'ПРИЛОЖЕНИЕ', backgroundColor: '#641212' },
-    { to: '/pages/team.php', text: 'КОМАНДА', backgroundColor: '#560f0f' },
-    { to: '/pages/donate.php', text: 'ПОДДЕРЖАТЬ ПРОЕКТ', backgroundColor: '#460c0c' },
+    { to: '/pages/team', text: 'КОМАНДА', backgroundColor: '#560f0f' },
+    { to: '/pages/donate', text: 'ПОДДЕРЖАТЬ ПРОЕКТ', backgroundColor: '#460c0c' },
   ]
 
   return (
@@ -42,6 +55,18 @@ export const App = () => {
         <Content>
           <GlobalNavigation items={GlobalNavigationItems} />
           <BannerPatreon href={'https://www.patreon.com/anilibria/posts'} />
+          <Routes>
+            <Route path="/" element={<Initial />} />
+            <Route path="/pages/catalog" element={<Catalog />} />
+            <Route path="/pages/schedule" element={<Schedule />} />
+            <Route path="/pages/team" element={<Team />} />
+            <Route path="/pages/donate" element={<Donate />} />
+            <Route path="/pages/rules" element={<Rules />} />
+            <Route path="/pages/profile" element={<Profile />} />
+            <Route path="/pages/login" element={<Login />} />
+            <Route path="/pages/favorites" element={<Favorites />} />
+            <Route path="*" element={<Page404 />} />
+          </Routes>
         </Content>
         <Side></Side>
       </Main>
