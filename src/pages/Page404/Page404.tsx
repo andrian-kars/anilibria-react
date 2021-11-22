@@ -5,5 +5,5 @@ type propsType = {
 }
 
 export const Page404: React.FC<propsType> = () => {
-  return <section className={s.content}>404 Page</section>
+  return <section className={s.content} />
 }
