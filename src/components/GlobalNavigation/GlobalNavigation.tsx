@@ -12,8 +12,6 @@ type PropsTypeItem = {
 }
 
 export const GlobalNavigation: React.FC<PropsType> = ({ items }) => {
-  console.log(items)
-
   return (
     <nav className={s.content}>
       <ul className={s.whrapper}>

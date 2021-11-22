@@ -1,6 +1,9 @@
 // Colors
 $main-background: #d3d3d3;
 $footer-background: #383838;
+$light-grey: #4a4a4a;
+$font-grey: #333;
+$anime-item-border-hover: #e04e4e;
 $black: #000;
 $white: #fff;
 $color-grey: #ddd;
@@ -32,5 +35,21 @@ $footer-thanks: 'public/assets/images/footer-thanks.png';
 $layout-margin: 10px;
 $bigger-layout-margin: 15px;
 
+// Padding
+$schedule-layout-padding: 10px 20px 20px;
+$layout-padding: 10px;
+
+// Font
+$title-font-size: 13pt;
+$font-size: 11pt;
+$font-bold: bold;
+$font-italic: italic;
+$global-line-height: 15pt;
+$bigger-line-height: 19pt;
+
 // Other
 $border-radius: 4px;
+$anime-item-border-radius: 3px;
+$anime-item-border-size: 3px;
+
+$nice-index: 69;

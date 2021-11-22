@@ -1,0 +1,52 @@
+@import 'src/styles/_mixins';
+@import 'src/styles/_variables';
+
+.whrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  @include background-image('');
+
+  &:hover {
+    .title,
+    .episodes,
+    .description,
+    .hover {
+      display: block;
+    }
+  }
+}
+
+.content {
+  padding: $layout-padding;
+  color: $white;
+  z-index: $nice-index;
+}
+
+.hover {
+  background-color: $black;
+  opacity: 0.8;
+  @include stretch-absolute();
+}
+
+.title,
+.episodes,
+.description,
+.hover {
+  display: none;
+  text-align: center;
+}
+
+.title {
+  font-size: $title-font-size;
+  line-height: $title-font-size;
+  margin-bottom: 5px;
+  font-weight: $font-bold;
+}
+.episodes {
+  margin-bottom: 40px;
+}
+.description {
+  font-size: $font-size;
+}

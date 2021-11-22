@@ -1,5 +1,6 @@
 // hash rounter is being used for dev purposes
 import { HashRouter as Router, Route, Routes } from 'react-router-dom'
+import { getSchedule } from './api/api'
 import { BannerPatreon } from './components/BannerPatreon'
 import { Footer } from './components/Footer'
 import { GlobalNavigation } from './components/GlobalNavigation'
@@ -28,6 +29,10 @@ export const App = () => {
     { to: '/pages/team', text: 'КОМАНДА', backgroundColor: '#560f0f' },
     { to: '/pages/donate', text: 'ПОДДЕРЖАТЬ ПРОЕКТ', backgroundColor: '#460c0c' },
   ]
+
+  console.log(Date.now())
+
+  getSchedule()
 
   return (
     <Router>
@@ -74,12 +79,3 @@ export const App = () => {
     </Router>
   )
 }
-
-// $width: 240px;
-// $height: 70px;
-// $top: 70px;
-// $margin-left: 360px;
-// width: 280px;
-// min-height: 1580px;
-// float: right;
-// background-color: #383838;
