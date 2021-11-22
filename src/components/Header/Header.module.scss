@@ -6,7 +6,8 @@
   width: 100%;
   height: $header-height;
   @include background-image();
-  border-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
 }
 
 .logo {
