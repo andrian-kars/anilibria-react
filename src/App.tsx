@@ -73,7 +73,7 @@ export const App = () => {
             <Route path="*" element={<Page404 />} />
           </Routes>
         </Content>
-        <Side></Side>
+        <Side />
       </Main>
       <Footer />
     </Router>

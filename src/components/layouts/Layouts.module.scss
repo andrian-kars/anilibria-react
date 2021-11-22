@@ -12,8 +12,42 @@
 }
 
 .side {
+  align-self: start;
+  display: flex;
+  flex-direction: column;
   width: $side-width;
   min-height: $side-min-height;
   background-color: $footer-background;
   border-radius: $border-radius;
+  padding: $layout-padding;
+}
+
+.search {
+  width: 100%;
+}
+
+.animes {
+  display: flex;
+  flex-direction: column;
+  gap: $layout-padding;
+}
+
+.animeItem {
+  height: $side-item-height;
+
+  border: $bigger-anime-item-border-size solid $dark-grey;
+  border-radius: $border-radius;
+
+  &:hover {
+    border: $bigger-anime-item-border-size solid $reddish;
+  }
+
+  p {
+    font-size: $title-font-size;
+
+    &:last-child {
+      font-size: $bigger-font-size;
+      line-height: $line-height;
+    }
+  }
 }

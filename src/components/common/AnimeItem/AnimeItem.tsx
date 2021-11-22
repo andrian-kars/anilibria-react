@@ -11,6 +11,7 @@ type propsType = {
   code: string
   descriptionLength?: number
   className?: string
+  torrent?: number | boolean
 }
 
 export const AnimeItem: React.FC<propsType> = ({
@@ -21,6 +22,7 @@ export const AnimeItem: React.FC<propsType> = ({
   code,
   descriptionLength,
   className,
+  torrent,
 }) => {
   return (
     <div
@@ -28,12 +30,22 @@ export const AnimeItem: React.FC<propsType> = ({
       // TODO: change to public later
       style={{ backgroundImage: `url(https://www.anilibria.tv/${poster})` }}
     >
-      <NavLink className={s.content} to={`/release/${code}`}>
-        <p className={s.title}>{title}</p>
-        <p className={s.episodes}>Серия: {episodes}</p>
-        <p className={s.description}>{truncateString(description, descriptionLength ?? 169)}</p>
-      </NavLink>
+      <div className={s.textContent}>
+        <NavLink className={s.content} to={`/release/${code}`}>
+          <p className={s.title}>{title}</p>
+          <p className={s.episodes}>Серия: {episodes}</p>
+          <p className={s.description}>{truncateString(description, descriptionLength ?? 169)}</p>
+        </NavLink>
+      </div>
       <div className={s.hover} />
+      {torrent && (
+        <a
+          className={s.download}
+          href={`https://www.anilibria.tv//public/torrent/download.php?id=${torrent}`}
+        >
+          СКАЧАТЬ
+        </a>
+      )}
     </div>
   )
 }

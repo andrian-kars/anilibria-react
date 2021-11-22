@@ -13,3 +13,15 @@ export const getSchedule = () => {
       console.log(res.data)
     })
 }
+
+export const getUpdates = () => {
+  return instance
+    .get(
+      'getUpdates?filter=code,names.ru,description,torrents.series.string,poster.url,torrents.list[0].torrent_id'
+    )
+    .then((res) => {
+      console.log('fff')
+
+      console.log(res.data)
+    })
+}

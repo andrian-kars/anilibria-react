@@ -3,6 +3,9 @@ $main-background: #d3d3d3;
 $footer-background: #383838;
 $light-grey: #4a4a4a;
 $font-grey: #333;
+$dark-grey: #282829;
+$reddish: #d83541;
+$red: #b32121;
 $anime-item-border-hover: #e04e4e;
 $black: #000;
 $white: #fff;
@@ -21,8 +24,11 @@ $patreon-banner-height: 100px;
 
 $side-width: 280px;
 $side-min-height: 1580px;
+$side-item-height: 360px;
 
 $footer-height: 100px;
+
+$page-404-height: 498px;
 
 // Images
 $header-logo: 'public/assets/images/header-logo.png';
@@ -38,18 +44,23 @@ $bigger-layout-margin: 15px;
 // Padding
 $schedule-layout-padding: 10px 20px 20px;
 $layout-padding: 10px;
+$bigger-layout-padding: 10px;
 
 // Font
 $title-font-size: 13pt;
+$bigger-font-size: 12pt;
 $font-size: 11pt;
+$small-font-size: 10pt;
 $font-bold: bold;
 $font-italic: italic;
 $global-line-height: 15pt;
+$line-height: 17pt;
 $bigger-line-height: 19pt;
 
 // Other
 $border-radius: 4px;
 $anime-item-border-radius: 3px;
 $anime-item-border-size: 3px;
+$bigger-anime-item-border-size: 9px;
 
 $nice-index: 69;
