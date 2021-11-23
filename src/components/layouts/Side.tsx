@@ -3,9 +3,14 @@ import s from './Layouts.module.scss'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import { useEffect } from 'react'
 import { fetchAnimeListForSide } from '../../store/reducers/LayoutsSlice'
+import { useLocation } from 'react-router-dom'
 
 export const Side: React.FC = () => {
+  const path = useLocation().pathname
+  const listCount = path === '/' ? 4 : 5
+
   const { animeListForSide, isLoading, error } = useAppSelector((state) => state.layoutsReducer)
+
   const dispatch = useAppDispatch()
 
   console.log('LayoutsSide: render')
@@ -33,6 +38,7 @@ export const Side: React.FC = () => {
               className={s.animeItem}
               torrent={el.torrents.list[0].torrent_id || false}
               key={`side ${i}:${el.code}`}
+              hide={listCount === i}
             />
           ))}
       </div>

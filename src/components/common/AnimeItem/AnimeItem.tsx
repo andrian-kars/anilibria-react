@@ -12,6 +12,7 @@ type propsType = {
   descriptionLength?: number
   className?: string
   torrent?: number | boolean
+  hide: boolean
 }
 
 export const AnimeItem: React.FC<propsType> = ({
@@ -23,12 +24,16 @@ export const AnimeItem: React.FC<propsType> = ({
   descriptionLength,
   className,
   torrent,
+  hide,
 }) => {
   return (
     <div
       className={cn(s.whrapper, className)}
       // TODO: change to public later
-      style={{ backgroundImage: `url(https://www.anilibria.tv/${poster})` }}
+      style={{
+        backgroundImage: `url(https://www.anilibria.tv/${poster})`,
+        display: `${hide ? 'none' : 'flex'}`,
+      }}
     >
       <div className={s.textContent}>
         <NavLink className={s.content} to={`/release/${code}`}>
