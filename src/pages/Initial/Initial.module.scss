@@ -3,4 +3,20 @@
 
 .content {
   margin-top: $layout-margin;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.link {
+  display: block;
+  position: relative;
+  height: $initial-youtube-height;
+  @include background-image();
+  border-radius: $border-radius;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
 }

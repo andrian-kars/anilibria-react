@@ -25,3 +25,10 @@ export type typeSchedule = Array<{
   day: number
   list: animeList
 }>
+
+export type youtubeType = Array<{
+  id: number
+  image: string
+  title: string
+  youtube_id: string
+}>
