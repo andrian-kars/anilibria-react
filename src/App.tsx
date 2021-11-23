@@ -1,6 +1,4 @@
-// hash rounter is being used for dev purposes
-import { HashRouter as Router, Route, Routes } from 'react-router-dom'
-import { getSchedule } from './api/api'
+import { Route, Routes } from 'react-router-dom'
 import { BannerPatreon } from './components/BannerPatreon'
 import { Footer } from './components/Footer'
 import { GlobalNavigation } from './components/GlobalNavigation'
@@ -30,12 +28,8 @@ export const App = () => {
     { to: '/pages/donate', text: 'ПОДДЕРЖАТЬ ПРОЕКТ', backgroundColor: '#460c0c' },
   ]
 
-  console.log(Date.now())
-
-  getSchedule()
-
   return (
-    <Router>
+    <>
       {/* <Header
         // href={'https://www.anilibria.tv/dg'}
         // adImgUrl={'https://static.anilibria.tv/img/other/a/DG.png'}
@@ -76,6 +70,6 @@ export const App = () => {
         <Side />
       </Main>
       <Footer />
-    </Router>
+    </>
   )
 }

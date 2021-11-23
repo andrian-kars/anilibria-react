@@ -21,3 +21,8 @@ export type animeItem = {
     ]
   }
 }
+
+export type typeSchedule = Array<{
+  day: number
+  list: animeList
+}>
