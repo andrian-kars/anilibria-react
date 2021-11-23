@@ -16,9 +16,13 @@ const initialState: AnimeState = {
   error: null,
 }
 
-export const fetchAnimeList = createAsyncThunk('anime/fetchAnimeListThunk', async () => {
-  const response = await getSchedule()
-  return response.data
+export const fetchAnimeList = createAsyncThunk('anime/fetchAnimeListThunk', async (_, thunkAPI) => {
+  try {
+    const response = await getSchedule()
+    return response.data
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e.message)
+  }
 })
 
 export const AnimeSlice = createSlice({
