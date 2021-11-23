@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { getSchedule } from '../../api/scheduleApi'
 import { animeList, typeSchedule } from '../../types'
-import { getSchedule } from '../../api/api'
-
 export interface ScheduleState {
   schedule: Array<{ day: number; list: animeList }> | null
   isLoading: boolean

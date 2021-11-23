@@ -19,8 +19,6 @@ export const fetchAnimeListForSide = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await getAnimeListForSide()
-      console.log(response.data)
-
       return response.data
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message)
