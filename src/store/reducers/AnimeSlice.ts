@@ -1,5 +1,4 @@
-import { AppDispatch } from './../store'
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { animeList, typeSchedule } from '../../types'
 import { getSchedule } from '../../api/api'
 
@@ -17,37 +16,31 @@ const initialState: AnimeState = {
   error: null,
 }
 
+export const fetchAnimeList = createAsyncThunk('anime/fetchAnimeListThunk', async () => {
+  const response = await getSchedule()
+  return response.data
+})
+
 export const AnimeSlice = createSlice({
   name: 'anime',
   initialState,
-  reducers: {
-    setSchedule: (state, action: PayloadAction<typeSchedule>) => {
+  reducers: {},
+  extraReducers: {
+    [fetchAnimeList.fulfilled.type]: (state, action: PayloadAction<typeSchedule>) => {
+      state.isLoading = false
+      state.error = null
       state.schedule = action.payload
     },
-    startFetching: (state) => {
+    [fetchAnimeList.pending.type]: (state) => {
       state.isLoading = true
     },
-    stopFetching: (state) => {
+    [fetchAnimeList.rejected.type]: (state, action: PayloadAction<string>) => {
       state.isLoading = false
-    },
-    setError: (state, action: PayloadAction<string>) => {
       state.error = action.payload
     },
   },
 })
 
-export const { setSchedule, startFetching, stopFetching, setError } = AnimeSlice.actions
-
-export const fetchAnimeList = () => async (dispatch: AppDispatch) => {
-  try {
-    dispatch(startFetching())
-    const response = await getSchedule()
-    dispatch(setSchedule(response.data))
-    dispatch(stopFetching())
-  } catch (e) {
-    dispatch(setError(e.message))
-    dispatch(stopFetching())
-  }
-}
+export const {} = AnimeSlice.actions
 
 export default AnimeSlice.reducer
