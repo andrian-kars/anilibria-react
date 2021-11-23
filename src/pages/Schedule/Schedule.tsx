@@ -1,20 +1,20 @@
 import { useEffect } from 'react'
 import { AnimeItem } from '../../components/common'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
-import { fetchAnimeList } from '../../store/reducers/AnimeSlice'
+import { fetchSchedule } from '../../store/reducers/ScheduleSlice'
 import { animeList } from '../../types'
 import s from './Schedule.module.scss'
 
 export const Schedule: React.FC = () => {
   const week = ['ПОНЕДЕЛЬНИК', 'ВТОРНИК', 'СРЕДА', 'ЧЕТВЕРГ', 'ПЯТНИЦА', 'СУББОТА', 'ВОСКРЕСЕНЬЕ']
-  const { schedule, isLoading, error } = useAppSelector((state) => state.animeReducer)
+  const { schedule, isLoading, error } = useAppSelector((state) => state.scheduleReducer)
   const dispatch = useAppDispatch()
 
   console.log('Schedule: render')
 
   useEffect(() => {
-    dispatch(fetchAnimeList())
-  }, [dispatch])
+    !schedule && dispatch(fetchSchedule())
+  }, [dispatch, schedule])
 
   // TODO: loading and error
   return (

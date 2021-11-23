@@ -1,8 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import animeReducer from './reducers/AnimeSlice'
+import { scheduleReducer, layoutsReducer } from './reducers'
 
 const rootReducer = combineReducers({
-  animeReducer,
+  scheduleReducer,
+  layoutsReducer,
 })
 
 export const setupStore = () =>

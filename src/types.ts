@@ -14,7 +14,6 @@ export type animeItem = {
       string: string
     }
     list: [
-      null,
       {
         torrent_id?: number
       }
