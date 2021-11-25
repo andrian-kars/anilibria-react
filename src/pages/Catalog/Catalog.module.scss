@@ -5,29 +5,41 @@
   margin-top: $layout-margin;
 }
 
+.search {
+  background-color: $catalog-search-background;
+  padding: $catalog-search-padding;
+  margin: $layout-padding 0 $medium-layout-padding;
+  min-height: $catalog-search-height;
+  border-radius: $border-radius;
+}
+
 .animes {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
-  column-gap: 36px;
-  row-gap: 30px;
+  column-gap: $catalog-item-gap;
+  row-gap: calc($catalog-item-gap - 6px);
 }
 
 .animeItem {
-  height: 390px;
+  height: $catalog-item-height;
   border-radius: $border-radius;
 
+  div {
+    border-radius: $border-radius;
+  }
+
   p {
-    font-size: 14pt;
+    font-size: $bigger-font-size;
 
     &:first-child {
-      margin-bottom: 10px;
+      margin-bottom: $layout-margin;
     }
 
     &:last-child {
       line-height: $line-height;
-      margin-top: 85px;
-      font-size: 12pt;
+      margin-top: $big-top-margin;
+      font-size: $bigger-font-size;
     }
   }
 }

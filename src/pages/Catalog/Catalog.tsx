@@ -18,6 +18,7 @@ export const Catalog: React.FC = () => {
   // TODO: loading, error
   return (
     <section className={s.content}>
+      <div className={s.search}></div>
       <div className={s.animes}>
         {isLoading && <h1>Loading...</h1>}
         {error && <h1>{error}</h1>}

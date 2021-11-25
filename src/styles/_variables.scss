@@ -1,6 +1,7 @@
 // Colors
 $main-background: #d3d3d3;
 $footer-background: #383838;
+$catalog-search-background: #3e3e3e;
 $light-grey: #4a4a4a;
 $font-grey: #333;
 $dark-grey: #282829;
@@ -28,6 +29,10 @@ $side-width: 280px;
 $side-min-height: 1369px;
 $side-item-height: 360px;
 
+$catalog-item-height: 390px;
+$catalog-item-gap: 36px;
+$catalog-search-height: 150px;
+
 $footer-height: 100px;
 
 $page-404-height: 498px;
@@ -42,13 +47,18 @@ $footer-thanks: 'public/assets/images/footer-thanks.png';
 // Margins
 $layout-margin: 10px;
 $bigger-layout-margin: 15px;
+$big-top-margin: 85px;
 
 // Padding
 $schedule-layout-padding: 10px 20px 20px;
 $layout-padding: 10px;
-$bigger-layout-padding: 10px;
+$bigger-layout-padding: 15px;
+$medium-layout-padding: 12px;
+
+$catalog-search-padding: 25px;
 
 // Font
+$bigger-font-size: 14pt;
 $title-font-size: 13pt;
 $bigger-font-size: 12pt;
 $font-size: 11pt;
