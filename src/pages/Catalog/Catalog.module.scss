@@ -4,3 +4,30 @@
 .content {
   margin-top: $layout-margin;
 }
+
+.animes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+  column-gap: 36px;
+  row-gap: 30px;
+}
+
+.animeItem {
+  height: 390px;
+  border-radius: $border-radius;
+
+  p {
+    font-size: 14pt;
+
+    &:first-child {
+      margin-bottom: 10px;
+    }
+
+    &:last-child {
+      line-height: $line-height;
+      margin-top: 85px;
+      font-size: 12pt;
+    }
+  }
+}

@@ -12,7 +12,7 @@ type propsType = {
   descriptionLength?: number
   className?: string
   torrent?: number | boolean
-  hide: boolean
+  hide?: boolean
 }
 
 export const AnimeItem: React.FC<propsType> = ({
