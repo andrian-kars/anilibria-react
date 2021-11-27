@@ -32,3 +32,10 @@ export type youtubeType = Array<{
   title: string
   youtube_id: string
 }>
+
+export type selectValues = Array<{ value: number | string; label: number | string }>
+
+export type passedParamsAdvancedSearch = {
+  query: string
+  order_by: string
+}

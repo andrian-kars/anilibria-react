@@ -2,6 +2,9 @@
 $main-background: #d3d3d3;
 $footer-background: #383838;
 $catalog-search-background: #3e3e3e;
+$border-grey: #ccc;
+$border-grey-hover: #adadad;
+$bg-grey-hover: #e6e6e6;
 $light-grey: #4a4a4a;
 $font-grey: #333;
 $dark-grey: #282829;
@@ -31,11 +34,15 @@ $side-item-height: 360px;
 
 $catalog-item-height: 390px;
 $catalog-item-gap: 36px;
+$catalog-battun-height: 36px;
 $catalog-search-height: 150px;
+$catalog-form-gap: 10px;
 
 $footer-height: 100px;
 
 $page-404-height: 498px;
+
+$svg-size: 20px;
 
 // Images
 $header-logo: 'public/assets/images/header-logo.png';
@@ -56,6 +63,8 @@ $bigger-layout-padding: 15px;
 $medium-layout-padding: 12px;
 
 $catalog-search-padding: 25px;
+
+$svg-center: 2px 3px 0 0;
 
 // Font
 $bigger-font-size: 14pt;

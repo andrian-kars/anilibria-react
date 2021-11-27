@@ -9,11 +9,10 @@
   background-color: $catalog-search-background;
   padding: $catalog-search-padding;
   margin: $layout-padding 0 $medium-layout-padding;
-  height: 400px;
-  // height: $catalog-search-height;
   border-radius: $border-radius;
 
   form {
+    gap: $catalog-search-padding;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -24,26 +23,18 @@
 .selects {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  gap: $catalog-form-gap;
 
-  select {
-    flex: 1;
-    min-height: 43px;
-    padding: 6px 12px;
-    color: #999;
-    font-size: 15px;
-    border: 1px solid #ccc;
-    background-color: $white;
-    border-radius: $border-radius;
-    cursor: pointer;
+  .select {
+    flex: 1.2;
+    align-self: flex-start;
 
     &:first-child {
-      flex: 2;
+      flex: 2.5;
     }
 
-    &:focus {
-      border-color: #66afe9;
-      box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%);
+    &:nth-child(2) {
+      flex: 1.6;
     }
   }
 }
@@ -57,33 +48,38 @@
 .submits {
   flex: 4;
   display: flex;
-  width: 47%;
-  gap: 10px;
+  gap: $catalog-form-gap;
 
   button {
-    flex: 2;
-    height: 36px;
-    padding: 0 12px;
-    font-size: 15px;
-    color: #333;
+    @include flex-center();
+    flex: 1;
+    height: $catalog-battun-height;
+    padding: 0 $medium-layout-padding;
+    font-size: $font-size;
+    color: $font-grey;
     background-color: $white;
-    border-color: #ccc;
+    border: 1px solid $border-grey;
     border-radius: $border-radius;
     cursor: pointer;
 
     &:last-child {
-      flex: 3;
+      flex: 2;
+      svg {
+        margin: $svg-center;
+        width: $svg-size;
+        height: $svg-size;
+      }
     }
 
     &:hover {
-      background-color: #e6e6e6;
-      border-color: #adadad;
+      background-color: $bg-grey-hover;
+      border-color: $border-grey-hover;
     }
   }
 }
 
 .alphabet {
-  flex: 4.5;
+  flex: 4.7;
   text-align: right;
 
   a {

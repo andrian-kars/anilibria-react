@@ -1,4 +1,4 @@
-import { animeList } from '../types'
+import { animeList, passedParamsAdvancedSearch } from '../types'
 import { instance } from './api'
 
 const paramsNewAnimeListForCatalog = {
@@ -14,24 +14,17 @@ export const getNewAnimeListForCatalog = () =>
 
 export const getYears = () => instance.get<Array<number>>('getYears')
 
-const paramsGenres = {
-  sorting_type: 1,
-}
-
-export const getGenres = () => instance.get<Array<string>>('getGenres', { params: paramsGenres })
+export const getGenres = () => instance.get<Array<string>>('getGenres')
 
 const paramsListFromAdvancedSearch = {
   limit: 12,
   filter: 'code,names.ru,poster.url,torrents.series.string,description',
-  order_by: 'updated',
   sort_direction: 1,
 }
 
-export const getListFromAdvancedSearch = (query: string) => {
-  console.log({ query, ...paramsListFromAdvancedSearch })
-
+export const getListFromAdvancedSearch = (passedParams: passedParamsAdvancedSearch) => {
   return instance.get<animeList>('advancedSearch', {
-    params: { query, ...paramsListFromAdvancedSearch },
+    params: { ...passedParams, ...paramsListFromAdvancedSearch },
     paramsSerializer: (params) => {
       // Sample implementation of query string building
       let result = ''
