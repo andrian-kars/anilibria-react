@@ -9,7 +9,8 @@
   background-color: $catalog-search-background;
   padding: $catalog-search-padding;
   margin: $layout-padding 0 $medium-layout-padding;
-  height: $catalog-search-height;
+  height: 400px;
+  // height: $catalog-search-height;
   border-radius: $border-radius;
 
   form {
@@ -83,11 +84,14 @@
 
 .alphabet {
   flex: 4.5;
-  color: $white;
   text-align: right;
 
-  &:hover {
-    text-decoration: underline;
+  a {
+    color: $white;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
