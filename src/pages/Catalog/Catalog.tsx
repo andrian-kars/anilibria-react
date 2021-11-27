@@ -52,6 +52,7 @@ export const Catalog: React.FC = () => {
         {animeListForCatalog?.length === 0 ? (
           <div>no anime found</div>
         ) : (
+          !isLoading &&
           animeListForCatalog?.map((el) => (
             <AnimeItem
               title={el.names.ru}
