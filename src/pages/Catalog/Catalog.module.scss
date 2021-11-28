@@ -97,6 +97,7 @@
   justify-content: space-between;
   column-gap: $catalog-item-gap;
   row-gap: calc($catalog-item-gap - 6px);
+  margin-bottom: calc($bigger-layout-margin * 2);
 }
 
 .animeItem {

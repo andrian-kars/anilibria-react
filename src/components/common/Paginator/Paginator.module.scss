@@ -1,0 +1,53 @@
+@import 'src/styles/_variables';
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.pages {
+  border: none;
+  background-color: transparent;
+  margin: 0 4px;
+  line-height: 13px;
+  font-size: 15px;
+  transition: 0.3s;
+  cursor: pointer;
+
+  @media (min-width: 512px) {
+    font-size: 16px;
+    margin: 0 5px;
+  }
+
+  &:hover {
+    font-weight: 700;
+  }
+}
+
+.selectedPage {
+  font-weight: 700;
+}
+
+.indexes {
+  display: flex;
+  justify-content: center;
+  transition: 0.3s;
+  cursor: pointer;
+
+  svg {
+    fill: $black;
+    width: 11px;
+    height: 11px;
+
+    @media (min-width: 512px) {
+      width: 13px;
+      height: 13px;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

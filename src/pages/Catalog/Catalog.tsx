@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { AnimeItem } from '../../components/common'
+import { Paginator } from '../../components/common/Paginator/Paginator'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import { fetchCatalogStart, fetchListFromAdvancedSearch } from '../../store/reducers/CatalogSlice'
 import { AdvancedSearch, FormType } from './AdvancedSearch'
@@ -35,6 +36,12 @@ export const Catalog: React.FC = () => {
     setSubmitting(false)
   }
 
+  // TODO: when api updates, fix paginator
+  const onPageChange = (pageNumber: number) => {
+    console.log('page changed to', pageNumber)
+    // alert('Paginator does not work, since API doest not provide such functionality')
+  }
+
   // TODO: loading, error, no anime found
   return (
     <section className={s.content}>
@@ -67,6 +74,14 @@ export const Catalog: React.FC = () => {
           ))
         )}
       </div>
+      {!isLoading && (
+        <Paginator
+          pageSize={12}
+          totalUsersCount={600}
+          onPageChange={onPageChange}
+          currentPage={1}
+        />
+      )}
     </section>
   )
 }
