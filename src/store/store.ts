@@ -1,11 +1,18 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { scheduleReducer, layoutsReducer, initialReducer, catalogReducer } from './reducers'
+import {
+  scheduleReducer,
+  layoutsReducer,
+  initialReducer,
+  catalogReducer,
+  releaseReducer,
+} from './reducers'
 
 const rootReducer = combineReducers({
   scheduleReducer,
   layoutsReducer,
   initialReducer,
   catalogReducer,
+  releaseReducer,
 })
 
 export const setupStore = () =>

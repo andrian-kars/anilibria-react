@@ -31,5 +31,7 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'import/no-unresolved': 'off',
     'jsx-a11y/anchor-has-content': 'off',
+    'react-hooks/exhaustive-deps': 0,
+    'jsx-a11y/media-has-caption': 0,
   },
 }

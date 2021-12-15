@@ -4,10 +4,27 @@ export type animeItem = {
   code: string
   names: {
     ru: string
+    en: string
   }
   description: string
   poster: {
     url: string
+  }
+  season: {
+    string: string
+    year: number
+    week_day: number
+  }
+  type: {
+    full_string: string
+  }
+  genres: Array<string>
+  team: {
+    voice: Array<string>
+    translator: Array<string>
+    editing: Array<string>
+    decor: Array<string>
+    timing: Array<string>
   }
   torrents: {
     series: {

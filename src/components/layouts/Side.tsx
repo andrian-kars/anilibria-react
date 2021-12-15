@@ -3,7 +3,7 @@ import s from './Layouts.module.scss'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import { useEffect } from 'react'
 import { fetchAnimeListForSide } from '../../store/reducers/LayoutsSlice'
-import { useLocation } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 export const Side: React.FC = () => {
   const path = useLocation().pathname
@@ -22,7 +22,9 @@ export const Side: React.FC = () => {
   // TODO: loading, error
   return (
     <aside className={s.side}>
-      <div className={s.search}>Search</div>
+      <div className={s.search}>
+        <NavLink to="/release">Release</NavLink>
+      </div>
       <div className={s.animes}>
         {isLoading && <h1>Loading...</h1>}
         {error && <h1>{error}</h1>}

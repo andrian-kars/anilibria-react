@@ -12,6 +12,7 @@ import {
   Login,
   Page404,
   Profile,
+  Release,
   Rules,
   Schedule,
   Team,
@@ -64,6 +65,7 @@ export const App = () => {
             <Route path="/pages/profile" element={<Profile />} />
             <Route path="/pages/login" element={<Login />} />
             <Route path="/pages/favorites" element={<Favorites />} />
+            <Route path="/release/:titleCode" element={<Release />} />
             <Route path="*" element={<Page404 />} />
           </Routes>
         </Content>
