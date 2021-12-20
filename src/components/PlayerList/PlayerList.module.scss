@@ -1,0 +1,34 @@
+@import 'src/styles/_mixins';
+@import 'src/styles/_variables';
+
+section {
+  margin-top: $layout-margin;
+}
+
+.series {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: $layout-margin;
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 41px;
+    height: 41px;
+    line-height: 0;
+    font-size: $biggest-font-size;
+    background-color: $dark-grey;
+    color: $white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $red;
+    }
+  }
+
+  .active {
+    background-color: $red;
+  }
+}

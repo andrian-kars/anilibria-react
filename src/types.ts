@@ -6,6 +6,7 @@ export type animeItem = {
     ru: string
     en: string
   }
+  player: player
   description: string
   poster: {
     url: string
@@ -36,6 +37,22 @@ export type animeItem = {
       }
     ]
   }
+}
+
+export type player = {
+  host: string
+  playlist: {
+    1: {
+      serie: number
+      hls: hls
+    }
+  }
+}
+
+export type hls = {
+  fhd: string
+  hd: string
+  sd: string
 }
 
 export type typeSchedule = Array<{

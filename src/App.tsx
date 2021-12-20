@@ -1,9 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
-import { BannerPatreon } from './components/BannerPatreon'
-import { Footer } from './components/Footer'
-import { GlobalNavigation } from './components/GlobalNavigation'
-import { Header } from './components/Header'
+import { BannerPatreon, Footer, GlobalNavigation, Header } from './components'
 import { Content, Main, Side } from './components/layouts'
+import { useScript } from './hooks/player'
 import {
   Catalog,
   Donate,
@@ -19,6 +17,8 @@ import {
 } from './pages'
 
 export const App = () => {
+  useScript()
+
   const GlobalNavigationItems = [
     { to: '/', text: 'ГЛАВНАЯ', backgroundColor: '#b32121' },
     { to: '/pages/catalog', text: 'РЕЛИЗЫ', backgroundColor: '#a01e1e' },
