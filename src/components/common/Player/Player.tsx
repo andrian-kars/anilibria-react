@@ -14,13 +14,13 @@ export const Player: React.FC<propsType> = ({ host, hls }) => {
   for (const key in hls) {
     switch (key) {
       case 'sd':
-        file.push(`[480p]https://${host}${hls[key]}`)
+        hls[key] && file.push(`[480p]https://${host}${hls[key]}`)
         break
       case 'hd':
-        file.push(`[720p]https://${host}${hls[key]}`)
+        hls[key] && file.push(`[720p]https://${host}${hls[key]}`)
         break
       case 'fhd':
-        file.push(`[1080p]https://${host}${hls[key]}`)
+        hls[key] && file.push(`[1080p]https://${host}${hls[key]}`)
         break
       default:
         throw new Error('No hls were found')
