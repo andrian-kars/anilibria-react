@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { getTitle } from '../../api/releaseApi'
+import { NavigateFunction } from 'react-router-dom'
+import { getRandom, getTitle } from '../../api/releaseApi'
 import { animeItem } from '../../types'
 
 export interface ReleaseState {
@@ -14,14 +15,27 @@ const initialState: ReleaseState = {
   error: null,
 }
 
-export const fetchTitle = createAsyncThunk('release/fetchTitle', async (code: string, thunkAPI) => {
-  try {
-    const response = await getTitle(code)
-    return response.data
-  } catch (e) {
-    return thunkAPI.rejectWithValue(e.message)
+export const fetchTitle = createAsyncThunk(
+  'release/fetchTitle',
+  async (obj: { code: string; nav: NavigateFunction }, thunkAPI: any) => {
+    try {
+      let response = null
+
+      if (obj.code === 'random') {
+        response = await getRandom()
+        obj.nav(`../release/${response.data.code}`)
+      } else if (thunkAPI.getState().releaseReducer.title?.code !== obj.code) {
+        response = await getTitle(obj.code)
+      } else {
+        return thunkAPI.getState().releaseReducer.title
+      }
+
+      return response.data
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message)
+    }
   }
-})
+)
 
 export const ReleaseSlice = createSlice({
   name: 'release',

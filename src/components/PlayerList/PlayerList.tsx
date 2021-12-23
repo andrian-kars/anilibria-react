@@ -28,7 +28,7 @@ export const PlayerList: React.FC<propsType> = ({ player: player }) => {
           </button>
         ))}
       </div>
-      <Player host={player.host} hls={playList[choosenEpisode].hls} />
+      <Player host={player.host} hls={playList[choosenEpisode - 1].hls} />
     </section>
   )
 }

@@ -20,7 +20,7 @@ export const Player: React.FC<propsType> = ({ host, hls }) => {
         file.push(`[720p]https://${host}${hls[key]}`)
         break
       case 'fhd':
-        file.push(`[480p]https://${host}${hls[key]}`)
+        file.push(`[1080p]https://${host}${hls[key]}`)
         break
       default:
         throw new Error('No hls were found')
@@ -30,7 +30,7 @@ export const Player: React.FC<propsType> = ({ host, hls }) => {
   useEffect(() => {
     PlayerConfigure({
       id: 'anilibriaPlayer',
-      file: file.join(','),
+      file: file.reverse().join(','),
     })
   }, [file])
   return <div className={s.player} id="anilibriaPlayer"></div>

@@ -23,7 +23,7 @@ export const App = () => {
     { to: '/', text: 'ГЛАВНАЯ', backgroundColor: '#b32121' },
     { to: '/pages/catalog', text: 'РЕЛИЗЫ', backgroundColor: '#a01e1e' },
     { to: '/pages/schedule', text: 'РАСПИСАНИЕ', backgroundColor: '#881919' },
-    { to: '/public/random', text: 'СЛУЧАЙНОЕ', backgroundColor: '#731515' },
+    { to: '/release/random', text: 'СЛУЧАЙНОЕ', backgroundColor: '#731515' },
     { to: 'https://anilibria.app', text: 'ПРИЛОЖЕНИЕ', backgroundColor: '#641212' },
     { to: '/pages/team', text: 'КОМАНДА', backgroundColor: '#560f0f' },
     { to: '/pages/donate', text: 'ПОДДЕРЖАТЬ ПРОЕКТ', backgroundColor: '#460c0c' },
@@ -66,6 +66,7 @@ export const App = () => {
             <Route path="/pages/login" element={<Login />} />
             <Route path="/pages/favorites" element={<Favorites />} />
             <Route path="/release/:titleCode" element={<Release />} />
+            <Route path="/release" element={<Release />} />
             <Route path="*" element={<Page404 />} />
           </Routes>
         </Content>

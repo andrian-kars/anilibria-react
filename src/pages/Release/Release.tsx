@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { PlayerList } from '../../components'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import { fetchTitle } from '../../store/reducers/ReleaseSlice'
@@ -19,13 +19,16 @@ export const Release: React.FC = () => {
   const { title, isLoading, error } = useAppSelector((state) => state.releaseReducer)
 
   const dispatch = useAppDispatch()
-  const params = useParams()
+  const params = useParams().titleCode
+  const navigate = useNavigate()
 
   console.log('Release: render')
 
   useEffect(() => {
-    params.titleCode && params.titleCode !== title?.code && dispatch(fetchTitle(params.titleCode))
-  }, [params.titleCode])
+    params &&
+      (!title || params !== title.code) &&
+      dispatch(fetchTitle({ code: params, nav: navigate }))
+  }, [params])
 
   return error ? (
     <span>{error}</span>
