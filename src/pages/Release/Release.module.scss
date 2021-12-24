@@ -63,3 +63,24 @@
   margin-top: 5px;
   border-top: 2px solid $main-background;
 }
+
+.bottomSkeleton {
+  margin-top: 10px;
+}
+
+.playerSkeleton {
+  margin-top: 10px;
+  height: 400px;
+}
+
+.episodesSkeleton {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: $layout-margin;
+
+  div {
+    width: 41px;
+    height: 41px;
+  }
+}

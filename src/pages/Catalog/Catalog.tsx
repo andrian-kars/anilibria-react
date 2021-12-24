@@ -67,7 +67,7 @@ export const Catalog: React.FC = () => {
         <div className={cn(s.search, 'skeleton')} />
       )}
       {animeListForCatalog?.length === 0 ? (
-        <div className={s.noAnimeFound}>Ни одного аниме не было найдено</div>
+        <p className="additional-error">Ни одного аниме не было найдено</p>
       ) : (
         <div className={s.animes}>
           {isLoading &&

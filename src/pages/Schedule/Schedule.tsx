@@ -1,3 +1,4 @@
+import cn from 'classnames'
 import { useEffect } from 'react'
 import { AnimeItem } from '../../components/common'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
@@ -16,7 +17,7 @@ export const Schedule: React.FC = () => {
     !schedule && dispatch(fetchSchedule())
   }, [dispatch, schedule])
 
-  // TODO: loading and error
+  // TODO: error
   return (
     <section className={s.content}>
       <h3 className={s.title}>РАСПИСАНИЕ ВЫХОДА СЕРИЙ В ОЗВУЧКЕ АНИЛИБРИИ*</h3>
@@ -26,7 +27,7 @@ export const Schedule: React.FC = () => {
         релиза (над постером).
       </p>
       <div>
-        {isLoading && <h1>Loading...</h1>}
+        {isLoading && week.map((el) => <DaySkeleton key={el} day={el} />)}
         {error && <h1>{error}</h1>}
         {schedule &&
           schedule.map((el) => <Day day={week[el.day]} key={week[el.day]} list={el.list} />)}
@@ -56,6 +57,20 @@ const Day: React.FC<dayType> = ({ day, list }) => {
             className={s.animeItem}
             key={`${day}:${el.code}`}
           />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+const DaySkeleton: React.FC<{ day: string }> = ({ day }) => {
+  const mockAnimes = [0, 1, 2, 3]
+  return (
+    <div>
+      <p className={s.day}>{day}</p>
+      <div className={s.animes}>
+        {mockAnimes.map((el) => (
+          <div key={el} className={cn(s.animeItem, 'skeleton')} />
         ))}
       </div>
     </div>

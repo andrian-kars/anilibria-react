@@ -15,20 +15,26 @@ export const PlayerList: React.FC<propsType> = ({ player: player }) => {
 
   return (
     <section className={s.content}>
-      <div className={s.series}>
-        {playList.map((el) => (
-          <button
-            className={cn(choosenEpisode === el.serie && s.active)}
-            key={el.serie}
-            onClick={() => {
-              setChoosenEpisode(el.serie)
-            }}
-          >
-            {el.serie}
-          </button>
-        ))}
-      </div>
-      <Player host={player.host} hls={playList[choosenEpisode - 1].hls} />
+      {!player.playlist[1] ? (
+        <p className="additional-error">Серии добавляются</p>
+      ) : (
+        <>
+          <div className={s.series}>
+            {playList.map((el) => (
+              <button
+                className={cn(choosenEpisode === el.serie && s.active)}
+                key={el.serie}
+                onClick={() => {
+                  setChoosenEpisode(el.serie)
+                }}
+              >
+                {el.serie}
+              </button>
+            ))}
+          </div>
+          <Player host={player.host} hls={playList[choosenEpisode - 1].hls} />
+        </>
+      )}
     </section>
   )
 }
