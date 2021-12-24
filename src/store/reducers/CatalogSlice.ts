@@ -14,6 +14,7 @@ export interface CatalogState {
   seasons: selectValues
   isLoading: boolean
   error: string | null
+  filter: passedParamsAdvancedSearch | null
 }
 
 const initialState: CatalogState = {
@@ -27,6 +28,7 @@ const initialState: CatalogState = {
     { value: 4, label: 'Осень' },
   ],
   isLoading: false,
+  filter: null,
   error: null,
 }
 
@@ -53,6 +55,7 @@ export const fetchListFromAdvancedSearch = createAsyncThunk(
   async (query: passedParamsAdvancedSearch, thunkAPI) => {
     try {
       const response = await getListFromAdvancedSearch(query)
+      thunkAPI.dispatch(setFilter(query))
       return response.data
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message)
@@ -63,7 +66,11 @@ export const fetchListFromAdvancedSearch = createAsyncThunk(
 export const CatalogSlice = createSlice({
   name: 'catalog',
   initialState,
-  reducers: {},
+  reducers: {
+    setFilter: (state, action) => {
+      state.filter = action.payload
+    },
+  },
   extraReducers: {
     // initial
     [fetchCatalogStart.fulfilled.type]: (
@@ -106,6 +113,6 @@ export const CatalogSlice = createSlice({
   },
 })
 
-export const {} = CatalogSlice.actions
+export const { setFilter } = CatalogSlice.actions
 
 export default CatalogSlice.reducer

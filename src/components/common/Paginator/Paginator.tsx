@@ -94,7 +94,7 @@ export const Paginator: React.FC<PropsType> = ({
   )
 }
 
-const SVGs: React.FC = () => {
+export const SVGs: React.FC = () => {
   return (
     <svg display="none">
       <symbol id="doubleRight" viewBox="0 0 512 512">

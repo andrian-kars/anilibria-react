@@ -1,17 +1,17 @@
 import cn from 'classnames'
-import { useEffect } from 'react'
-import { AnimeItem } from '../../components/common'
-import { Paginator } from '../../components/common/Paginator/Paginator'
+import { useEffect, useState } from 'react'
+import { AnimeItem, PaginatorKostyl } from '../../components/common'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import { fetchCatalogStart, fetchListFromAdvancedSearch } from '../../store/reducers/CatalogSlice'
 import { AdvancedSearch, FormType } from './AdvancedSearch'
 import s from './Catalog.module.scss'
 
 export const Catalog: React.FC = () => {
-  const { animeListForCatalog, years, genres, seasons, isLoading, error } = useAppSelector(
+  const { animeListForCatalog, years, genres, seasons, isLoading, filter, error } = useAppSelector(
     (state) => state.catalogReducer
   )
-  const preLoad = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+  const [page, setPage] = useState(1)
+  const preLoad = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
   const dispatch = useAppDispatch()
 
   console.log('Catalog: render')
@@ -33,15 +33,24 @@ export const Catalog: React.FC = () => {
     seasons.length > 0 && querry.push(`{season.code} in (${seasons.map((el) => `${el.value}`)})`)
     // don't see why we should pass 1 after else
     releaseFinished ? querry.push('{status.code} == 2') : querry.push('{updated}')
-
-    dispatch(fetchListFromAdvancedSearch({ query: querry.join(' and '), order_by: type }))
+    setPage(1)
+    dispatch(
+      fetchListFromAdvancedSearch({
+        query: querry.join(' and '),
+        order_by: type,
+      })
+    )
     setSubmitting(false)
   }
 
-  // TODO: when api updates, fix paginator
   const onPageChange = (pageNumber: number) => {
-    console.log('page changed to', pageNumber)
-    // alert('Paginator does not work, since API doest not provide such functionality')
+    setPage(pageNumber)
+    const after = pageNumber === 1 ? 0 : (pageNumber - 1) * 12
+    // notice, that when order_by favotires, the number is shifted from 0 to 3
+    const params = filter
+      ? { ...filter, after: after === 0 ? 0 : after }
+      : { query: '{updated}', order_by: 'updated', after }
+    dispatch(fetchListFromAdvancedSearch(params))
   }
 
   // TODO: error
@@ -65,26 +74,27 @@ export const Catalog: React.FC = () => {
             preLoad.map((el) => <div key={el} className={cn(s.animeItem, 'skeleton')} />)}
           {error && <h1>{error}</h1>}
           {!isLoading &&
-            animeListForCatalog?.map((el) => (
-              <AnimeItem
-                title={el.names.ru}
-                episodes={el.torrents.series.string}
-                description={el.description}
-                poster={el.poster.url}
-                descriptionLength={199}
-                code={el.code}
-                className={s.animeItem}
-                key={`Catalog:${el.code}`}
-              />
-            ))}
+            animeListForCatalog?.map((el, i) =>
+              i === 12 ? null : (
+                <AnimeItem
+                  title={el.names.ru}
+                  episodes={el.torrents.series.string}
+                  description={el.description}
+                  poster={el.poster.url}
+                  descriptionLength={199}
+                  code={el.code}
+                  className={s.animeItem}
+                  key={`Catalog:${el.code}`}
+                />
+              )
+            )}
         </div>
       )}
-      {!(isLoading || animeListForCatalog?.length === 0) && (
-        <Paginator
-          pageSize={12}
-          totalUsersCount={600}
+      {animeListForCatalog && animeListForCatalog.length !== 0 && (
+        <PaginatorKostyl
+          canGoNext={animeListForCatalog?.length === 13}
           onPageChange={onPageChange}
-          currentPage={1}
+          currentPage={page}
         />
       )}
     </section>

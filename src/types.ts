@@ -77,4 +77,5 @@ export type selectValues = Array<{ value: number | string; label: number | strin
 export type passedParamsAdvancedSearch = {
   query: string
   order_by: string
+  after?: number
 }
