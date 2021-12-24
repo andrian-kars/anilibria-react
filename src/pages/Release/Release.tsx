@@ -77,7 +77,11 @@ export const Release: React.FC = () => {
             backgroundImage: `url(https://www.anilibria.tv/${title.poster.url})`,
           }}
         >
-          <p>Новая серия {everyDay[title.season.week_day]}</p>
+          {title.announce ? (
+            <p>{title.announce}</p>
+          ) : title.status.code === 1 ? (
+            <p>Новая серия {everyDay[title.season.week_day]}</p>
+          ) : null}
         </div>
       </div>
       <PlayerList player={title.player} />

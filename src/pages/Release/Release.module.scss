@@ -14,7 +14,7 @@
 }
 
 .textInfo {
-  flex: 1.4;
+  width: 470px;
   font-size: $bigger-font-size;
 
   h3,
@@ -25,6 +25,9 @@
   }
 
   h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: $reddish;
     text-align: center;
     padding-bottom: 5px;

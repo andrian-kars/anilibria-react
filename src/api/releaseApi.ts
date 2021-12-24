@@ -1,21 +1,20 @@
 import { animeItem } from '../types'
 import { instance } from './api'
 
+const paramFilter = {
+  filter:
+    'code,names,description,season.string,season.week_day,season.year,type.full_string,genres,team,player,torrents.series.string,poster.url,status,announce',
+}
+
 export const getTitle = (code: string) => {
-  const paramsGetTitlte = {
+  const paramsGetTitle = {
     code: code,
-    filter:
-      'code,names,description,season.string,season.week_day,season.year,type.full_string,genres,team,player,torrents.series.string,poster.url',
+    ...paramFilter,
   }
 
-  return instance.get<animeItem>('getTitle', { params: paramsGetTitlte })
+  return instance.get<animeItem>('getTitle', { params: paramsGetTitle })
 }
 
 export const getRandom = () => {
-  const paramsGetTitlte = {
-    filter:
-      'code,names,description,season.string,season.week_day,season.year,type.full_string,genres,team,player,torrents.series.string,poster.url',
-  }
-
-  return instance.get<animeItem>('getRandomTitle', { params: paramsGetTitlte })
+  return instance.get<animeItem>('getRandomTitle', { params: paramFilter })
 }

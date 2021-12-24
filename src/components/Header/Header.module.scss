@@ -11,6 +11,8 @@
 }
 
 .logo {
+  position: absolute;
+  top: 0;
   width: $header-logo-width;
   height: $header-logo-height;
   @include background-image($header-logo);

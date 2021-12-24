@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom'
 import cn from 'classnames'
 import { truncateString } from '../../../utils/truncateString'
 import s from './AnimeItem.module.scss'
+import { useState } from 'react'
 
 type propsType = {
   title: string
@@ -26,15 +27,21 @@ export const AnimeItem: React.FC<propsType> = ({
   torrent,
   hide,
 }) => {
+  const [loaded, setLoaded] = useState(false)
   return (
     <div
-      className={cn(s.whrapper, className)}
+      className={cn(s.whrapper, className, !loaded && 'skeleton')}
       // TODO: change to public later
       style={{
-        backgroundImage: `url(https://www.anilibria.tv/${poster})`,
         display: `${hide ? 'none' : 'flex'}`,
       }}
     >
+      <img
+        className={s.image}
+        onLoad={() => setLoaded(true)}
+        src={`https://www.anilibria.tv/${poster}`}
+        alt={title}
+      />
       <div className={s.textContent}>
         <NavLink className={s.content} to={`/release/${code}`}>
           <p className={s.title}>{title}</p>

@@ -1,3 +1,5 @@
+import cn from 'classnames'
+import { useState } from 'react'
 import s from './BannerPatreon.module.scss'
 
 type PropsType = {
@@ -5,5 +7,15 @@ type PropsType = {
 }
 
 export const BannerPatreon: React.FC<PropsType> = ({ href }) => {
-  return <a className={s.link} href={href} target="_blank" rel="noreferrer" />
+  const [loaded, setLoaded] = useState(false)
+
+  return (
+    <a className={cn(s.link, !loaded && 'skeleton')} href={href} target="_blank" rel="noreferrer">
+      <img
+        onLoad={() => setLoaded(true)}
+        src="public/assets/images/patreon-banner.jpg"
+        alt="patreon-banner"
+      />
+    </a>
+  )
 }

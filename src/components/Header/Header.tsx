@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import cn from 'classnames'
 import s from './Header.module.scss'
 
 type propsType = {
@@ -21,11 +23,15 @@ export const Header: React.FC<propsType> = ({
   marginLeft,
   adOff,
 }) => {
+  const [loaded, setLoaded] = useState(false)
+
   return (
-    <header
-      className={s.content}
-      style={{ backgroundImage: `url(${adOff ? defaultImgUrl : adImgUrl})` }}
-    >
+    <header className={cn(s.content, !loaded && 'skeleton')}>
+      <img
+        onLoad={() => setLoaded(true)}
+        src={adOff ? defaultImgUrl : adImgUrl}
+        alt="anilibria-header"
+      />
       {!adOff && (
         <>
           <div className={s.logo} />

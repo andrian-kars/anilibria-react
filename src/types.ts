@@ -2,6 +2,11 @@ export type animeList = Array<animeItem>
 
 export type animeItem = {
   code: string
+  announce: string | null
+  status: {
+    string: string
+    code: 1 | 2
+  }
   names: {
     ru: string
     en: string
