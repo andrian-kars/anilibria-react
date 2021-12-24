@@ -14,7 +14,7 @@ export const PlayerList: React.FC<propsType> = ({ player: player }) => {
   const [choosenEpisode, setChoosenEpisode] = useState(1)
 
   return (
-    <section>
+    <section className={s.content}>
       <div className={s.series}>
         {playList.map((el) => (
           <button

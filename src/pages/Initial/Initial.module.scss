@@ -19,4 +19,9 @@
   &:hover {
     opacity: 1;
   }
+
+  img {
+    // the image that comes from back is broken, so this hack is to show skeleton
+    visibility: hidden;
+  }
 }

@@ -25,8 +25,12 @@ export const App = () => {
     { to: '/pages/schedule', text: 'РАСПИСАНИЕ', backgroundColor: '#881919' },
     { to: '/release/random', text: 'СЛУЧАЙНОЕ', backgroundColor: '#731515' },
     { to: 'https://anilibria.app', text: 'ПРИЛОЖЕНИЕ', backgroundColor: '#641212' },
-    { to: '/pages/team', text: 'КОМАНДА', backgroundColor: '#560f0f' },
-    { to: '/pages/donate', text: 'ПОДДЕРЖАТЬ ПРОЕКТ', backgroundColor: '#460c0c' },
+    { to: 'https://www.anilibria.tv/pages/team.php', text: 'КОМАНДА', backgroundColor: '#560f0f' },
+    {
+      to: 'https://www.anilibria.tv/pages/donate.php',
+      text: 'ПОДДЕРЖАТЬ ПРОЕКТ',
+      backgroundColor: '#460c0c',
+    },
   ]
 
   return (
