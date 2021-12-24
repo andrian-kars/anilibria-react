@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { PlayerList } from '../../components'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
@@ -31,6 +31,8 @@ export const Release: React.FC = () => {
       (!title || params !== title.code) &&
       dispatch(fetchTitle({ code: params, nav: navigate }))
   }, [params])
+
+  const [loaded, setLoaded] = useState(false)
 
   return error ? (
     <span>{error}</span>
@@ -82,12 +84,12 @@ export const Release: React.FC = () => {
         {isLoading || !title ? (
           <div className={cn(s.image, 'skeleton')}></div>
         ) : (
-          <div
-            className={s.image}
-            style={{
-              backgroundImage: `url(https://www.anilibria.tv/${title.poster.url})`,
-            }}
-          >
+          <div className={cn(s.image, loaded && 'skeleton')}>
+            <img
+              onLoad={() => setLoaded(true)}
+              src={`https://www.anilibria.tv/${title.poster.url}`}
+              alt={title.code}
+            />
             {title.announce ? (
               <p>{title.announce}</p>
             ) : title.status.code === 1 ? (
