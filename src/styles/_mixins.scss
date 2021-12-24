@@ -1,3 +1,5 @@
+@import 'src/styles/_variables';
+
 @mixin background-image($path: '', $repeat: no-repeat, $position: center, $size: cover) {
   background-image: url($path);
   background-repeat: #{$repeat};
@@ -17,4 +19,11 @@
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+@mixin additional-error() {
+  color: $reddish;
+  font-style: italic;
+  font-size: $title-font-size;
+  text-align: center;
 }

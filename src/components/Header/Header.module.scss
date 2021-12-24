@@ -8,6 +8,11 @@
   @include background-image();
   border-bottom-left-radius: $border-radius;
   border-bottom-right-radius: $border-radius;
+
+  img {
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
 }
 
 .logo {

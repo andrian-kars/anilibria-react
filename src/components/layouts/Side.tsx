@@ -21,7 +21,7 @@ export const Side: React.FC = () => {
     !animeListForSide && dispatch(fetchAnimeListForSide())
   }, [dispatch, animeListForSide])
 
-  // TODO: loading, error
+  // TODO: error
   return (
     <aside className={s.side}>
       <div className={s.search}>

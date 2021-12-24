@@ -1,3 +1,4 @@
+import cn from 'classnames'
 import { useEffect } from 'react'
 import { AnimeItem } from '../../components/common'
 import { Paginator } from '../../components/common/Paginator/Paginator'
@@ -10,6 +11,7 @@ export const Catalog: React.FC = () => {
   const { animeListForCatalog, years, genres, seasons, isLoading, error } = useAppSelector(
     (state) => state.catalogReducer
   )
+  const preLoad = [0, 1, 2, 3, 4, 5, 6, 7, 8]
   const dispatch = useAppDispatch()
 
   console.log('Catalog: render')
@@ -42,39 +44,42 @@ export const Catalog: React.FC = () => {
     // alert('Paginator does not work, since API doest not provide such functionality')
   }
 
-  // TODO: loading, error, no anime found
+  // TODO: error
   return (
     <section className={s.content}>
-      {years && genres && (
+      {years && genres ? (
         <AdvancedSearch
           genres={genres}
           years={years}
           seasons={seasons}
           searchSubmit={searchSubmit}
         />
+      ) : (
+        <div className={cn(s.search, 'skeleton')} />
       )}
-      <div className={s.animes}>
-        {isLoading && <h1>Loading...</h1>}
-        {error && <h1>{error}</h1>}
-        {animeListForCatalog?.length === 0 ? (
-          <div>no anime found</div>
-        ) : (
-          !isLoading &&
-          animeListForCatalog?.map((el) => (
-            <AnimeItem
-              title={el.names.ru}
-              episodes={el.torrents.series.string}
-              description={el.description}
-              poster={el.poster.url}
-              descriptionLength={199}
-              code={el.code}
-              className={s.animeItem}
-              key={`Catalog:${el.code}`}
-            />
-          ))
-        )}
-      </div>
-      {!isLoading && (
+      {animeListForCatalog?.length === 0 ? (
+        <div className={s.noAnimeFound}>Ни одного аниме не было найдено</div>
+      ) : (
+        <div className={s.animes}>
+          {isLoading &&
+            preLoad.map((el) => <div key={el} className={cn(s.animeItem, 'skeleton')} />)}
+          {error && <h1>{error}</h1>}
+          {!isLoading &&
+            animeListForCatalog?.map((el) => (
+              <AnimeItem
+                title={el.names.ru}
+                episodes={el.torrents.series.string}
+                description={el.description}
+                poster={el.poster.url}
+                descriptionLength={199}
+                code={el.code}
+                className={s.animeItem}
+                key={`Catalog:${el.code}`}
+              />
+            ))}
+        </div>
+      )}
+      {!(isLoading || animeListForCatalog?.length === 0) && (
         <Paginator
           pageSize={12}
           totalUsersCount={600}

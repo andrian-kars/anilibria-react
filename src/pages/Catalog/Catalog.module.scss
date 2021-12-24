@@ -10,6 +10,7 @@
   padding: $catalog-search-padding;
   margin: $layout-padding 0 $medium-layout-padding;
   border-radius: $border-radius;
+  min-height: 154px;
 
   form {
     gap: $catalog-search-padding;
@@ -104,6 +105,10 @@
   height: $catalog-item-height;
   border-radius: $border-radius;
 
+  img {
+    border-radius: $border-radius;
+  }
+
   div {
     border-radius: $border-radius;
   }
@@ -121,4 +126,8 @@
       font-size: $bigger-font-size;
     }
   }
+}
+
+.noAnimeFound {
+  @include additional-error();
 }

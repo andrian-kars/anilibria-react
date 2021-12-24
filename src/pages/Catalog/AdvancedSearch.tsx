@@ -1,5 +1,5 @@
 import { Field, Form, Formik } from 'formik'
-import { NavLink } from 'react-router-dom'
+// import { NavLink } from 'react-router-dom'
 import Select from 'react-select'
 import { selectValues } from '../../types'
 import { customSelectStyles } from '../../styles/custom-select'
@@ -98,8 +98,10 @@ export const AdvancedSearch: React.FC<PropsType> = ({ genres, years, seasons, se
                   </span>
                 </button>
               </div>
+
               <div className={s.alphabet}>
-                <NavLink to={'/pages/alphabet'}>АЛФАВИТНЫЙ УКАЗАТЕЛЬ</NavLink>
+                {/* TODO: АЛФАВИТНЫЙ УКАЗАТЕЛЬ
+                <NavLink to={'/pages/alphabet'}>АЛФАВИТНЫЙ УКАЗАТЕЛЬ</NavLink> */}
               </div>
             </div>
           </Form>
