@@ -3,7 +3,7 @@ import { instance } from './api'
 
 const paramFilter = {
   filter:
-    'code,names,description,season.string,season.week_day,season.year,type.full_string,genres,team,player,torrents.series.string,poster.url,status,announce',
+    'code,names,description,season.string,season.week_day,season.year,type.full_string,genres,team,player,torrents.series.string,posters,status,announce',
 }
 
 export const getTitle = (code: string) => {

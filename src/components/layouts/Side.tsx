@@ -35,7 +35,7 @@ export const Side: React.FC = () => {
             title={el.names.ru}
             episodes={el.torrents.series.string}
             description={el.description}
-            poster={el.poster.url}
+            posters={el.posters}
             descriptionLength={179}
             code={el.code}
             className={s.animeItem}

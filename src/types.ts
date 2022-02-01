@@ -13,9 +13,7 @@ export type animeItem = {
   }
   player: player
   description: string
-  poster: {
-    url: string
-  }
+  posters: posters
   season: {
     string: string
     year: number
@@ -51,6 +49,17 @@ export type player = {
       serie: number
       hls: hls
     }
+  }
+}
+export type posters = {
+  small?: {
+    url: string
+  }
+  medium?: {
+    url: string
+  }
+  original?: {
+    url: string
   }
 }
 

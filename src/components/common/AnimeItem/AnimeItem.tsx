@@ -3,12 +3,13 @@ import cn from 'classnames'
 import { truncateString } from '../../../utils/truncateString'
 import s from './AnimeItem.module.scss'
 import { useState } from 'react'
+import { posters } from '../../../types'
 
 type propsType = {
   title: string
   episodes: string
   description: string
-  poster: string
+  posters: posters
   code: string
   descriptionLength?: number
   className?: string
@@ -20,7 +21,7 @@ export const AnimeItem: React.FC<propsType> = ({
   title,
   episodes,
   description,
-  poster,
+  posters,
   code,
   descriptionLength,
   className,
@@ -28,6 +29,8 @@ export const AnimeItem: React.FC<propsType> = ({
   hide,
 }) => {
   const [loaded, setLoaded] = useState(false)
+
+  const poster = posters.original?.url || posters.medium?.url || posters.small?.url
   return (
     <div
       className={cn(s.whrapper, className, !loaded && 'skeleton')}

@@ -51,7 +51,7 @@ const Day: React.FC<dayType> = ({ day, list }) => {
             title={el.names.ru}
             episodes={el.torrents.series.string}
             description={el.description}
-            poster={el.poster.url}
+            posters={el.posters}
             descriptionLength={99}
             code={el.code}
             className={s.animeItem}

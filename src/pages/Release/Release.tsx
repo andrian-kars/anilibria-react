@@ -87,7 +87,9 @@ export const Release: React.FC = () => {
           <div className={cn(s.image, loaded && 'skeleton')}>
             <img
               onLoad={() => setLoaded(true)}
-              src={`https://www.anilibria.tv/${title.poster.url}`}
+              src={`https://www.anilibria.tv/${
+                title.posters.original?.url || title.posters.medium?.url || title.posters.small?.url
+              }`}
               alt={title.code}
             />
             {title.announce ? (

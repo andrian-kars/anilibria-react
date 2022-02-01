@@ -4,7 +4,7 @@ import { instance } from './api'
 const paramsNewAnimeListForCatalog = {
   query: '{updated}',
   limit: 13,
-  filter: 'code,names.ru,poster.url,torrents.series.string,description',
+  filter: 'code,names.ru,posters,torrents.series.string,description',
   order_by: 'updated',
   sort_direction: 1,
 }
@@ -18,7 +18,7 @@ export const getGenres = () => instance.get<Array<string>>('getGenres')
 
 const paramsListFromAdvancedSearch = {
   limit: 13,
-  filter: 'code,names.ru,poster.url,torrents.series.string,description',
+  filter: 'code,names.ru,posters,torrents.series.string,description',
   sort_direction: 1,
 }
 
