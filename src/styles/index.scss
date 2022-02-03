@@ -48,6 +48,7 @@ ul {
   margin: 0;
   padding: 0;
   font-weight: normal;
+  color: $white-color;
 }
 
 ol,
@@ -62,6 +63,7 @@ img {
 
 a {
   text-decoration: none;
+  color: $white-color;
 }
 
 button,
@@ -71,18 +73,16 @@ select {
   outline: none;
   border: none;
   background-color: transparent;
-  font-size: 17px;
+  color: $white-color;
 }
 
 body {
   position: relative;
-  background-color: $main-background;
-  min-width: 1175px;
-  max-width: 1175px;
-  margin: 0 auto;
+  min-height: 100vh;
+  width: 100%;
   font-family: 'PT Sans', sans-serif;
   font-size: 16px;
-  line-height: $global-line-height;
+  background-color: $background-color;
 }
 
 // TODO

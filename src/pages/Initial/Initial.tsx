@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import { useEffect, useState } from 'react'
+import { Error } from 'src/components/common'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import { fetchYoutube } from '../../store/reducers/InitialSlice'
 import s from './Initial.module.scss'
@@ -19,11 +20,11 @@ export const Initial: React.FC<propsType> = () => {
   useEffect(() => {
     !youtube && dispatch(fetchYoutube())
   }, [dispatch, youtube])
-  // TODO: error
+
   return (
-    <section className={s.content}>
+    <>
+      {error && <Error error={error} />}
       {isLoading && preLoad.map((el) => <div key={el} className={cn(s.link, 'skeleton')} />)}
-      {error && <h1>{error}</h1>}
       {youtube
         ?.map((el) => {
           return (
@@ -36,7 +37,7 @@ export const Initial: React.FC<propsType> = () => {
           )
         })
         .reverse()}
-    </section>
+    </>
   )
 }
 

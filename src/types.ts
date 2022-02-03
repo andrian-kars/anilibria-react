@@ -1,3 +1,16 @@
+export type globalNavigationItems = {
+  navs: Array<{
+    to: string
+    text: string
+    svg: string
+  }>
+  links: Array<{
+    to: string
+    text: string
+    svg: string
+  }>
+}
+
 export type animeList = Array<animeItem>
 
 export type animeItem = {

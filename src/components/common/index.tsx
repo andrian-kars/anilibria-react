@@ -1,4 +1,3 @@
-export { AnimeItem } from './AnimeItem/AnimeItem'
-export { Player } from './Player/Player'
-export { Paginator } from './Paginator/Paginator'
-export { PaginatorKostyl } from './PaginatorKostyl/PaginatorKostyl'
+export { Burger } from './Burger/Burger'
+export { Heading } from './Heading/Heading'
+export { Error } from './Error/Error'

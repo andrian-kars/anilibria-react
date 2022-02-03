@@ -2,52 +2,28 @@
 @import 'src/styles/_variables';
 
 .main {
-  margin-top: $layout-margin;
   display: flex;
-  justify-content: space-between;
-}
+  justify-content: center;
+  // align-items: center;
+  min-height: 100vh;
+  padding: 60px 15px 15px;
 
-.content {
-  width: $content-width;
-}
-
-.side {
-  align-self: start;
-  display: flex;
-  flex-direction: column;
-  width: $side-width;
-  min-height: $side-min-height;
-  background-color: $footer-background;
-  border-radius: $border-radius;
-  padding: $layout-padding;
-}
-
-.search {
-  width: 100%;
-}
-
-.animes {
-  display: flex;
-  flex-direction: column;
-  gap: $layout-padding;
-}
-
-.animeItem {
-  height: $side-item-height;
-
-  border: $bigger-anime-item-border-size solid $dark-grey;
-  border-radius: $border-radius;
-
-  &:hover {
-    border: $bigger-anime-item-border-size solid $reddish;
+  @media (min-width: 768px) {
+    margin-left: 76px;
+    padding-top: 75px;
   }
 
-  p {
-    font-size: $title-font-size;
-
-    &:last-child {
-      font-size: $bigger-font-size;
-      line-height: $line-height;
-    }
+  @media (min-width: 992px) {
+    padding-top: 90px;
   }
+
+  @media (min-width: 1200px) {
+    margin-left: 284px;
+  }
+}
+
+.container {
+  position: relative;
+  display: flex;
+  width: 1100px;
 }

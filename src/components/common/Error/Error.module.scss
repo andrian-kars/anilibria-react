@@ -1,0 +1,126 @@
+@import 'src/styles/_variables';
+
+.page404 {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+
+  @media (min-width: 540px) {
+    margin-top: 60px;
+  }
+}
+
+.mainImage {
+  width: 300px;
+  height: 130px;
+  background-image: url(public/assets/images/error-background.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  p {
+    padding-top: 10px;
+    font-weight: 700;
+    font-size: 40px;
+    text-align: center;
+  }
+
+  @media (min-width: 540px) {
+    width: 480px;
+    height: 210px;
+
+    p {
+      padding-top: 20px;
+      font-size: 60px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    width: 680px;
+    height: 290px;
+
+    p {
+      padding-top: 30px;
+      font-size: 80px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    width: 880px;
+    height: 390px;
+
+    p {
+      font-size: 110px;
+    }
+  }
+}
+
+.oops {
+  margin-top: 20px;
+  font-size: 20px;
+
+  @media (min-width: 540px) {
+    margin-top: 10px;
+    font-size: 30px;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 35px;
+  }
+}
+
+.text {
+  margin-top: 10px;
+  color: $btn-color;
+}
+
+.btn {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  background-color: $btn-color;
+  padding: 7px 15px;
+  border-radius: 6px;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: $btn-hover-color;
+  }
+
+  span {
+    font-size: 15px;
+    color: $white-color;
+  }
+
+  svg {
+    fill: $white-color;
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+  }
+
+  @media (min-width: 540px) {
+    padding: 8px 15px;
+
+    span {
+      font-size: 16px;
+      color: $white-color;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding: 10px 20px;
+
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}

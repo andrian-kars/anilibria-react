@@ -1,85 +1,122 @@
-// Colors
-$main-background: #d3d3d3;
-$footer-background: #383838;
-$catalog-search-background: #3e3e3e;
-$border-grey: #ccc;
-$border-grey-hover: #adadad;
-$bg-grey-hover: #e6e6e6;
-$light-grey: #4a4a4a;
-$font-grey: #333;
-$dark-grey: #282829;
-$reddish: #d83541;
-$red: #b32121;
-$anime-item-border-hover: #e04e4e;
-$black: #000;
-$white: #fff;
-$color-grey: #ddd;
+// Colors:
+$primary-color: #161b22;
+$secondary-color: #01b4e4;
+$background-color: #080c10;
+$tertiaryColor: #0d1117;
 
-// Sizes
-$header-height: 215px;
-$header-logo-height: 92px;
-$header-logo-width: 213px;
+$white-color: #c9d1d9;
+$superWhiteColor: #fff;
+$blackColor: #000;
 
-$initial-youtube-height: 245px;
-
-$global-nav-height: 50px;
-
-$content-width: 880px;
-
-$patreon-banner-height: 100px;
-
-$side-width: 280px;
-$side-min-height: 1369px;
-$side-item-height: 360px;
-
-$catalog-item-height: 390px;
-$catalog-item-gap: 36px;
-$catalog-battun-height: 36px;
-$catalog-search-height: 150px;
-$catalog-form-gap: 10px;
-
-$footer-height: 100px;
-
-$page-404-height: 498px;
-
-$svg-size: 20px;
-
-// Images
-$header-logo: 'public/assets/images/header-logo.png';
-
-$footer-thanks: 'public/assets/images/footer-thanks.png';
-
-// Margins
-$layout-margin: 10px;
-$bigger-layout-margin: 15px;
-$big-top-margin: 85px;
+$btn-color: #d83541;
+$btn-hover-color: #2aa3fb;
+$active-and-input-color: #b321215e;
 
 // Padding
-$schedule-layout-padding: 10px 20px 20px;
-$layout-padding: 10px;
-$bigger-layout-padding: 15px;
-$medium-layout-padding: 12px;
-
-$catalog-search-padding: 25px;
-
-$svg-center: 2px 3px 0 0;
+$main-side-padding: 20px;
 
 // Font
-$biggest-font-size: 14pt;
-$title-font-size: 13pt;
-$bigger-font-size: 12pt;
-$font-size: 11pt;
-$small-font-size: 10pt;
-$font-bold: bold;
-$font-italic: italic;
-$global-line-height: 15pt;
-$line-height: 17pt;
-$bigger-line-height: 19pt;
+$bigger-font: 1.125rem;
+
+// Shadow
+$bottom-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.15);
+
+// Responsive
+$tablet: 768px;
+$desktop: 992px;
+$biggest-desktop: 1200px;
+
+// Animation
+$simple-transition: all 0.3s;
 
 // Other
 $border-radius: 4px;
-$anime-item-border-radius: 3px;
-$anime-item-border-size: 3px;
-$bigger-anime-item-border-size: 9px;
 
 $nice-index: 69;
+$almost-nice-index: 68;
+
+// // Colors
+// $main-background: #d3d3d3;
+// $footer-background: #383838;
+// $catalog-search-background: #3e3e3e;
+// $border-grey: #ccc;
+// $border-grey-hover: #adadad;
+// $bg-grey-hover: #e6e6e6;
+// $light-grey: #4a4a4a;
+// $font-grey: #333;
+// $dark-grey: #282829;
+// $reddish: #d83541;
+// $red: #b32121;
+// $anime-item-border-hover: #e04e4e;
+// $black: #000;
+// $white: #fff;
+// $color-grey: #ddd;
+
+// // Sizes
+// $header-height: 215px;
+// $header-logo-height: 92px;
+// $header-logo-width: 213px;
+
+// $initial-youtube-height: 245px;
+
+// $global-nav-height: 50px;
+
+// $content-width: 880px;
+
+// $patreon-banner-height: 100px;
+
+// $side-width: 280px;
+// $side-min-height: 1369px;
+// $side-item-height: 360px;
+
+// $catalog-item-height: 390px;
+// $catalog-item-gap: 36px;
+// $catalog-battun-height: 36px;
+// $catalog-search-height: 150px;
+// $catalog-form-gap: 10px;
+
+// $footer-height: 100px;
+
+// $page-404-height: 498px;
+
+// $svg-size: 20px;
+
+// // Images
+// $header-logo: 'public/assets/images/header-logo.png';
+
+// $footer-thanks: 'public/assets/images/footer-thanks.png';
+
+// // Margins
+// $layout-margin: 10px;
+// $bigger-layout-margin: 15px;
+// $big-top-margin: 85px;
+
+// // Padding
+// $schedule-layout-padding: 10px 20px 20px;
+// $layout-padding: 10px;
+// $bigger-layout-padding: 15px;
+// $medium-layout-padding: 12px;
+
+// $catalog-search-padding: 25px;
+
+// $svg-center: 2px 3px 0 0;
+
+// // Font
+// $biggest-font-size: 14pt;
+// $title-font-size: 13pt;
+// $bigger-font-size: 12pt;
+// $font-size: 11pt;
+// $small-font-size: 10pt;
+// $font-bold: bold;
+// $font-italic: italic;
+// $global-line-height: 15pt;
+// $line-height: 17pt;
+// $bigger-line-height: 19pt;
+
+// // Other
+// $border-radius: 4px;
+// $anime-item-border-radius: 3px;
+// $anime-item-border-size: 3px;
+// $bigger-anime-item-border-size: 9px;
+
+// $nice-index: 69;

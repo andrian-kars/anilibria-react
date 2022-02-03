@@ -7,10 +7,10 @@
   background-size: $size;
 }
 
-@mixin flex-center() {
+@mixin flex($j: center, $a: center) {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: $j;
+  align-items: $a;
 }
 
 @mixin stretch-absolute() {
@@ -22,8 +22,25 @@
 }
 
 @mixin additional-error() {
-  color: $reddish;
+  // color: $reddish;
   font-style: italic;
-  font-size: $title-font-size;
+  // font-size: $title-font-size;
   text-align: center;
+}
+
+@mixin width-height($w, $h: $w) {
+  width: $w;
+  height: $h;
+}
+
+@mixin hide {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 350ms, opacity 350ms;
+}
+
+@mixin show {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 350ms;
 }
