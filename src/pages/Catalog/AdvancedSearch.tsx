@@ -4,6 +4,7 @@ import Select from 'react-select'
 import { selectValues } from '../../types'
 import { customSelectStyles } from '../../styles/custom-select'
 import s from './Catalog.module.scss'
+import { Button } from 'src/components/common'
 
 export type FormType = {
   genres: selectValues
@@ -73,19 +74,19 @@ export const AdvancedSearch: React.FC<PropsType> = ({ genres, years, seasons, se
             </div>
             <div className={s.searchBottom}>
               <div className={s.submits}>
-                <button
-                  type="submit"
+                <Button
                   disabled={isSubmitting}
+                  type="submit"
                   onClick={() =>
                     setFieldValue('type', values.type === 'updated' ? 'in_favorites' : 'updated')
                   }
                 >
                   {values.type === 'updated' ? 'Новое' : 'Популярное'}
-                </button>
-                <button type="submit" disabled={isSubmitting}>
+                </Button>
+                <Button type="submit" disabled={isSubmitting}>
                   Показать
-                </button>
-                <button
+                </Button>
+                <Button
                   type="submit"
                   disabled={isSubmitting}
                   onClick={() => setFieldValue('releaseFinished', !values.releaseFinished)}
@@ -96,7 +97,7 @@ export const AdvancedSearch: React.FC<PropsType> = ({ genres, years, seasons, se
                   <span>
                     Релиз<>&#8209;</>завершен
                   </span>
-                </button>
+                </Button>
               </div>
 
               <div className={s.alphabet}>

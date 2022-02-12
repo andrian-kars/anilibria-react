@@ -1,8 +1,8 @@
 import cn from 'classnames'
 import { useEffect, useState } from 'react'
-import { AnimeItem, PaginatorKostyl } from '../../components/common'
-import { useAppDispatch, useAppSelector } from '../../hooks/redux'
-import { fetchCatalogStart, fetchListFromAdvancedSearch } from '../../store/reducers/CatalogSlice'
+import { AnimeItem, Button, Error, PaginatorKostyl } from 'src/components/common'
+import { useAppDispatch, useAppSelector } from 'src/hooks/redux'
+import { fetchCatalogStart, fetchListFromAdvancedSearch } from 'src/store/reducers/CatalogSlice'
 import { AdvancedSearch, FormType } from './AdvancedSearch'
 import s from './Catalog.module.scss'
 
@@ -11,6 +11,8 @@ export const Catalog: React.FC = () => {
     (state) => state.catalogReducer
   )
   const [page, setPage] = useState(1)
+  const [showFilter, triggerFilter] = useState(true)
+
   const preLoad = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
   const dispatch = useAppDispatch()
 
@@ -53,10 +55,13 @@ export const Catalog: React.FC = () => {
     dispatch(fetchListFromAdvancedSearch(params))
   }
 
-  // TODO: error
   return (
     <section className={s.content}>
-      {years && genres ? (
+      {error && <Error error={error} />}
+      <Button onClick={() => triggerFilter(!showFilter)} className={s.showFilter}>
+        {showFilter ? 'Скрыть фильтр' : 'Показать фильтр'}
+      </Button>
+      {!showFilter ? null : years && genres ? (
         <AdvancedSearch
           genres={genres}
           years={years}
@@ -72,7 +77,6 @@ export const Catalog: React.FC = () => {
         <div className={s.animes}>
           {isLoading &&
             preLoad.map((el) => <div key={el} className={cn(s.animeItem, 'skeleton')} />)}
-          {error && <h1>{error}</h1>}
           {!isLoading &&
             animeListForCatalog?.map((el, i) =>
               i === 12 ? null : (

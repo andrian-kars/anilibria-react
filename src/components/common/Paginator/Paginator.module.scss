@@ -1,0 +1,55 @@
+@import 'src/styles/_variables';
+@import 'src/styles/_mixins';
+
+.pagination {
+  @include flex();
+}
+
+.pages {
+  position: relative;
+  transition: $simple-transition;
+  cursor: pointer;
+  margin: 0 0.25rem;
+  font-size: calc(1rem - 1px);
+
+  @media (min-width: $tablet) {
+    margin: 0 0.3125rem;
+    font-size: 1rem;
+  }
+
+  &:hover {
+    font-weight: 700;
+  }
+}
+
+.selectedPage {
+  font-weight: 700;
+
+  &::before {
+    content: '';
+    @include center-absolute();
+    @include width-height(1.75rem);
+    background-color: $btn-disabled;
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+}
+
+.indexes {
+  @include flex('', flex-start);
+  transition: $simple-transition;
+  cursor: pointer;
+
+  svg {
+    fill: $white-color;
+    @include width-height(0.6875rem);
+
+    @media (min-width: $tablet) {
+      @include width-height(0.8125rem);
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

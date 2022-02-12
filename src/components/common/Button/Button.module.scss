@@ -1,0 +1,21 @@
+@import 'src/styles/_variables';
+@import 'src/styles/_mixins';
+
+.content {
+  @include flex();
+  color: $super-white-color;
+  background-color: $btn-color;
+  border-radius: $border-radius;
+  height: 36px;
+  padding: 0 1.75rem;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $btn-hover-color;
+  }
+
+  &:disabled {
+    background-color: $btn-disabled;
+  }
+}

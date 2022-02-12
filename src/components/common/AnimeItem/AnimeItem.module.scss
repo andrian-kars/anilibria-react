@@ -1,0 +1,77 @@
+@import 'src/styles/_mixins';
+@import 'src/styles/_variables';
+
+.whrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  @include background-image('');
+
+  &:hover {
+    .textContent,
+    .hover,
+    .download {
+      display: block;
+    }
+  }
+}
+
+.image {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: $gap;
+}
+
+.textContent {
+  z-index: $nice-index;
+  text-align: center;
+}
+
+.hover {
+  background-color: $black-color;
+  opacity: 0.8;
+  @include stretch-absolute();
+}
+
+.textContent,
+.hover,
+.download {
+  display: none;
+}
+
+.title {
+  // font-size: $title-font-size;
+  // line-height: $title-font-size;
+  // margin-bottom: 5px;
+  // font-weight: $font-bold;
+}
+
+.episodes {
+  margin-bottom: 40px;
+}
+
+.description {
+  // font-size: $font-size;
+}
+
+.download {
+  align-self: center;
+  background-color: $btn-color;
+  // padding: 4px $bigger-layout-padding;
+  // font-size: $small-font-size;
+  z-index: $nice-index;
+  border-radius: $border-radius;
+  // margin-bottom: $layout-margin;
+
+  &:hover {
+    background-color: red;
+  }
+}

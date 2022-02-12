@@ -89,10 +89,8 @@ body {
   width: 3px;
   height: 3px;
   transition: 0.3s;
-}
 
-@media (min-width: 768px) {
-  ::-webkit-scrollbar {
+  @media (min-width: 768px) {
     width: 7px;
     height: 7px;
   }
@@ -140,8 +138,4 @@ body {
   100% {
     background-color: $active-and-input-color;
   }
-}
-
-.additional-error {
-  @include additional-error();
 }

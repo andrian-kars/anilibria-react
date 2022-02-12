@@ -1,5 +1,5 @@
 export { Initial } from './Initial/Initial'
-// export { Catalog } from './Catalog/Catalog'
+export { Catalog } from './Catalog/Catalog'
 // export { Schedule } from './Schedule/Schedule'
 // export { Team } from './Team/Team'
 // export { Donate } from './Donate/Donate'

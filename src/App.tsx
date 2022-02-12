@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import { Header, Navigation } from 'src/components'
-import { Initial } from 'src/pages'
+import { Initial, Catalog } from 'src/pages'
 import { Main } from 'src/components/layouts'
 import { useScript } from 'src/hooks/player'
 import { useAppSelector } from 'src/hooks/redux'
@@ -19,8 +19,8 @@ export const App = () => {
       <Main>
         <Routes>
           <Route path="/" element={<Initial />} />
-          {/* <Route path="/pages/catalog" element={<Catalog />} />
-          <Route path="/pages/schedule" element={<Schedule />} />
+          <Route path="/catalog" element={<Catalog />} />
+          {/* <Route path="/pages/schedule" element={<Schedule />} />
           <Route path="/pages/team" element={<Team />} />
           <Route path="/pages/donate" element={<Donate />} />
           <Route path="/pages/rules" element={<Rules />} />
