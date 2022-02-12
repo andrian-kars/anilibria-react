@@ -3,7 +3,9 @@
 /.pnp
 .pnp.ts
 /webpack2
+/src/componentsOld
 pg1.json
+
 
 # testing
 /coverage

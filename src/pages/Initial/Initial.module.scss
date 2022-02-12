@@ -4,17 +4,25 @@
 .content {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: 1fr;
+  gap: $gap;
+
+  @media (min-width: 569px) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .link {
   display: block;
   position: relative;
-  // height: $initial-youtube-height;
   @include background-image();
   border-radius: $border-radius;
   opacity: 0.8;
+  height: 17.8rem;
+
+  @media (min-width: $whole-content) {
+    height: 19rem;
+  }
 
   &:hover {
     opacity: 1;
@@ -22,6 +30,6 @@
 
   img {
     // the image that comes from back is broken, so this hack is to show skeleton
-    visibility: hidden;
+    display: none;
   }
 }

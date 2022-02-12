@@ -18,11 +18,13 @@ export const Initial: React.FC<propsType> = () => {
   console.log('Initial: render')
 
   useEffect(() => {
+    console.log('use effect')
+
     !youtube && dispatch(fetchYoutube())
   }, [dispatch, youtube])
 
   return (
-    <>
+    <section className={s.content}>
       {error && <Error error={error} />}
       {isLoading && preLoad.map((el) => <div key={el} className={cn(s.link, 'skeleton')} />)}
       {youtube
@@ -37,7 +39,7 @@ export const Initial: React.FC<propsType> = () => {
           )
         })
         .reverse()}
-    </>
+    </section>
   )
 }
 
