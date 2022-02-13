@@ -99,6 +99,7 @@ export const Catalog: React.FC = () => {
           canGoNext={animeListForCatalog?.length === 13}
           onPageChange={onPageChange}
           currentPage={page}
+          className={s.pagination}
         />
       )}
     </section>

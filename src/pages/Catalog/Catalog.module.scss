@@ -106,7 +106,7 @@
   display: grid;
   justify-content: space-between;
   gap: $gap;
-  margin-bottom: $bigger-gap;
+  margin-bottom: calc($bigger-gap * 2);
 
   @media (min-width: 472px) {
     grid-template-columns: 1fr 1fr;
@@ -235,4 +235,11 @@
       }
     }
   }
+}
+
+.pagination {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
