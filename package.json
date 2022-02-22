@@ -9,7 +9,8 @@
     "build": "webpack --config webpack/webpack.config.js --env env=prod",
     "ci": "yarn && yarn build-opt && yarn build-sagitta-x",
     "test": "jest -c jest.config.js",
-    "lint": "eslint --ext .jsx --ext .js src/"
+    "lint": "eslint --ext .jsx --ext .js src/",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/andrian-kars/anilibria-react/issues"
   },
-  "homepage": "https://github.com/andrian-kars/anilibria-react#readme",
+  "homepage": "https://github.com/andrian-kars/anilibria-react/",
   "devDependencies": {
     "@babel/core": "^7.12.16",
     "@babel/plugin-transform-runtime": "^7.13.10",
@@ -47,6 +48,7 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "gh-pages": "^3.2.3",
     "html-webpack-plugin": "^5.1.0",
     "husky": "4",
     "lint-staged": "^10.5.4",
