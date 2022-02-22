@@ -38,7 +38,8 @@
     "axios": "^0.24.0",
     "babel-loader": "^8.2.2",
     "classnames": "^2.3.1",
-    "clean-webpack-plugin": "^3.0.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^5.0.2",
     "eslint": "^7.19.0",
     "eslint-config-prettier": "^7.2.0",
@@ -75,7 +76,8 @@
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.2",
     "react-select": "^5.2.1",
-    "type": "^2.5.0"
+    "type": "^2.5.0",
+    "webpack-manifest-plugin": "^4.1.1"
   },
   "husky": {
     "hooks": {

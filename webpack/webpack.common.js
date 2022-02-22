@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
+  // entry: resolve(__dirname, './../public/index.html'),
   entry: resolve(__dirname, './../src/index.tsx'),
   module: {
     rules: [
@@ -43,12 +44,12 @@ module.exports = {
     ],
   },
   output: {
-    path: resolve(__dirname, './../build'),
+    path: resolve('build'),
     filename: 'bundle.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: resolve(__dirname, './../public/index.html'),
+      template: resolve('public/index.html'),
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
@@ -57,8 +58,8 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      src: resolve(__dirname, './../src'),
-      public: resolve(__dirname, './../public'),
+      public: resolve('public'),
+      src: resolve('src'),
     },
     extensions: ['.tsx', '.ts', '.js', '.scss'],
   },
