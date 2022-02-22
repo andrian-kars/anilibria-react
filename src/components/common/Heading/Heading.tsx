@@ -3,7 +3,7 @@ import s from './Heading.module.scss'
 
 type PropsType = {
   type: string
-  text: string
+  text: string | JSX.Element
 }
 
 export const Heading: React.FC<PropsType> = ({ type, text }) => {

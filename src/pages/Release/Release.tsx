@@ -1,9 +1,11 @@
 import cn from 'classnames'
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { PlayerList } from '../../components'
-import { useAppDispatch, useAppSelector } from '../../hooks/redux'
-import { fetchTitle } from '../../store/reducers/ReleaseSlice'
+import { PlayerList } from 'src/components'
+import { Heading } from 'src/components/common'
+import { useAppDispatch, useAppSelector } from 'src/hooks/redux'
+import { fetchTitle } from 'src/store/reducers/ReleaseSlice'
+import { truncateString } from 'src/utils/truncateString'
 
 import s from './Release.module.scss'
 
@@ -47,15 +49,18 @@ export const Release: React.FC = () => {
           </div>
         ) : (
           <div className={s.textInfo}>
-            <h3>
-              {title.names.ru.length < 30 || title.names.en.length < 30 ? (
-                `${title.names.ru} / ${title.names.en}`
-              ) : (
-                <>
-                  {title.names.ru} <br /> {title.names.en}
-                </>
-              )}
-            </h3>
+            <Heading
+              type="h3"
+              text={
+                title.names.ru.length < 30 || title.names.en.length < 30 ? (
+                  `${title.names.ru} / ${title.names.en}`
+                ) : (
+                  <>
+                    {title.names.ru} <br /> {title.names.en}
+                  </>
+                )
+              }
+            />
             <p>
               <span className={s.bold}>Сезон:</span> {title.season.year} {title.season.string}
             </p>
@@ -77,7 +82,9 @@ export const Release: React.FC = () => {
             </p>
             <p
               className={s.description}
-              dangerouslySetInnerHTML={{ __html: title.description.replaceAll('\n', '<br />') }}
+              dangerouslySetInnerHTML={{
+                __html: truncateString(title.description.replaceAll('\n', '<br />'), 500),
+              }}
             />
           </div>
         )}

@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import { Header, Navigation } from 'src/components'
-import { Initial, Catalog } from 'src/pages'
+import { Initial, Catalog, Release } from 'src/pages'
 import { Main } from 'src/components/layouts'
 import { useScript } from 'src/hooks/player'
 import { useAppSelector } from 'src/hooks/redux'
@@ -26,9 +26,9 @@ export const App = () => {
           <Route path="/pages/rules" element={<Rules />} />
           <Route path="/pages/profile" element={<Profile />} />
           <Route path="/pages/login" element={<Login />} />
-          <Route path="/pages/favorites" element={<Favorites />} />
+          <Route path="/pages/favorites" element={<Favorites />} /> */}
+          <Route path="/release" element={<Release />} />
           <Route path="/release/:titleCode" element={<Release />} />
-          <Route path="/release" element={<Release />} /> */}
           <Route path="*" element={<Error error="404" />} />
         </Routes>
       </Main>
