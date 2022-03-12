@@ -31,7 +31,7 @@ export const InitialSlice = createSlice({
     [fetchYoutube.fulfilled.type]: (state, action: PayloadAction<youtubeType>) => {
       state.isLoading = false
       state.error = null
-      state.youtube = action.payload
+      state.youtube = action.payload.reverse()
     },
     [fetchYoutube.pending.type]: (state) => {
       state.isLoading = true

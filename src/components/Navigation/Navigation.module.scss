@@ -7,12 +7,22 @@
   top: 0;
   left: 0;
   min-height: 100vh;
-  padding-top: 4.6875rem;
+  width: $navigation-mobile-width;
+  padding-top: $header-height-mobile;
   @include hide();
   z-index: $almost-nice-index;
 
   @media (min-width: $tablet) {
     @include show();
+    padding-top: $header-height-tablet;
+  }
+
+  @media (min-width: $desktop) {
+    padding-top: $header-height;
+  }
+
+  @media (min-width: $biggest-desktop) {
+    width: $navigation-width;
   }
 }
 
@@ -35,10 +45,10 @@
 }
 
 .whrapper {
-  padding: 0.625rem;
+  padding: $whrapper-padding-mobile;
 
   @media (min-width: $biggest-desktop) {
-    padding: 0.9375rem;
+    padding: $whrapper-padding;
   }
 }
 
@@ -73,7 +83,7 @@
   }
 
   svg {
-    @include width-height(1.25rem);
+    @include width-height(20px);
     fill: $white-color;
 
     @media (min-width: $biggest-desktop) {

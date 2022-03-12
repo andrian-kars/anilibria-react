@@ -43,11 +43,15 @@ const GlobalNavigationItem: React.FC<PropsTypeItem> = ({ to, text, svg }) => {
   return (
     <li className={s.item}>
       {to.includes('http') ? (
-        <a href={to} target="_blank" rel="noreferrer" className={s.link}>
+        <a title={text} href={to} target="_blank" rel="noreferrer" className={s.link}>
           {content}
         </a>
       ) : (
-        <NavLink className={({ isActive }) => cn(s.link, isActive && s.active)} to={to}>
+        <NavLink
+          title={text}
+          className={({ isActive }) => cn(s.link, isActive && s.active)}
+          to={to}
+        >
           {content}
         </NavLink>
       )}

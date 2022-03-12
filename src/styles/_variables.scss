@@ -16,6 +16,16 @@ $btn-disabled: grey;
 $gap: 0.625rem;
 $bigger-gap: 1.25rem;
 
+// Layout
+$header-height: 76px;
+$header-height-tablet: 60px;
+$header-height-mobile: 46px;
+
+$whrapper-padding: 15px;
+$whrapper-padding-mobile: 10px;
+
+$navigation-width: 284px;
+$navigation-mobile-width: 76px;
 // Margin
 $layout-margin: 0.9375rem;
 
@@ -33,7 +43,7 @@ $tiny-tablet: 512px;
 $tablet: 768px;
 $desktop: 992px;
 $biggest-desktop: 1200px;
-$whole-content: 1414px;
+$whole-content: 1715px;
 
 // Animation
 $simple-transition: all 0.3s;
@@ -45,89 +55,3 @@ $thick-border: 4px;
 $nice-index: 69;
 $almost-nice-index: 68;
 $not-nice-index: 67;
-
-// // Colors
-// $main-background: #d3d3d3;
-// $footer-background: #383838;
-// $catalog-search-background: #3e3e3e;
-// $border-grey: #ccc;
-// $border-grey-hover: #adadad;
-// $bg-grey-hover: #e6e6e6;
-// $light-grey: #4a4a4a;
-// $font-grey: #333;
-// $dark-grey: #282829;
-// $reddish: #d83541;
-// $red: #b32121;
-// $anime-item-border-hover: #e04e4e;
-// $black: #000;
-// $white: #fff;
-// $color-grey: #ddd;
-
-// // Sizes
-// $header-height: 215px;
-// $header-logo-height: 92px;
-// $header-logo-width: 213px;
-
-// $initial-youtube-height: 245px;
-
-// $global-nav-height: 50px;
-
-// $content-width: 880px;
-
-// $patreon-banner-height: 100px;
-
-// $side-width: 280px;
-// $side-min-height: 1369px;
-// $side-item-height: 360px;
-
-// $catalog-item-height: 390px;
-// $catalog-item-gap: 36px;
-// $catalog-battun-height: 36px;
-// $catalog-search-height: 150px;
-// $catalog-form-gap: 10px;
-
-// $footer-height: 100px;
-
-// $page-404-height: 498px;
-
-// $svg-size: 20px;
-
-// // Images
-// $header-logo: 'public/assets/images/header-logo.png';
-
-// $footer-thanks: 'public/assets/images/footer-thanks.png';
-
-// // Margins
-// $layout-margin: 10px;
-// $bigger-layout-margin: 15px;
-// $big-top-margin: 85px;
-
-// // Padding
-// $schedule-layout-padding: 10px 20px 20px;
-// $layout-padding: 10px;
-// $bigger-layout-padding: 15px;
-// $medium-layout-padding: 12px;
-
-// $catalog-search-padding: 25px;
-
-// $svg-center: 2px 3px 0 0;
-
-// // Font
-// $biggest-font-size: 14pt;
-// $title-font-size: 13pt;
-// $bigger-font-size: 12pt;
-// $font-size: 11pt;
-// $small-font-size: 10pt;
-// $font-bold: bold;
-// $font-italic: italic;
-// $global-line-height: 15pt;
-// $line-height: 17pt;
-// $bigger-line-height: 19pt;
-
-// // Other
-// $border-radius: 4px;
-// $anime-item-border-radius: 3px;
-// $anime-item-border-size: 3px;
-// $bigger-anime-item-border-size: 9px;
-
-// $nice-index: 69;

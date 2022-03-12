@@ -3,7 +3,7 @@
 
 .header {
   @include flex(space-between);
-  height: 2.8rem;
+  height: $header-height-mobile;
   position: fixed;
   top: 0;
   right: 0;
@@ -14,24 +14,34 @@
   z-index: $nice-index;
 
   @media (min-width: $tablet) {
-    height: 3.75rem;
+    height: $header-height-tablet;
   }
 
   @media (min-width: $desktop) {
-    height: 4.65rem;
+    height: $header-height;
   }
 }
 
-.whrapperLeftHead {
+.whrapperLeftHead,
+.whrapperRightHead {
   @include flex(space-around);
 }
 
-.burgerWhrapper {
+.burgerNav,
+.burgerSide {
   cursor: pointer;
   margin-top: 0.1875rem;
   padding: 0.1875rem 0.1875rem 0.375rem;
+}
 
+.burgerNav {
   @media (min-width: $tablet) {
+    display: none;
+  }
+}
+
+.burgerSide {
+  @media (min-width: $biggest-desktop) {
     display: none;
   }
 }

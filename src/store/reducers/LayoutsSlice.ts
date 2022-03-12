@@ -1,14 +1,18 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { globalNavigationItems } from 'src/types'
+import { globalNavigationItems, animeList } from 'src/types'
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { getAnimeListForSide } from 'src/api/layoutsApi'
 
 export interface LayoutState {
+  animeListForSide: animeList | null
   globalNavigationItems: globalNavigationItems
   showMenu: boolean
+  showSide: boolean
   isLoading: boolean
   error: string | null
 }
 
 const initialState: LayoutState = {
+  animeListForSide: null,
   globalNavigationItems: {
     navs: [
       { to: '/', text: 'Главная', svg: 'main' },
@@ -27,9 +31,22 @@ const initialState: LayoutState = {
     ],
   },
   showMenu: true,
+  showSide: true,
   isLoading: false,
   error: null,
 }
+
+export const fetchAnimeListForSide = createAsyncThunk(
+  'layout/fetchAnimeListForSide',
+  async (_, thunkAPI) => {
+    try {
+      const response = await getAnimeListForSide()
+      return response.data
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message)
+    }
+  }
+)
 
 export const LayoutsSlice = createSlice({
   name: 'layout',
@@ -38,9 +55,26 @@ export const LayoutsSlice = createSlice({
     setShowMenu(state) {
       state.showMenu = !state.showMenu
     },
+    setShowSide(state) {
+      state.showSide = !state.showSide
+    },
+  },
+  extraReducers: {
+    [fetchAnimeListForSide.fulfilled.type]: (state, action: PayloadAction<animeList>) => {
+      state.isLoading = false
+      state.error = null
+      state.animeListForSide = action.payload
+    },
+    [fetchAnimeListForSide.pending.type]: (state) => {
+      state.isLoading = true
+    },
+    [fetchAnimeListForSide.rejected.type]: (state, action: PayloadAction<string>) => {
+      state.isLoading = false
+      state.error = action.payload
+    },
   },
 })
 
-export const { setShowMenu } = LayoutsSlice.actions
+export const { setShowMenu, setShowSide } = LayoutsSlice.actions
 
 export default LayoutsSlice.reducer

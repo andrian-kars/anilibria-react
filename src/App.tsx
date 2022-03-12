@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import { Header, Navigation } from 'src/components'
 import { Initial, Catalog, Release } from 'src/pages'
-import { Main } from 'src/components/layouts'
+import { Main, Side } from 'src/components/layouts'
 import { useScript } from 'src/hooks/player'
 import { useAppSelector } from 'src/hooks/redux'
 import { Error } from './components/common'
@@ -9,7 +9,9 @@ import { Error } from './components/common'
 export const App = () => {
   useScript()
 
-  const { showMenu, globalNavigationItems } = useAppSelector((state) => state.layoutsReducer)
+  const { showMenu, showSide, globalNavigationItems } = useAppSelector(
+    (state) => state.layoutsReducer
+  )
 
   return (
     <>
@@ -32,6 +34,7 @@ export const App = () => {
           <Route path="*" element={<Error error="404" />} />
         </Routes>
       </Main>
+      <Side show={showSide} />
     </>
   )
 }

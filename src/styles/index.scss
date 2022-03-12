@@ -35,6 +35,11 @@ $font-path: 'public/assets';
   //  url(#{$font-path}/fonts/exo-2-v5-latin_cyrillic-regular.svg#Exo2) format('svg'); /* Legacy iOS */ compile error, font is broken
 }
 
+html,
+body {
+  background-color: $background-color;
+}
+
 body,
 h1,
 h2,
@@ -82,7 +87,6 @@ body {
   width: 100%;
   font-family: 'PT Sans', sans-serif;
   font-size: 16px;
-  background-color: $background-color;
 }
 
 ::-webkit-scrollbar {
