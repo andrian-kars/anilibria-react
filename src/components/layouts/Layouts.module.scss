@@ -34,18 +34,26 @@
   position: fixed;
   top: 0;
   right: 0;
-  min-height: 100vh;
-  width: $navigation-width;
+  bottom: 0;
+  width: 228px;
   padding: $header-height-mobile + $whrapper-padding-mobile $whrapper-padding-mobile
     $whrapper-padding-mobile;
   align-self: start;
   display: flex;
   flex-direction: column;
-  z-index: $almost-nice-index;
+  z-index: $nice-index;
   @include hide();
+  // make scrollable but hide scroll
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+  &::-webkit-scrollbar {
+    width: 0 !important;
+  }
 
   @media (min-width: $tablet) {
     padding-top: $header-height-tablet + $whrapper-padding-mobile;
+    width: $navigation-width;
   }
 
   @media (min-width: $desktop) {
@@ -74,25 +82,41 @@
 .animes {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: $whrapper-padding-mobile;
+
+  @media (min-width: $biggest-desktop) {
+    gap: $whrapper-padding;
+  }
 }
 
 .animeItem {
-  height: 200px;
+  height: 284px;
 
-  border: 2px solid $secondary-color;
+  border: 2px solid $btn-color;
   border-radius: $border-radius;
 
   &:hover {
-    border: 2px solid $btn-color;
+    border: 2px solid $btn-hover-color;
   }
 
   p {
-    font-size: 22px;
+    font-size: 16px;
 
     &:last-child {
-      font-size: 20px;
-      line-height: 20px;
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+
+  @media (min-width: $tablet) {
+    height: 356px;
+    p {
+      font-size: 18px;
+
+      &:last-child {
+        font-size: 16px;
+        line-height: 20px;
+      }
     }
   }
 }

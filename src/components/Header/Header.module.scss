@@ -11,7 +11,7 @@
   padding: 0 $main-side-padding;
   background-color: $primary-color;
   box-shadow: $bottom-shadow;
-  z-index: $nice-index;
+  z-index: $bigger-nice-index;
 
   @media (min-width: $tablet) {
     height: $header-height-tablet;

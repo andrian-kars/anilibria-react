@@ -48,14 +48,15 @@
 }
 
 .title {
-  // font-size: $title-font-size;
-  // line-height: $title-font-size;
-  // margin-bottom: 5px;
-  // font-weight: $font-bold;
+  font-weight: 600;
 }
 
 .episodes {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+
+  @media (min-width: $tablet) {
+    margin-bottom: 40px;
+  }
 }
 
 .description {
@@ -65,13 +66,13 @@
 .download {
   align-self: center;
   background-color: $btn-color;
-  // padding: 4px $bigger-layout-padding;
-  // font-size: $small-font-size;
+  padding: 4px $whrapper-padding;
+  font-size: $smaller-font;
   z-index: $nice-index;
   border-radius: $border-radius;
-  // margin-bottom: $layout-margin;
+  margin-bottom: $whrapper-padding;
 
   &:hover {
-    background-color: red;
+    background-color: $btn-hover-color;
   }
 }
