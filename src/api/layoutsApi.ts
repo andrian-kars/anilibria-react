@@ -1,4 +1,4 @@
-import { animeList } from '../types'
+import { animeList } from 'src/types'
 import { instance } from './api'
 
 const paramsAnimeListForSide = {
@@ -7,3 +7,11 @@ const paramsAnimeListForSide = {
 
 export const getAnimeListForSide = () =>
   instance.get<animeList>('getUpdates', { params: paramsAnimeListForSide })
+
+const paramsSearchResults = {
+  filter: 'code,names.ru',
+  limit: 10,
+}
+
+export const getSearchResults = (value: string) =>
+  instance.get<animeList>('searchTitles', { params: { ...paramsSearchResults, search: value } })

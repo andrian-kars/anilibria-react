@@ -38,6 +38,7 @@ $font-path: 'public/assets';
 html,
 body {
   background-color: $background-color;
+  overflow-y: scroll;
 }
 
 body,

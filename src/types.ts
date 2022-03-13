@@ -101,3 +101,10 @@ export type passedParamsAdvancedSearch = {
   order_by: string
   after?: number
 }
+
+export type searchResults = Array<{
+  code: string
+  names: {
+    ru: string
+  }
+}>

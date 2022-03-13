@@ -3,7 +3,6 @@ import s from './Layouts.module.scss'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import { useEffect } from 'react'
 import { fetchAnimeListForSide } from '../../store/reducers/LayoutsSlice'
-import { NavLink } from 'react-router-dom'
 import cn from 'classnames'
 
 export const Side: React.FC<PropsType> = ({ show }) => {
@@ -22,9 +21,6 @@ export const Side: React.FC<PropsType> = ({ show }) => {
   // TODO: error
   return (
     <aside className={cn(s.side, !show && s.hide)}>
-      <div className={s.search}>
-        <NavLink to="/release">Release</NavLink>
-      </div>
       <div className={s.animes}>
         {isLoading && preLoad.map((el) => <div key={el} className={cn(s.animeItem, 'skeleton')} />)}
         {error && <h1>{error}</h1>}

@@ -10,6 +10,7 @@
     "ci": "yarn && yarn build-opt && yarn build-sagitta-x",
     "test": "jest -c jest.config.js",
     "lint": "eslint --ext .jsx --ext .js src/",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },
   "repository": {

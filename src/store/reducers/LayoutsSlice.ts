@@ -1,9 +1,10 @@
-import { globalNavigationItems, animeList } from 'src/types'
+import { globalNavigationItems, animeList, searchResults } from 'src/types'
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { getAnimeListForSide } from 'src/api/layoutsApi'
+import { getAnimeListForSide, getSearchResults } from 'src/api/layoutsApi'
 
 export interface LayoutState {
   animeListForSide: animeList | null
+  searchResults: searchResults | null
   globalNavigationItems: globalNavigationItems
   showMenu: boolean
   showSide: boolean
@@ -32,6 +33,7 @@ const initialState: LayoutState = {
   },
   showMenu: true,
   showSide: true,
+  searchResults: null,
   isLoading: false,
   error: null,
 }
@@ -41,6 +43,18 @@ export const fetchAnimeListForSide = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await getAnimeListForSide()
+      return response.data
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message)
+    }
+  }
+)
+
+export const fetchSearchResults = createAsyncThunk(
+  'layout/fetchSearchResults',
+  async (value: string, thunkAPI) => {
+    try {
+      const response = await getSearchResults(value)
       return response.data
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message)
@@ -69,6 +83,18 @@ export const LayoutsSlice = createSlice({
       state.isLoading = true
     },
     [fetchAnimeListForSide.rejected.type]: (state, action: PayloadAction<string>) => {
+      state.isLoading = false
+      state.error = action.payload
+    },
+    [fetchSearchResults.fulfilled.type]: (state, action: PayloadAction<searchResults>) => {
+      state.isLoading = false
+      state.error = null
+      state.searchResults = action.payload
+    },
+    [fetchAnimeListForSide.pending.type]: (state) => {
+      state.isLoading = true
+    },
+    [fetchSearchResults.rejected.type]: (state, action: PayloadAction<string>) => {
       state.isLoading = false
       state.error = action.payload
     },
