@@ -1,9 +1,11 @@
 # dependencies
 /node_modules
+/src/componentsOld
+/.vscode
+yarn.lock
 /.pnp
 .pnp.ts
 /webpack2
-/src/componentsOld
 pg1.json
 
 
