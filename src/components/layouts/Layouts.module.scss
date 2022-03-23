@@ -11,6 +11,7 @@
   @media (min-width: $tablet) {
     margin-left: $navigation-mobile-width;
     padding-top: $header-height-tablet + $whrapper-padding-mobile;
+    width: calc(100% - 76px);
   }
 
   @media (min-width: $desktop) {
@@ -18,15 +19,20 @@
   }
 
   @media (min-width: $biggest-desktop) {
+    width: calc(100% - $navigation-width);
     padding: $header-height + $whrapper-padding $whrapper-padding $whrapper-padding;
     margin: 0 $navigation-width;
+  }
+
+  @media (min-width: $whole-content) {
+    width: calc(100% - $navigation-width * 2);
   }
 }
 
 .container {
   position: relative;
   display: flex;
-  width: 1100px;
+  width: 100%;
 }
 
 .side {
@@ -63,6 +69,9 @@
   @media (min-width: $biggest-desktop) {
     width: $navigation-width;
     padding: $header-height + $whrapper-padding $whrapper-padding $whrapper-padding;
+  }
+
+  @media (min-width: $whole-content) {
     @include show();
   }
 }
@@ -70,7 +79,7 @@
 .hide {
   @include show();
 
-  @media (min-width: $biggest-desktop) {
+  @media (min-width: $whole-content) {
     @include hide();
   }
 }
@@ -86,7 +95,7 @@
 }
 
 .animeItem {
-  height: 284px;
+  height: $navigation-width;
 
   border: 2px solid $btn-color;
   border-radius: $border-radius;

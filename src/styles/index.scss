@@ -35,10 +35,13 @@ $font-path: 'public/assets';
   //  url(#{$font-path}/fonts/exo-2-v5-latin_cyrillic-regular.svg#Exo2) format('svg'); /* Legacy iOS */ compile error, font is broken
 }
 
+html {
+  overflow-y: scroll;
+}
+
 html,
 body {
   background-color: $background-color;
-  overflow-y: scroll;
 }
 
 body,

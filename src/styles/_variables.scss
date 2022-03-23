@@ -40,11 +40,12 @@ $smaller-font: 14px;
 $bottom-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.15);
 
 // Responsive
+$min-width: 320px;
 $tiny-tablet: 512px;
 $tablet: 768px;
 $desktop: 992px;
 $biggest-desktop: 1200px;
-$whole-content: 1715px;
+$whole-content: 1500px;
 
 // Animation
 $simple-transition: all 0.3s;

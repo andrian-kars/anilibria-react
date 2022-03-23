@@ -49,7 +49,7 @@
 }
 
 .burgerSide {
-  @media (min-width: $biggest-desktop) {
+  @media (min-width: $whole-content) {
     display: none;
   }
 }
