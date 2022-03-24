@@ -21,7 +21,8 @@ export const Initial: React.FC<propsType> = () => {
     console.log('use effect')
 
     !youtube && dispatch(fetchYoutube())
-  }, [dispatch, youtube])
+    document.title = 'Anilibria - так звучит аниме!'
+  }, [])
 
   return (
     <section className={s.content}>

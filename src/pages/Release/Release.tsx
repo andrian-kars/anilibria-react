@@ -5,7 +5,7 @@ import { PlayerList } from 'src/components'
 import { Heading } from 'src/components/common'
 import { useAppDispatch, useAppSelector } from 'src/hooks/redux'
 import { fetchTitle } from 'src/store/reducers/ReleaseSlice'
-import { truncateString } from 'src/utils/truncateString'
+// import { truncateString } from 'src/utils/truncateString'
 
 import s from './Release.module.scss'
 
@@ -29,9 +29,10 @@ export const Release: React.FC = () => {
   console.log('Release: render')
 
   useEffect(() => {
-    params &&
-      (!title || params !== title.code) &&
+    if (params && (!title || params !== title.code)) {
       dispatch(fetchTitle({ code: params, nav: navigate }))
+      document.title = title ? title.names.ru : 'Anilibria - так звучит аниме!'
+    }
   }, [params])
 
   const [loaded, setLoaded] = useState(false)
@@ -81,10 +82,13 @@ export const Release: React.FC = () => {
               {title.team.translator.join(', ')}
             </p>
             <p
+              // ? truncateString(title.description.replaceAll('\n', '<br />'), 500)
               className={s.description}
               dangerouslySetInnerHTML={{
                 __html: title.description
-                  ? truncateString(title.description.replaceAll('\n', '<br />'), 500)
+                  ? title.description
+                      .replaceAll('\n', '<br />')
+                      .replaceAll('<br /><br />', '<br />')
                   : 'Описание отсутствует',
               }}
             />

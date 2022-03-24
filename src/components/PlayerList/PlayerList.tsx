@@ -11,28 +11,28 @@ type propsType = {
 export const PlayerList: React.FC<propsType> = ({ player: player }) => {
   const playList = Object.values(player.playlist)
 
-  const [choosenEpisode, setChoosenEpisode] = useState(1)
+  const [choosenEpisode, setChoosenEpisode] = useState(0)
 
   return (
     <section className={s.content}>
-      {!player.playlist[1] ? (
+      {playList.length === 0 ? (
         <p className="additional-error">Серии добавляются</p>
       ) : (
         <>
           <div className={s.series}>
-            {playList.map((el) => (
+            {playList.map((el, i) => (
               <button
-                className={cn(choosenEpisode === el.serie && s.active)}
-                key={el.serie}
+                className={cn(choosenEpisode === i && s.active)}
+                key={i}
                 onClick={() => {
-                  setChoosenEpisode(el.serie)
+                  setChoosenEpisode(i)
                 }}
               >
                 {el.serie}
               </button>
             ))}
           </div>
-          <Player host={player.host} hls={playList[choosenEpisode - 1].hls} />
+          <Player host={player.host} hls={playList[choosenEpisode].hls} />
         </>
       )}
     </section>

@@ -19,6 +19,10 @@ export const Catalog: React.FC = () => {
   console.log('Catalog: render')
 
   useEffect(() => {
+    document.title = 'Топ аниме по жанрам'
+  }, [])
+
+  useEffect(() => {
     !animeListForCatalog && !years && !genres && dispatch(fetchCatalogStart())
   }, [dispatch, animeListForCatalog, years, genres])
 
