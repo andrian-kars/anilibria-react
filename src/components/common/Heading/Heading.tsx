@@ -5,7 +5,7 @@ import cn from 'classnames'
 type PropsType = {
   type: string
   text: string | JSX.Element
-  className: string
+  className?: string
 }
 
 export const Heading: React.FC<PropsType> = ({ type, text, className }) => {

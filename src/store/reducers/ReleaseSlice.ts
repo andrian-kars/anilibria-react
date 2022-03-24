@@ -29,6 +29,7 @@ export const fetchTitle = createAsyncThunk(
       } else {
         return thunkAPI.getState().releaseReducer.title
       }
+      console.log(response.data)
 
       return response.data
     } catch (e) {

@@ -25,7 +25,7 @@ export type animeItem = {
     en: string
   }
   player: player
-  description: string
+  description?: string
   posters: posters
   season: {
     string: string

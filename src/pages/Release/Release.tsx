@@ -83,7 +83,9 @@ export const Release: React.FC = () => {
             <p
               className={s.description}
               dangerouslySetInnerHTML={{
-                __html: truncateString(title.description.replaceAll('\n', '<br />'), 500),
+                __html: title.description
+                  ? truncateString(title.description.replaceAll('\n', '<br />'), 500)
+                  : 'Описание отсутствует',
               }}
             />
           </div>

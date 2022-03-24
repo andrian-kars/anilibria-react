@@ -8,7 +8,7 @@ import { posters } from '../../../types'
 type propsType = {
   title: string
   episodes: string
-  description: string
+  description: string | undefined
   posters: posters
   code: string
   className?: string
@@ -47,7 +47,9 @@ export const AnimeItem: React.FC<propsType> = ({
         <NavLink className={s.content} to={`/release/${code}`}>
           <p className={s.title}>{truncateString(title, 40)}</p>
           <p className={s.episodes}>Серия: {episodes}</p>
-          <p className={s.description}>{truncateString(description, 179)}</p>
+          <p className={s.description}>
+            {description ? truncateString(description, 179) : 'Описание отсутствует'}
+          </p>
         </NavLink>
       </div>
       <div className={s.hover} />
