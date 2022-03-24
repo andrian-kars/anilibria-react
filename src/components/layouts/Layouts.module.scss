@@ -104,24 +104,7 @@
     border: 2px solid $btn-hover-color;
   }
 
-  p {
-    font-size: 16px;
-
-    &:last-child {
-      font-size: 14px;
-      line-height: 18px;
-    }
-  }
-
   @media (min-width: $tablet) {
     height: 356px;
-    p {
-      font-size: 18px;
-
-      &:last-child {
-        font-size: 16px;
-        line-height: 20px;
-      }
-    }
   }
 }

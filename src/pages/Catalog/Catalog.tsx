@@ -85,7 +85,6 @@ export const Catalog: React.FC = () => {
                   episodes={el.torrents.series.string}
                   description={el.description}
                   posters={el.posters}
-                  descriptionLength={199}
                   code={el.code}
                   className={s.animeItem}
                   key={`Catalog:${el.code}`}

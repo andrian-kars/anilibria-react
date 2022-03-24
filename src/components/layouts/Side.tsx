@@ -30,7 +30,6 @@ export const Side: React.FC<PropsType> = ({ show }) => {
             episodes={el.torrents.series.string}
             description={el.description}
             posters={el.posters}
-            descriptionLength={179}
             code={el.code}
             className={s.animeItem}
             torrent={el.torrents.list[0].torrent_id || false}

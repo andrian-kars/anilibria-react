@@ -3,11 +3,9 @@
 
 .whrapper {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   cursor: pointer;
   @include background-image('');
+  height: 100%;
 
   &:hover {
     .textContent,
@@ -25,12 +23,14 @@
 }
 
 .content {
+  height: 100%;
   display: flex;
   flex-direction: column;
   padding: $gap;
 }
 
 .textContent {
+  height: 100%;
   z-index: $nice-index;
   text-align: center;
 }
@@ -48,29 +48,48 @@
 }
 
 .title {
+  flex: 1;
   font-weight: 600;
+  margin-bottom: 5px;
+  font-size: 1.125rem;
+
+  @media (min-width: $desktop) {
+    font-size: 1.25rem;
+  }
 }
 
 .episodes {
-  margin-bottom: 20px;
+  flex: 1;
+  margin-bottom: 10px;
+  font-size: 1rem;
 
-  @media (min-width: $tablet) {
-    margin-bottom: 40px;
+  @media (min-width: $desktop) {
+    font-size: 1.125rem;
   }
 }
 
 .description {
-  // font-size: $font-size;
+  flex: 10;
+  overflow: hidden;
+  font-size: 15px;
+  line-height: 18px;
+
+  @media (min-width: $desktop) {
+    font-size: 17px;
+  }
+  margin-bottom: 34px;
 }
 
 .download {
-  align-self: center;
+  position: absolute;
+  bottom: $gap;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: $btn-color;
   padding: 4px $whrapper-padding;
   font-size: $smaller-font;
   z-index: $nice-index;
   border-radius: $border-radius;
-  margin-bottom: $whrapper-padding;
 
   &:hover {
     background-color: $btn-hover-color;

@@ -11,7 +11,6 @@ type propsType = {
   description: string
   posters: posters
   code: string
-  descriptionLength?: number
   className?: string
   torrent?: number | boolean
   hide?: boolean
@@ -23,7 +22,6 @@ export const AnimeItem: React.FC<propsType> = ({
   description,
   posters,
   code,
-  descriptionLength,
   className,
   torrent,
   hide,
@@ -47,9 +45,9 @@ export const AnimeItem: React.FC<propsType> = ({
       />
       <div className={s.textContent}>
         <NavLink className={s.content} to={`/release/${code}`}>
-          <p className={s.title}>{title}</p>
+          <p className={s.title}>{truncateString(title, 40)}</p>
           <p className={s.episodes}>Серия: {episodes}</p>
-          <p className={s.description}>{truncateString(description, descriptionLength ?? 169)}</p>
+          <p className={s.description}>{truncateString(description, 179)}</p>
         </NavLink>
       </div>
       <div className={s.hover} />
