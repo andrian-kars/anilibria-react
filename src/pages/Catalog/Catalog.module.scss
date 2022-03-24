@@ -3,6 +3,11 @@
 
 .content {
   width: 100%;
+  font-size: 0.875rem;
+
+  @media (min-width: $tablet) {
+    font-size: 1rem;
+  }
 }
 
 .showFilter {
@@ -130,61 +135,50 @@
 }
 
 .animeItem {
-  height: 350px;
+  max-width: 350px;
+  max-height: 500px;
+
+  width: calc(100vw - $gap * 3);
+  height: calc((100vw - $gap * 3) * 1.428);
+  justify-self: center;
   border-radius: $border-radius;
 
-  @media (min-width: 320px) {
-    height: 350px;
-    margin: 0 10px;
-  }
-
-  @media (min-width: 360px) {
-    height: 350px;
-    margin: 0 40px;
-  }
-
-  @media (min-width: 420px) {
-    height: 380px;
-    margin: 0 60px;
-  }
-
   @media (min-width: 472px) {
-    height: 320px;
-    margin: 0;
-  }
-
-  @media (min-width: 554px) {
-    height: 380px;
-  }
-
-  @media (min-width: 624px) {
-    height: 420px;
+    width: calc((100vw - $gap * 4) / 2);
+    height: calc((100vw - $gap * 4) * 1.428 / 2);
   }
 
   @media (min-width: 726px) {
-    height: 340px;
+    width: calc((100vw - $gap * 5) / 3);
+    height: calc((100vw - $gap * 5) * 1.428 / 3);
   }
 
-  @media (min-width: 956px) {
-    height: 430px;
+  @media (min-width: 768px) {
+    width: calc((100vw - $gap * 5 - $navigation-mobile-width) / 3);
+    height: calc((100vw - $gap * 5 - $navigation-mobile-width) * 1.428 / 3);
   }
 
   @media (min-width: 1120px) {
-    height: 390px;
+    width: calc((100vw - $gap * 6 - $navigation-mobile-width) / 4);
+    height: calc((100vw - $gap * 6 - $navigation-mobile-width) * 1.428 / 4);
   }
 
   @media (min-width: $biggest-desktop) {
-    height: 430px;
+    width: calc((100vw - $gap * 6 - $navigation-width) / 3);
+    height: calc((100vw - $gap * 6 - $navigation-width) * 1.428 / 3);
   }
 
   @media (min-width: 1360px) {
-    height: 390px;
+    width: calc((100vw - $gap * 7 - $navigation-width) / 4);
+    height: calc((100vw - $gap * 7 - $navigation-width) * 1.428 / 4);
   }
 
-  img {
-    border-radius: $border-radius;
+  @media (min-width: $whole-content) {
+    width: calc((100vw - $gap * 7 - $navigation-width * 2) / 4);
+    height: calc((100vw - $gap * 7 - $navigation-width * 2) * 1.428 / 4);
   }
 
+  img,
   div {
     border-radius: $border-radius;
   }
