@@ -124,6 +124,24 @@
   }
 }
 
+.expand {
+  display: block;
+  margin: $gap auto;
+  cursor: pointer;
+  font-size: 1.125rem;
+  transform: rotate(270deg);
+
+  &_flip {
+    transform: rotate(90deg);
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $super-white-color;
+  }
+}
+
 .description {
   padding-top: 5px;
   margin-top: 5px;

@@ -5,7 +5,7 @@ import { PlayerList } from 'src/components'
 import { Heading } from 'src/components/common'
 import { useAppDispatch, useAppSelector } from 'src/hooks/redux'
 import { fetchTitle } from 'src/store/reducers/ReleaseSlice'
-// import { truncateString } from 'src/utils/truncateString'
+import { truncateString } from 'src/utils/truncateString'
 
 import s from './Release.module.scss'
 
@@ -36,6 +36,11 @@ export const Release: React.FC = () => {
   }, [params])
 
   const [loaded, setLoaded] = useState(false)
+  const [expand, toggleExpand] = useState(false)
+
+  const description = title?.description
+    ? title.description.replaceAll('\n', '<br />').replaceAll('<br /><br />', '<br />')
+    : 'Описание отсутствует'
 
   return error ? (
     <span>{error}</span>
@@ -82,16 +87,22 @@ export const Release: React.FC = () => {
               {title.team.translator.join(', ')}
             </p>
             <p
-              // ? truncateString(title.description.replaceAll('\n', '<br />'), 500)
               className={s.description}
               dangerouslySetInnerHTML={{
-                __html: title.description
-                  ? title.description
-                      .replaceAll('\n', '<br />')
-                      .replaceAll('<br /><br />', '<br />')
-                  : 'Описание отсутствует',
+                __html:
+                  description.length > 500 && !expand
+                    ? truncateString(description, 500)
+                    : description,
               }}
             />
+            {description.length > 500 && (
+              <button
+                onClick={() => toggleExpand(!expand)}
+                className={cn(s.expand, expand && s.expand_flip)}
+              >
+                &#10218;
+              </button>
+            )}
           </div>
         )}
         {isLoading || !title ? (
