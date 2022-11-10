@@ -1,0 +1,51 @@
+@import 'src/styles/_mixins';
+
+.content {
+  width: 100%;
+  display: flex;
+  align-self: flex-start;
+  flex-direction: column;
+}
+
+.youtube {
+  --item-width: 290px;
+
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, var(--item-width));
+  gap: var(--whrapper-padding);
+  justify-content: center;
+
+  .link {
+    position: relative;
+    height: 162px;
+
+    @include background-image-position($size: cover);
+    border-radius: $border-radius;
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    img {
+      visibility: hidden;
+    }
+  }
+
+  @media (min-width: $biggest-desktop) {
+    --item-width: 384px;
+
+    .link {
+      height: 216px;
+    }
+  }
+
+  @media (min-width: 1600px) {
+    --item-width: 480px;
+
+    .link {
+      height: 270px;
+    }
+  }
+}

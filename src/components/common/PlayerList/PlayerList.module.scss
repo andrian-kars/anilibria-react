@@ -1,0 +1,41 @@
+@import 'src/styles/_mixins';
+@import 'src/styles/_variables';
+
+.content {
+  margin-top: var(--whrapper-padding);
+}
+
+.series {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: var(--whrapper-padding);
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 31px;
+    height: 31px;
+    line-height: 0;
+    background-color: $active-and-input-color;
+    color: $super-white-color;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $btn-color;
+    }
+  }
+
+  .active {
+    background-color: $btn-color;
+  }
+
+  @media (min-width: $tablet) {
+    button {
+      width: 41px;
+      height: 41px;
+      font-size: 1.21rem;
+    }
+  }
+}

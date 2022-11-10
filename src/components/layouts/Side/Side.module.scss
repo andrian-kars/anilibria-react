@@ -1,0 +1,86 @@
+@import 'src/styles/_mixins';
+@import 'src/styles/_variables';
+
+.overlay {
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  @media (min-width: $whole-content) {
+    display: none;
+  }
+}
+
+.side {
+  background-color: $background-layout;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--right-section-width);
+  padding: calc(var(--header-height) + var(--whrapper-padding)) var(--whrapper-padding)
+    var(--whrapper-padding);
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  z-index: $nice-index;
+  @include hide();
+  // make scrollable but hide scroll
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+  &::-webkit-scrollbar {
+    width: 0 !important;
+  }
+
+  @media (min-width: $whole-content) {
+    @include show();
+  }
+}
+
+.showMobile {
+  @include show();
+}
+
+.animes {
+  // --anime-height: 362px;
+
+  // min-height: 300vh;
+  // box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--whrapper-padding);
+
+  @media (min-width: $biggest-desktop) {
+    gap: var(--whrapper-padding);
+  }
+
+  &::after {
+    content: '  d';
+    color: transparent;
+  }
+
+  button {
+    margin: 0 auto -10px;
+  }
+}
+
+.animeItem {
+  display: flex;
+  width: 208px;
+  height: 296px;
+  border: 2px solid $btn-color;
+  border-radius: $border-radius;
+
+  &:hover {
+    border: 2px solid $btn-hover-color;
+  }
+
+  @media (min-width: $tablet) {
+    width: 254px !important;
+    height: 362px !important;
+  }
+}

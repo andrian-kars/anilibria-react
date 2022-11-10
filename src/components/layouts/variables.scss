@@ -1,0 +1,36 @@
+@import 'src/styles/_mixins';
+@import 'src/styles/_variables';
+
+:root {
+  --header-height: 46px;
+  --right-section-width: 228px;
+  --left-section-width: 76px;
+  --whrapper-padding: 10px;
+  --main-padding: calc(var(--header-height) + var(--whrapper-padding)) var(--whrapper-padding)
+    var(--whrapper-padding) var(--whrapper-padding);
+
+  @media (min-width: $tablet) {
+    --right-section-width: 284px;
+    --header-height: 60px;
+    --left-section-width: 76px;
+    --main-padding: calc(var(--header-height) + var(--whrapper-padding)) var(--whrapper-padding)
+      var(--whrapper-padding) calc(var(--left-section-width) + var(--whrapper-padding));
+  }
+
+  @media (min-width: $desktop) {
+    --header-height: 76px;
+  }
+
+  @media (min-width: $biggest-desktop) {
+    --whrapper-padding: 15px;
+    --left-section-width: 284px;
+  }
+
+  @media (min-width: $whole-content) {
+    --main-padding: calc(var(--header-height) + var(--whrapper-padding))
+      calc(var(--right-section-width) + var(--whrapper-padding)) var(--whrapper-padding)
+      calc(var(--left-section-width) + var(--whrapper-padding));
+  }
+}
+
+$main-padding: var(--main-padding);

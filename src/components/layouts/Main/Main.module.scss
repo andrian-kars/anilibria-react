@@ -1,0 +1,12 @@
+@import 'src/styles/themes';
+@import './../variables';
+
+.main {
+  position: relative;
+  @include flex();
+  width: 100%;
+  min-height: 100vh;
+  padding: $main-padding;
+  transition: $theme-transition;
+  color: $white-color;
+}

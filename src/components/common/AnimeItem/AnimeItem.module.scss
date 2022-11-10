@@ -1,0 +1,93 @@
+@import 'src/styles/_mixins';
+@import 'src/styles/_variables';
+
+:root {
+  --anime-item-width: 249px;
+  --anime-item-height: 356px;
+
+  @media (min-width: $desktop) {
+    --anime-item-width: 350px;
+    --anime-item-height: 500px;
+  }
+}
+
+.whrapper {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  border-radius: $border-radius;
+
+  &:hover {
+    .overlay {
+      display: block;
+    }
+  }
+}
+
+.overlay {
+  display: none;
+  @include stretch-absolute();
+  background-color: $black-color;
+  background-color: rgba($color: #000000, $alpha: 0.8);
+}
+
+.image {
+  width: var(--anime-item-width);
+  height: auto;
+  width: 100%;
+  border-radius: $border-radius;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: var(--whrapper-padding);
+  text-align: center;
+  height: 100%;
+}
+
+.title {
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 1.125rem;
+
+  @media (min-width: $desktop) {
+    font-size: 1.25rem;
+  }
+}
+
+.episodes {
+  margin-bottom: 10px;
+  font-size: 1rem;
+
+  @media (min-width: $desktop) {
+    font-size: 1.125rem;
+  }
+}
+
+.description {
+  overflow: hidden;
+  font-size: 15px;
+  line-height: 18px;
+
+  @media (min-width: $desktop) {
+    font-size: 17px;
+  }
+  margin-bottom: 34px;
+}
+
+.download {
+  position: absolute;
+  bottom: $gap;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $btn-color;
+  padding: 4px var(--whrapper-padding);
+  font-size: $smaller-font;
+  z-index: $nice-index;
+  border-radius: $border-radius;
+
+  &:hover {
+    background-color: $btn-hover-color;
+  }
+}

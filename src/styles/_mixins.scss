@@ -1,0 +1,85 @@
+@import 'src/styles/_variables';
+
+@mixin background-image-position($repeat: no-repeat, $position: center, $size: cover) {
+  background-repeat: #{$repeat};
+  background-position: $position;
+  background-size: $size;
+}
+
+@mixin flex($j: center, $a: center, $f: flex) {
+  display: $f;
+  justify-content: $j;
+  align-items: $a;
+}
+
+@mixin position($position: absolute, $top: 0, $right: 0, $bottom: 0, $left: 0) {
+  position: $position;
+  right: $right;
+  bottom: $bottom;
+  top: $top;
+  left: $left;
+}
+
+@mixin stretch-absolute() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@mixin center-absolute() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin width-height($w, $h: $w) {
+  width: $w;
+  height: $h;
+}
+
+@mixin hide {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 350ms, opacity 350ms;
+}
+
+@mixin show {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 350ms;
+}
+
+@mixin show-right($s, $t) {
+  animation: show-right $s linear;
+
+  @keyframes show-right {
+    0% {
+      transform: translateX($t);
+      animation-timing-function: ease-out;
+    }
+  }
+}
+
+@mixin hide-right($s) {
+  width: 0px;
+  transition: width, $s linear;
+}
+
+@mixin show-bottom($s, $t) {
+  animation: show-bottom $s linear;
+
+  @keyframes show-bottom {
+    0% {
+      transform: translateY($t);
+      animation-timing-function: ease-out;
+    }
+  }
+}
+
+@mixin hide-bottom($s) {
+  height: 0px;
+  transition: height, $s linear;
+}

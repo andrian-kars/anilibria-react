@@ -1,0 +1,117 @@
+@import 'src/styles/_mixins';
+@import 'src/styles/_variables';
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  align-items: center;
+}
+
+.headings {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: var(--whrapper-padding);
+}
+
+.heading {
+  &::after {
+    content: ' /';
+  }
+
+  &:last-child {
+    &::after {
+      content: none;
+    }
+  }
+
+  padding-right: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.main {
+  width: 100%;
+  max-width: 1400px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--whrapper-padding);
+  gap: calc(var(--whrapper-padding) * 5);
+}
+
+.info {
+  flex-basis: 100%;
+
+  @media (min-width: $tablet) {
+    flex-basis: calc(100% - var(--anime-item-width) - (var(--whrapper-padding) * 5));
+  }
+}
+
+.poster {
+  display: none;
+  width: var(--anime-item-width);
+  height: var(--anime-item-height);
+  border: 2px solid $btn-color;
+  border-radius: $border-radius;
+
+  @media (min-width: $tablet) {
+    display: block;
+  }
+
+  @media (min-width: $desktop) {
+    border-width: 4px;
+  }
+}
+
+.description {
+  margin-top: var(--whrapper-padding);
+}
+
+.type {
+  text-transform: capitalize;
+}
+
+.skeletonHeader {
+  height: 34px;
+  width: 100%;
+}
+
+.skeletonText {
+  width: 30px;
+  height: 30px;
+}
+
+.bottomSkeleton {
+  margin-top: 10px;
+}
+
+.playerSkeleton {
+  margin-top: 10px;
+  height: 200px;
+
+  @media (min-width: $tablet) {
+    height: 350px;
+  }
+
+  @media (min-width: $desktop) {
+    height: 500px;
+  }
+}
+
+.episodesSkeleton {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+
+  div {
+    width: 41px;
+    height: 41px;
+  }
+}

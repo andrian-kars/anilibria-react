@@ -1,0 +1,33 @@
+@import 'src/styles/_mixins';
+@import 'src/styles/_variables';
+
+.content {
+  width: 100%;
+  font-size: 0.875rem;
+  align-self: start;
+
+  @media (min-width: $tablet) {
+    font-size: 1rem;
+  }
+}
+
+.showFilter {
+  margin: 0 auto var(--whrapper-padding);
+
+  @media (min-width: 652px) {
+    display: none;
+  }
+}
+
+.animes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, var(--anime-item-width));
+  justify-content: center;
+  gap: var(--whrapper-padding);
+}
+
+.animeItemSkeleton {
+  width: var(--anime-item-width);
+  height: var(--anime-item-height);
+  border-radius: $border-radius;
+}

@@ -1,0 +1,7 @@
+@import 'src/styles/_mixins';
+@import 'src/styles/_variables';
+
+.button {
+  display: flex;
+  margin: var(--whrapper-padding) auto var(--whrapper-padding);
+}
