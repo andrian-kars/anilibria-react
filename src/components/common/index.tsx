@@ -1,7 +1,0 @@
-export { Burger } from './Burger/Burger'
-export { Heading } from './Heading/Heading'
-export { Error } from './Error/Error'
-export { AnimeItem } from './AnimeItem/AnimeItem'
-export { PaginatorKostyl } from './PaginatorKostyl/PaginatorKostyl'
-export { Button } from './Button/Button'
-export { Player } from './Player/Player'

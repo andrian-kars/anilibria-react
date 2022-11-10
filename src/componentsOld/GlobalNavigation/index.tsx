@@ -1,1 +1,0 @@
-export { GlobalNavigation } from './GlobalNavigation'
