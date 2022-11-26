@@ -27,9 +27,10 @@ export const ReleasePage = () => {
     : 'Описание отсутствует';
 
   const player = useMemo(() => title?.player, [isLoading, params]);
+  const titleName = title ? title.names[0] : 'Загрузка...';
 
   useEffect(() => {
-    document.title = title?.names[0];
+    document.title = titleName;
   }, [title]);
 
   return (
@@ -114,7 +115,7 @@ export const ReleasePage = () => {
             <div className={cn(s.playerSkeleton, 'skeleton')}></div>
           </div>
         ) : (
-          <PlayerList player={player} />
+          <PlayerList player={player} titleName={titleName} />
         )}
       </div>
     </section>
