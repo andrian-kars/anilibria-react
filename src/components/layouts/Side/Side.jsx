@@ -19,7 +19,8 @@ export const Side = () => {
 
       {
         getPreviousPageParam: (firstPage) => firstPage.previousId ?? undefined,
-        getNextPageParam: (_, allPages) => allPages.length * 12,
+        // studip api bugs again, change 5 to 12 after it gets fexed
+        getNextPageParam: (_, allPages) => allPages.length * 5,
       },
     );
 
