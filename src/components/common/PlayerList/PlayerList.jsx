@@ -1,19 +1,21 @@
-import { memo, useState } from 'react';
+import { memo, useState, useContext, useEffect } from 'react';
 import { Player } from '../Player/Player';
 import s from './PlayerList.module.scss';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
-import { useLocalStorage, useEffectOnce } from 'src/hooks';
+import { ReleaseContext } from 'src/context';
 
-export const PlayerList = memo(({ player, titleName }) => {
+export const PlayerList = memo(({ player, titleName, titleCode }) => {
   const playList = Object.values(player.playlist);
 
-  const [recentAnimes, setRecentAnimes] = useLocalStorage('recentAnimes', []);
+  const { recentAnimes, releaseActions } = useContext(ReleaseContext);
   const lastEpisode = recentAnimes.find((el) => el.titleName === titleName)?.choosenEpisode || 0;
   const [choosenEpisode, setChoosenEpisode] = useState(lastEpisode);
 
-  useEffectOnce(() => {
-    handleStorageUpdate(choosenEpisode);
+  useEffect(() => {
+    if (recentAnimes[0].titleCode !== titleCode) {
+      handleStorageUpdate(choosenEpisode);
+    }
   });
 
   function handleEpisodeChange(newEpisode) {
@@ -22,10 +24,7 @@ export const PlayerList = memo(({ player, titleName }) => {
   }
 
   function handleStorageUpdate(episode) {
-    setRecentAnimes((prev) => {
-      const prevFiltered = prev.filter((el) => el.titleName !== titleName);
-      return [...prevFiltered, { titleName, choosenEpisode: episode }];
-    });
+    releaseActions.setReleaseToListTop({ titleName, choosenEpisode: episode, titleCode });
   }
 
   return (
@@ -55,4 +54,5 @@ export const PlayerList = memo(({ player, titleName }) => {
 PlayerList.propTypes = {
   player: PropTypes.shape().isRequired,
   titleName: PropTypes.string.isRequired,
+  titleCode: PropTypes.string.isRequired,
 };

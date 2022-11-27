@@ -115,7 +115,7 @@ export const ReleasePage = () => {
             <div className={cn(s.playerSkeleton, 'skeleton')}></div>
           </div>
         ) : (
-          <PlayerList player={player} titleName={titleName} />
+          <PlayerList player={player} titleName={titleName} titleCode={title.code} />
         )}
       </div>
     </section>

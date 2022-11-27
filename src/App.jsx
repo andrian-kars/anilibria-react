@@ -12,7 +12,7 @@ import { Header, Main } from './components/layouts';
 import './styles/index.scss';
 import { useEffectOnce, usePlayer } from 'src/hooks';
 import { themeAdapter } from 'src/helpers/adapters';
-import { SidesProvider } from 'src/context/SidesContext';
+import { SidesProvider, ReleaseProvider } from 'src/context';
 
 export const App = () => {
   usePlayer();
@@ -27,17 +27,19 @@ export const App = () => {
 
   return (
     <SidesProvider>
-      <Header />
-      <Main>
-        <Routes>
-          <Route path="/" element={<InitialPage />} />
-          <Route path="/catalog" element={<CatalogPage />} />
-          <Route path="/release/:titleCode" element={<ReleasePage />} />
-          <Route path="/schedule" element={<SchedulePage />} />
-          <Route path="/team" element={<TeamPage />} />
-          <Route path="*" element={<ErrorPage errorCode={ERROR_CODE_404} />} />
-        </Routes>
-      </Main>
+      <ReleaseProvider>
+        <Header />
+        <Main>
+          <Routes>
+            <Route path="/" element={<InitialPage />} />
+            <Route path="/catalog" element={<CatalogPage />} />
+            <Route path="/release/:titleCode" element={<ReleasePage />} />
+            <Route path="/schedule" element={<SchedulePage />} />
+            <Route path="/team" element={<TeamPage />} />
+            <Route path="*" element={<ErrorPage errorCode={ERROR_CODE_404} />} />
+          </Routes>
+        </Main>
+      </ReleaseProvider>
     </SidesProvider>
   );
 };

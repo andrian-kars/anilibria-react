@@ -4,14 +4,16 @@ import s from './Navigation.module.scss';
 import PropTypes from 'prop-types';
 import { getRandom } from 'src/api/titleService';
 
-export const NavigationItem = ({ to, text, svg, onClick = null }) => {
+export const NavigationItem = ({ to, text, svg = null, onClick = null }) => {
   const navigate = useNavigate();
 
   const content = (
     <>
-      <svg>
-        <use href={`#${svg}`}></use>
-      </svg>
+      {svg && (
+        <svg>
+          <use href={`#${svg}`}></use>
+        </svg>
+      )}
       <span className={s.description}>{text}</span>
     </>
   );
@@ -56,6 +58,6 @@ export const NavigationItem = ({ to, text, svg, onClick = null }) => {
 NavigationItem.propTypes = {
   to: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  svg: PropTypes.string.isRequired,
+  svg: PropTypes.string,
   onClick: PropTypes.func,
 };

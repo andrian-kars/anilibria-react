@@ -83,3 +83,9 @@
   height: 0px;
   transition: height, $s linear;
 }
+
+@mixin ellipsis() {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

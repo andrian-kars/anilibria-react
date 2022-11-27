@@ -22,17 +22,29 @@
 }
 
 .description {
-  line-height: 0;
   display: none;
-  width: 12.5rem;
 
   @media (min-width: $biggest-desktop) {
     display: inline;
+    @include ellipsis();
   }
 }
 
 .whrapper {
   padding: var(--whrapper-padding);
+}
+
+.recentAnimes {
+  display: none;
+
+  @media (min-width: $biggest-desktop) {
+    display: block;
+  }
+
+  li a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 }
 
 .item {
@@ -73,10 +85,6 @@
       margin-right: 0.625rem;
     }
   }
-}
-
-.item:nth-child(6) {
-  margin-top: var(--whrapper-padding);
 }
 
 .active {
