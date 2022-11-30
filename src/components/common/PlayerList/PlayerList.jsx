@@ -13,10 +13,10 @@ export const PlayerList = memo(({ player, titleName, titleCode }) => {
   const [choosenEpisode, setChoosenEpisode] = useState(lastEpisode);
 
   useEffect(() => {
-    if (recentAnimes[0].titleCode !== titleCode) {
+    if (recentAnimes[0]?.titleCode !== titleCode) {
       handleStorageUpdate(choosenEpisode);
     }
-  });
+  }, [titleName]);
 
   function handleEpisodeChange(newEpisode) {
     setChoosenEpisode(newEpisode);

@@ -10,7 +10,6 @@ export const ReleaseProvider = ({ children }) => {
   const releaseActions = {
     setReleaseToListTop: ({ titleName, choosenEpisode, titleCode }) => {
       setRecentAnimes((prev) => {
-        console.log('trigger');
         const prevFiltered = prev.filter((el) => el.titleName !== titleName);
         return [{ titleName, choosenEpisode, titleCode }, ...prevFiltered];
       });
