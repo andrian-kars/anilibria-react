@@ -1,0 +1,22 @@
+@import 'src/styles/_variables';
+@import 'src/styles/_mixins';
+
+.button {
+  svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include width-height(28px);
+    fill: $white-color !important;
+    cursor: pointer;
+    transition: $simple-transition;
+
+    @media (min-width: $tablet) {
+      @include width-height(34px);
+    }
+
+    &:hover {
+      fill: $btn-color !important;
+    }
+  }
+}

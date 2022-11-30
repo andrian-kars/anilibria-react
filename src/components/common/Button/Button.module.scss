@@ -6,11 +6,16 @@
   color: $super-white-color;
   background-color: $btn-color;
   border-radius: $border-radius;
-  font-size: 0.875rem;
-  height: 2rem;
-  padding: 0 1.5rem;
+  font-size: 0.8rem;
+  height: 1.7rem;
+  padding: 0 1.2rem;
   transition: $simple-transition;
   cursor: pointer;
+
+  @media (min-width: $tablet) {
+    font-size: 0.875rem;
+    height: 2rem;
+  }
 
   &:hover {
     background-color: $btn-hover-color;
