@@ -40,6 +40,9 @@ export const NavigationItem = ({ to, text, svg = null, onClick = null }) => {
           onClick={onClick}
         >
           {content}
+          <svg className={cn(s.externalSvg, s.description)}>
+            <use href="#external"></use>
+          </svg>
         </a>
       ) : (
         <NavLink

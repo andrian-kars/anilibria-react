@@ -6,6 +6,7 @@ export const ReleaseContext = createContext(null);
 
 export const ReleaseProvider = ({ children }) => {
   const [recentAnimes, setRecentAnimes] = useLocalStorage('recentAnimes', []);
+  const [favouriteAnimes, setFavouriteAnimes] = useLocalStorage('favouriteAnimes', []);
 
   const releaseActions = {
     setReleaseToListTop: ({ titleName, choosenEpisode, titleCode }) => {
@@ -14,10 +15,19 @@ export const ReleaseProvider = ({ children }) => {
         return [{ titleName, choosenEpisode, titleCode }, ...prevFiltered];
       });
     },
+    setFavouriteToListTop: ({ titleName, titleCode }) => {
+      setFavouriteAnimes((prev) => {
+        const prevFiltered = prev.filter((el) => el.titleName !== titleName);
+        return [{ titleName, titleCode }, ...prevFiltered];
+      });
+    },
+    removeFavourite: (titleCode) => {
+      setFavouriteAnimes((prev) => prev.filter((el) => el.titleCode !== titleCode));
+    },
   };
 
   return (
-    <ReleaseContext.Provider value={{ recentAnimes, releaseActions }}>
+    <ReleaseContext.Provider value={{ recentAnimes, favouriteAnimes, releaseActions }}>
       {children}
     </ReleaseContext.Provider>
   );

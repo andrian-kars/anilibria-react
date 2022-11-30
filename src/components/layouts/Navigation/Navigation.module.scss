@@ -34,6 +34,12 @@
   padding: var(--whrapper-padding);
 }
 
+.externalSvg {
+  height: 14px !important;
+  width: 14px !important;
+  margin-left: 0.625rem;
+}
+
 .recentAnimes {
   display: none;
 
@@ -79,6 +85,7 @@
 
   svg {
     @include width-height(20px);
+    min-width: 20px;
     fill: $white-color;
 
     @media (min-width: $biggest-desktop) {
@@ -93,5 +100,18 @@
 
   svg {
     fill: $btn-color !important;
+  }
+}
+
+.button {
+  display: flex;
+  margin: var(--whrapper-padding) auto 0;
+
+  svg {
+    @include width-height(24px !important);
+
+    @media (min-width: $tablet) {
+      @include width-height(30px);
+    }
   }
 }
