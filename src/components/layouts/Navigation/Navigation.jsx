@@ -52,7 +52,7 @@ export const Navigation = () => {
           ))}
         </ul>
       ))}
-      {favouriteAnimes.length ? (
+      {favouriteAnimes && (
         <ul className={cn(s.whrapper, s.recentAnimes)}>
           {favouriteAnimes.slice(0, 7).map(({ titleCode, titleName }) => (
             <NavigationItem
@@ -64,10 +64,10 @@ export const Navigation = () => {
             />
           ))}
         </ul>
-      ) : null}
-      {recentAnimes.length ? (
+      )}
+      {recentAnimes && (
         <ul className={cn(s.whrapper, s.recentAnimes)}>
-          {recentAnimes.slice(0, favouriteAnimes.length ? 5 : 7).map(({ titleCode, titleName }) => (
+          {recentAnimes.slice(0, favouriteAnimes ? 5 : 7).map(({ titleCode, titleName }) => (
             <NavigationItem
               key={titleCode}
               to={`/release/${titleCode}`}
@@ -77,8 +77,8 @@ export const Navigation = () => {
             />
           ))}
         </ul>
-      ) : null}
-      {(favouriteAnimes.length || recentAnimes.length) && (
+      )}
+      {(favouriteAnimes || recentAnimes) && (
         <ButtonSvg
           className={s.button}
           onClick={handleSettingsClick}

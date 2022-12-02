@@ -12,3 +12,8 @@ export const ERROR_CODE_502 = '502';
 export const ERROR_CODE_503 = '503';
 // timers
 export const MODAL_ANIMATION_TIME = 300;
+// pages
+
+// storage
+export const STORAGE_RECENT_ANIMES = 'recentAnimes';
+export const STORAGE_FAVOURITE_ANIMES = 'favouriteAnimes';

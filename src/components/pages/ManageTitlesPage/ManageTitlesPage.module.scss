@@ -1,0 +1,57 @@
+@import 'src/styles/_mixins';
+@import 'src/styles/_variables';
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  align-items: center;
+  gap: var(--whrapper-padding);
+}
+
+.heading {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.team {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--whrapper-padding);
+}
+
+.dayName {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 8px 0 7px;
+  background-color: $background-layout;
+  border-radius: $border-radius;
+}
+
+.names {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--whrapper-padding);
+  align-items: center;
+}
+
+.title {
+  display: flex;
+}
+
+.svg {
+  @include width-height(20px !important);
+}
+
+.link {
+  transition: $simple-transition;
+
+  &:hover {
+    color: $btn-color;
+  }
+}

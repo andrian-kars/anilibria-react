@@ -6,6 +6,7 @@ import {
   ReleasePage,
   SchedulePage,
   TeamPage,
+  ManageTitlesPage,
 } from 'src/components/pages';
 import { ERROR_CODE_404 } from 'src/constants';
 import { Header, Main } from './components/layouts';
@@ -36,6 +37,7 @@ export const App = () => {
             <Route path="/release/:titleCode" element={<ReleasePage />} />
             <Route path="/schedule" element={<SchedulePage />} />
             <Route path="/team" element={<TeamPage />} />
+            <Route path="/ManageTitles" element={<ManageTitlesPage />} />
             <Route path="*" element={<ErrorPage errorCode={ERROR_CODE_404} />} />
           </Routes>
         </Main>

@@ -8,6 +8,7 @@ import s from './ReleasePage.module.scss';
 import { ErrorPage } from '../ErrorPage/ErrorPage';
 import { ERROR_CODE_500 } from 'src/constants';
 import { ReleaseContext } from 'src/context';
+import { STORAGE_FAVOURITE_ANIMES } from 'src/constants';
 
 const MOCKS_FOR_SKELETON = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12];
 
@@ -15,7 +16,7 @@ export const ReleasePage = () => {
   const params = useParams().titleCode;
 
   const { favouriteAnimes, releaseActions } = useContext(ReleaseContext);
-  const isAnimeInFav = Boolean(favouriteAnimes.find((anime) => anime.titleCode === params));
+  const isAnimeInFav = Boolean(favouriteAnimes?.find((anime) => anime.titleCode === params));
   const {
     data: title,
     error: queryError,
@@ -38,7 +39,7 @@ export const ReleasePage = () => {
 
   function handleSaveClick() {
     isAnimeInFav
-      ? releaseActions.removeFavourite(params)
+      ? releaseActions.deleteAnime(STORAGE_FAVOURITE_ANIMES, params)
       : releaseActions.setFavouriteToListTop({ titleName, titleCode: params });
   }
 

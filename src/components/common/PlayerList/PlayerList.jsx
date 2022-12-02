@@ -9,12 +9,12 @@ export const PlayerList = memo(({ player, titleName, titleCode }) => {
   const playList = Object.values(player.playlist);
 
   const { recentAnimes, releaseActions } = useContext(ReleaseContext);
-  const lastEpisode = recentAnimes.find((el) => el.titleName === titleName)?.choosenEpisode || 0;
+  const lastEpisode = recentAnimes?.find((el) => el.titleName === titleName)?.choosenEpisode || 0;
   const [choosenEpisode, setChoosenEpisode] = useState(lastEpisode);
 
   useEffect(() => {
-    if (recentAnimes[0]?.titleCode !== titleCode) {
-      handleStorageUpdate(choosenEpisode);
+    if (recentAnimes === null || recentAnimes[0]?.titleCode !== titleCode) {
+      handleEpisodeChange(lastEpisode);
     }
   }, [titleName]);
 
