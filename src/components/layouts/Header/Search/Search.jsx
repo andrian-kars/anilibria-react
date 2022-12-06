@@ -3,11 +3,13 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { getSearchResults } from 'src/api/titleService';
+import { useIntl } from 'react-intl';
 
 export const Search = () => {
   const [searchValue, setValue] = useState('');
 
   const [showResults, setShowResult] = useState(false);
+  const { formatMessage } = useIntl();
 
   const { data: searchResults, error: queryError } = useQuery(['search', searchValue], () => {
     if (searchValue.length > 2) {
@@ -18,7 +20,7 @@ export const Search = () => {
 
   const error = queryError || searchResults?.error?.code;
 
-  if (error) return <div>error</div>;
+  if (error) return <div>{formatMessage({ id: 'search.Error' })}</div>;
 
   return (
     <div
@@ -41,15 +43,15 @@ export const Search = () => {
           }
         }}
         type="text"
-        placeholder="Найти по названию"
-        title="Поиск от 3 символов"
+        placeholder={formatMessage({ id: 'search.placeholder' })}
+        title={formatMessage({ id: 'search.title' })}
       />
       {showResults && (
         <ul>
           {searchValue < 2 ? (
-            <span>Поиск от 3 символов</span>
+            <span>{formatMessage({ id: 'search.title' })}</span>
           ) : searchResults?.length === 0 ? (
-            <span>Ничего не найдено</span>
+            <span>{formatMessage({ id: 'search.nothingFound' })}</span>
           ) : (
             searchResults?.map((el) => (
               <li key={el.names.ru}>

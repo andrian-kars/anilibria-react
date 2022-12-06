@@ -1,6 +1,6 @@
 export const common = Object.freeze({
-  appName: 'Новела',
-  title: 'Новела',
+  appName: 'Anilibria',
+  title: 'Anilibria - так звучить аніме',
   'error.400.title': 'Невірний запит',
   'error.400.subTitle': 'The server cannot process your request.',
   'error.403.title': 'Заборонено.',
@@ -16,4 +16,10 @@ export const common = Object.freeze({
   'error.default.title': 'Невідома помилка.',
   'error.default.subTitle': 'Відбулась невідома помилка.',
   themeSwitchHeader: 'Теми',
+  // manage titles
+  'manageTitlePage.title': 'Тут ти можеш керувати тайтлами',
+  'manageTitlePage.favorite': 'Улюблені тайтли',
+  'manageTitlePage.recentlyReleased': 'Недавні релізи',
+  'manageTitlePage.removeTitle': 'Видалити тайтли',
+  'manageTitlePage.void': 'відсутні',
 });

@@ -55,3 +55,10 @@
     color: $btn-color;
   }
 }
+
+.themeSwitchWrapper {
+  width: 100%;
+}
+.themeSwitchContainer {
+  @include flex();
+}

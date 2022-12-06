@@ -16,4 +16,15 @@ export const common = Object.freeze({
   'error.default.title': 'Невідома помилка.',
   'error.default.subTitle': 'Відбулась невідома помилка.',
   themeSwitchHeader: 'Теми',
+  // manage titles
+  'manageTitlePage.title': 'Тут ти можеш керувати тайтлами',
+  'manageTitlePage.favorite': 'Улюблені тайтли',
+  'manageTitlePage.recentlyReleased': 'Недавні релізи',
+  'manageTitlePage.removeTitle': 'Видалити тайтли',
+  'manageTitlePage.void': 'відсутні',
+  // search
+  'search.placeholder': 'Знайти по назві',
+  'search.title': 'Пошук від 3 симолів',
+  'search.nothingFound': 'Нічого не знайдено',
+  'search.Error': 'Помилка',
 });
