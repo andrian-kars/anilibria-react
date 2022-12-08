@@ -1,9 +1,9 @@
 import { Text, Heading } from 'src/components/common';
-import s from './ManageTitlesPage.module.scss';
+import s from './SettingsPage.module.scss';
 import { ReleaseContext } from 'src/context';
 import { useContext, useState } from 'react';
 import { themeAdapter } from 'src/helpers/adapters';
-import { ManageTitlesPageSvgs } from './ManageTitlesPageSvgs';
+import { SettingsPageSvgs } from './SettingsPageSvgs';
 import { ButtonSvg } from 'src/components/common';
 import { STORAGE_RECENT_ANIMES, STORAGE_FAVOURITE_ANIMES } from 'src/constants';
 import { NavLink } from 'react-router-dom';
@@ -31,18 +31,19 @@ const BACKGROUND_THEME_CHOICES = [
   },
 ];
 
-export const ManageTitlesPage = () => {
+export const SettingsPage = () => {
   const { recentAnimes, favouriteAnimes, releaseActions } = useContext(ReleaseContext);
   const { formatMessage } = useIntl();
+
   const [theme, setTheme] = useState(themeAdapter.theme);
 
-  function handleAnimesClear(type) {
+  const handleAnimesClear = (type) => {
     releaseActions.clearAnimes(type);
-  }
+  };
 
-  function handleAnimeDelete(type, code) {
+  const handleAnimeDelete = (type, code) => {
     releaseActions.deleteAnime(type, code);
-  }
+  };
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -59,12 +60,13 @@ export const ManageTitlesPage = () => {
 
   return (
     <section className={s.content}>
-      <ManageTitlesPageSvgs />
+      <SettingsPageSvgs />
       <Heading
         type="h3"
         content={formatMessage({ id: 'manageTitlePage.title' }).toUpperCase()}
         className={s.heading}
       />
+
       {[
         {
           type: STORAGE_FAVOURITE_ANIMES,
@@ -77,47 +79,47 @@ export const ManageTitlesPage = () => {
           items: recentAnimes,
         },
       ].map(({ name, items, type }) => (
-        <>
-          <div key={name} className={s.team}>
-            <div className={s.dayName}>
-              <Text>{name}</Text>
-              {items && (
-                <ButtonSvg
-                  onClick={() => handleAnimesClear(type)}
-                  title={formatMessage({ id: 'manageTitlePage.removeTitle' })}
-                >
-                  <svg className={s.svg}>
-                    <use href="#clear"></use>
-                  </svg>
-                </ButtonSvg>
-              )}
-            </div>
-            <div className={s.names}>
-              {items ? (
-                items.map(({ titleCode, titleName }) => (
-                  <div className={s.title} key={titleCode}>
-                    <NavLink title={titleName} className={s.link} to={`/release/${titleCode}`}>
-                      {titleName}
-                    </NavLink>
-                    <ButtonSvg
-                      onClick={() => handleAnimeDelete(type, titleCode)}
-                      title={formatMessage({ id: 'manageTitlePage.removeTitle' })}
-                    >
-                      <svg className={s.svg}>
-                        <use href="#delete"></use>
-                      </svg>
-                    </ButtonSvg>
-                  </div>
-                ))
-              ) : (
-                <div>
-                  {name} {formatMessage({ id: 'manageTitlePage.void' })}
-                </div>
-              )}
-            </div>
+        <div key={name} className={s.team}>
+          <div className={s.dayName}>
+            <Text>{name}</Text>
+            {items && (
+              <ButtonSvg
+                onClick={() => handleAnimesClear(type)}
+                title={formatMessage({ id: 'manageTitlePage.removeTitle' })}
+              >
+                <svg className={s.svg}>
+                  <use href="#clear"></use>
+                </svg>
+              </ButtonSvg>
+            )}
           </div>
-        </>
+
+          <div className={s.names}>
+            {items ? (
+              items.map(({ titleCode, titleName }) => (
+                <div className={s.title} key={titleCode}>
+                  <NavLink title={titleName} className={s.link} to={`/release/${titleCode}`}>
+                    {titleName}
+                  </NavLink>
+                  <ButtonSvg
+                    onClick={() => handleAnimeDelete(type, titleCode)}
+                    title={formatMessage({ id: 'manageTitlePage.removeTitle' })}
+                  >
+                    <svg className={s.svg}>
+                      <use href="#delete"></use>
+                    </svg>
+                  </ButtonSvg>
+                </div>
+              ))
+            ) : (
+              <div>
+                {name} {formatMessage({ id: 'manageTitlePage.void' })}
+              </div>
+            )}
+          </div>
+        </div>
       ))}
+
       <div onChange={onChangeHandler} className={s.team}>
         <p>{formatMessage({ id: 'themeSwitchHeader' })}</p>
         <div className={s.themeSwitchContainer}>

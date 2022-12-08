@@ -1,4 +1,4 @@
-export const ManageTitlesPageSvgs = () => (
+export const SettingsPageSvgs = () => (
   <svg display="none">
     <symbol id="clear" viewBox="0 0 512 512">
       <svg
