@@ -27,4 +27,10 @@ export const common = Object.freeze({
   'search.title': 'Пошук від 3 симолів',
   'search.nothingFound': 'Нічого не знайдено',
   'search.Error': 'Помилка',
+  //nav
+  'nav.main': 'Головна',
+  'nav.catalog': 'Релізи',
+  'nav.schedule': 'Розклад',
+  'nav.random': 'Випадкове',
+  'nav.team': 'Команда',
 });

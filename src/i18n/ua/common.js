@@ -22,4 +22,10 @@ export const common = Object.freeze({
   'manageTitlePage.recentlyReleased': 'Недавні релізи',
   'manageTitlePage.removeTitle': 'Видалити тайтли',
   'manageTitlePage.void': 'відсутні',
+  //nav
+  'nav.main': 'Головна',
+  'nav.catalog': 'Релізи',
+  'nav.schedule': 'Розклад',
+  'nav.random': 'Випадкове',
+  'nav.team': 'Команда',
 });

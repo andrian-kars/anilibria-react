@@ -6,20 +6,21 @@ import { NavigationItem } from './NavigationItem';
 import { NavigationSvgs } from './NavigationSvgs';
 import { ButtonSvg } from 'src/components/common';
 import { useNavigate } from 'react-router-dom';
+import { useIntl } from 'react-intl';
 
 const NAV_ITEMS = [
   [
-    { to: '/', text: 'Головна', svg: 'main' },
-    { to: '/catalog', text: 'Релізи', svg: 'catalog' },
-    { to: '/schedule', text: 'Розклад', svg: 'schedule' },
-    { to: '/random', text: 'Випадкове', svg: 'random' },
-    { to: '/team', text: 'Команда', svg: 'team' },
+    { to: '/', textId: 'nav.main', svg: 'main' },
+    { to: '/catalog', textId: 'nav.catalog', svg: 'catalog' },
+    { to: '/schedule', textId: 'nav.schedule', svg: 'schedule' },
+    { to: '/random', textId: 'nav.random', svg: 'random' },
+    { to: '/team', textId: 'nav.team', svg: 'team' },
   ],
   [
-    { to: 'https://anilibria.app', text: 'Додаток', svg: 'app' },
+    { to: 'https://anilibria.app', textId: 'Додаток', svg: 'app' },
     {
       to: 'https://www.anilibria.tv/pages/donate.php',
-      text: 'Підтримати проєкт',
+      textId: 'Підтримати проєкт',
       svg: 'support',
     },
   ],
@@ -27,6 +28,7 @@ const NAV_ITEMS = [
 
 export const Navigation = () => {
   const navigate = useNavigate();
+  const { formatMessage } = useIntl();
 
   const { sides, sidesActions } = useContext(SidesContext);
   const { recentAnimes, favouriteAnimes } = useContext(ReleaseContext);
@@ -45,7 +47,7 @@ export const Navigation = () => {
             <NavigationItem
               key={`${el.to}: ${el.text}`}
               to={el.to}
-              text={el.text}
+              text={formatMessage({ id: el.textId })}
               svg={el.svg}
               onClick={handleModalClose}
             />
@@ -54,7 +56,7 @@ export const Navigation = () => {
       ))}
       {favouriteAnimes && (
         <ul className={cn(s.whrapper, s.recentAnimes)}>
-          {favouriteAnimes.slice(0, 7).map(({ titleCode, titleName }) => (
+          {favouriteAnimes.slice(0, 5).map(({ titleCode, titleName }) => (
             <NavigationItem
               key={titleCode}
               to={`/release/${titleCode}`}

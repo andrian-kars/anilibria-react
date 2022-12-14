@@ -60,6 +60,27 @@ export const SettingsPage = () => {
 
   return (
     <section className={s.content}>
+      <Heading
+        type="h3"
+        content={formatMessage({ id: 'themeSwitchHeader' }).toUpperCase()}
+        className={s.heading}
+      />
+
+      <div onChange={onChangeHandler} className={s.team}>
+        <div className={s.themeSwitchContainer}>
+          {BACKGROUND_THEME_CHOICES.map(({ value, color, backgroundColor, name }) => (
+            <BackgroundRadio
+              key={value}
+              name={name}
+              backgroundColor={backgroundColor}
+              color={color}
+              value={value}
+              defaultChecked={theme.background === value}
+            />
+          ))}
+        </div>
+      </div>
+
       <SettingsPageSvgs />
       <Heading
         type="h3"
@@ -119,22 +140,6 @@ export const SettingsPage = () => {
           </div>
         </div>
       ))}
-
-      <div onChange={onChangeHandler} className={s.team}>
-        <p>{formatMessage({ id: 'themeSwitchHeader' })}</p>
-        <div className={s.themeSwitchContainer}>
-          {BACKGROUND_THEME_CHOICES.map(({ value, color, backgroundColor, name }) => (
-            <BackgroundRadio
-              key={value}
-              name={name}
-              backgroundColor={backgroundColor}
-              color={color}
-              value={value}
-              defaultChecked={theme.background === value}
-            />
-          ))}
-        </div>
-      </div>
     </section>
   );
 };
