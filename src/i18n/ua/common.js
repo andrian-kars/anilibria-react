@@ -28,4 +28,6 @@ export const common = Object.freeze({
   'nav.schedule': 'Розклад',
   'nav.random': 'Випадкове',
   'nav.team': 'Команда',
+  'nav.app': 'Додаток',
+  'nav.support': 'Підтримати проект',
 });

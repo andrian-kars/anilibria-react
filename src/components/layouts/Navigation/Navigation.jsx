@@ -17,10 +17,10 @@ const NAV_ITEMS = [
     { to: '/team', textId: 'nav.team', svg: 'team' },
   ],
   [
-    { to: 'https://anilibria.app', textId: 'Додаток', svg: 'app' },
+    { to: 'https://anilibria.app', textId: 'nav.app', svg: 'app' },
     {
       to: 'https://www.anilibria.tv/pages/donate.php',
-      textId: 'Підтримати проєкт',
+      textId: 'nav.support',
       svg: 'support',
     },
   ],
@@ -36,6 +36,7 @@ export const Navigation = () => {
 
   function handleSettingsClick() {
     navigate('/settings');
+    handleModalClose();
   }
 
   return (

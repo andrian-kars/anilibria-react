@@ -62,7 +62,7 @@ export const SettingsPage = () => {
     <section className={s.content}>
       <Heading
         type="h3"
-        content={formatMessage({ id: 'themeSwitchHeader' }).toUpperCase()}
+        content={formatMessage({ id: 'themeSwitchHeader' })}
         className={s.heading}
       />
 
@@ -84,7 +84,7 @@ export const SettingsPage = () => {
       <SettingsPageSvgs />
       <Heading
         type="h3"
-        content={formatMessage({ id: 'manageTitlePage.title' }).toUpperCase()}
+        content={formatMessage({ id: 'manageTitlePage.title' })}
         className={s.heading}
       />
 
