@@ -9,7 +9,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import ScrollToTop from './helpers/ScrollToTop';
 
 const queryClient = new QueryClient();
-const locale = LOCALES.RUSSIAN;
+const locale = LOCALES.UKRAINIAN;
 
 const root = createRoot(document.getElementById('root'));
 root.render(
