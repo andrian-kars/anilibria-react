@@ -1,6 +1,6 @@
 // import cn from 'classnames';
 import { useState, useEffect } from 'react';
-import s from './LoginPage.module.scss';
+import s from './AuthPage.module.scss';
 import { Text, Heading, Button } from 'src/components/common';
 import { useEffectOnce } from 'src/hooks';
 import store from 'src/store/authStore';
@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 const PAGE_TITLE = 'Логін';
 
-export const LoginPage = observer(() => {
+export const AuthPage = observer(() => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('');

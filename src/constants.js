@@ -2,8 +2,7 @@
 export const NODE_API_URL = 'http://localhost:5069/api/';
 // paths
 export const INITIAL_PAGE_PATH = '/';
-export const LOGIN_PAGE_PATH = '/login';
-export const REGISTRATION_PAGE_PATH = '/registration';
+export const AUTH_PAGE_PATH = '/auth/:authType';
 export const CATALOG_PAGE_PATH = '/catalog';
 export const RELEASE_PAGE_PATH = '/release/:titleCode';
 export const SCHEDULE_PAGE_PATH = '/schedule';

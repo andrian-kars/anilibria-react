@@ -7,14 +7,12 @@ import {
   SchedulePage,
   TeamPage,
   ManageTitlesPage,
-  LoginPage,
-  RegistrationPage,
+  AuthPage,
 } from 'src/components/pages';
 import {
   ERROR_CODE_404,
   INITIAL_PAGE_PATH,
-  LOGIN_PAGE_PATH,
-  REGISTRATION_PAGE_PATH,
+  AUTH_PAGE_PATH,
   CATALOG_PAGE_PATH,
   RELEASE_PAGE_PATH,
   SCHEDULE_PAGE_PATH,
@@ -52,8 +50,7 @@ export const App = observer(() => {
         <Main>
           <Routes>
             <Route path={INITIAL_PAGE_PATH} element={<InitialPage />} />
-            <Route path={LOGIN_PAGE_PATH} element={<LoginPage />} />
-            <Route path={REGISTRATION_PAGE_PATH} element={<RegistrationPage />} />
+            <Route path={AUTH_PAGE_PATH} element={<AuthPage />} />
             <Route path={CATALOG_PAGE_PATH} element={<CatalogPage />} />
             <Route path={RELEASE_PAGE_PATH} element={<ReleasePage />} />
             <Route path={SCHEDULE_PAGE_PATH} element={<SchedulePage />} />
