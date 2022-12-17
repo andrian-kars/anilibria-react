@@ -1,5 +1,3 @@
-// import { Field, Form, Formik } from 'formik';
-// import { NavLink } from 'react-router-dom'
 import Select from 'react-select';
 import s from './CatalogAdvancedSearch.module.scss';
 import { Button } from 'src/components/common';
@@ -33,25 +31,25 @@ export const CatalogAdvancedSearch = ({ setSearchItems, isDisabled }) => {
     releaseFinished: false,
   });
 
-  function handleOptionsUpdate(type, params) {
+  const handleOptionsUpdate = (type, params) => {
     setValues((prev) => ({ ...prev, [type]: params }));
-  }
+  };
 
-  function handleTypeUpdate() {
+  const handleTypeUpdate = () => {
     const newState = { ...values, type: values.type === 'updated' ? 'in_favorites' : 'updated' };
     setValues(newState);
     setSearchItems(newState);
-  }
+  };
 
-  function handleReleaseUpdate() {
+  const handleReleaseUpdate = () => {
     const newState = { ...values, releaseFinished: !values.releaseFinished };
     setValues(newState);
     setSearchItems(newState);
-  }
+  };
 
-  function handleSearch() {
+  const handleSearch = () => {
     setSearchItems(values);
-  }
+  };
 
   return (
     <div className={s.search}>
@@ -74,6 +72,7 @@ export const CatalogAdvancedSearch = ({ setSearchItems, isDisabled }) => {
               onChange={(value) => handleOptionsUpdate('genres', value)}
               isDisabled={isDisabled}
             />
+
             <Select
               className={s.select}
               styles={customSelectStyles}
@@ -89,6 +88,7 @@ export const CatalogAdvancedSearch = ({ setSearchItems, isDisabled }) => {
               onChange={(value) => handleOptionsUpdate('years', value)}
               isDisabled={isDisabled}
             />
+
             <Select
               className={s.select}
               styles={customSelectStyles}
@@ -100,6 +100,7 @@ export const CatalogAdvancedSearch = ({ setSearchItems, isDisabled }) => {
               isDisabled={isDisabled}
             />
           </div>
+
           <div className={s.submits}>
             <Button disabled={isDisabled} type="submit" onClick={handleTypeUpdate}>
               {values.type === 'updated' ? 'Новое' : 'Популярное'}
