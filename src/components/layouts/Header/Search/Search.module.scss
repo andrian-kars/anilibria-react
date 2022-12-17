@@ -11,7 +11,7 @@
   $font-mobile: 0.5;
 
   position: relative;
-  background-color: $background-color;
+  background-color: var(--background);
   border-radius: $border-radius;
   font-size: 1rem * $font-tablet;
 
@@ -36,7 +36,7 @@
     left: 0;
     right: 0;
     top: $search-height * $size-mobile + $search-offset;
-    background-color: $background-color;
+    background-color: var(--background);
     border: 1px solid $active-and-input-color;
     padding: $search-offset 0;
   }

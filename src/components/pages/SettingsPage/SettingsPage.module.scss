@@ -13,6 +13,7 @@
 .heading {
   font-size: 1.5rem;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .team {
@@ -54,4 +55,11 @@
   &:hover {
     color: $btn-color;
   }
+}
+
+.themeSwitchWrapper {
+  width: 100%;
+}
+.themeSwitchContainer {
+  @include flex();
 }
