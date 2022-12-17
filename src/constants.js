@@ -1,5 +1,5 @@
 // general
-export const NODE_API_URL = 'http://localhost:5069/api/';
+export const NODE_API_URL = 'http://44.211.77.55:8080/api/';
 // paths
 export const INITIAL_PAGE_PATH = '/';
 export const AUTH_PAGE_PATH = '/auth/:authType';
