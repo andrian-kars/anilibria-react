@@ -49,7 +49,7 @@ export const AnimeItem = ({
 
 AnimeItem.propTypes = {
   title: PropTypes.string.isRequired,
-  episodes: PropTypes.string.isRequired,
+  episodes: PropTypes.string,
   description: PropTypes.string,
   posters: PropTypes.object.isRequired,
   code: PropTypes.string.isRequired,

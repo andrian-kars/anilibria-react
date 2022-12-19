@@ -37,6 +37,7 @@
   }
 
   .select {
+    background-color: var(--background);
     @media (min-width: 652px) {
       flex: 1.4;
       align-self: flex-start;

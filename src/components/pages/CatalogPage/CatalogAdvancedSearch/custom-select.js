@@ -1,3 +1,16 @@
+const findTheme = () => {
+  const theme = JSON.parse(localStorage.getItem('theme'));
+  if (theme.background === 'dark') {
+    return '#080c10';
+  }
+  if (theme.background === 'light') {
+    return '#ffffff';
+  }
+  if (theme.background === 'parchment') {
+    return '#fcf5e5';
+  }
+};
+
 export const customSelectStyles = {
   control: (provided, state) => ({
     ...provided,
@@ -6,7 +19,7 @@ export const customSelectStyles = {
     padding: '6px 12px',
     borderColor: state.isFocused ? '#b321215e' : '#161b22',
     outline: state.isFocused ? '#b321215e' : 'none',
-    backgroundColor: '#161b22',
+    backgroundColor: 'primary-color',
     boxShadow: 'none',
     '&:hover': {
       borderColor: '#b321215e',
@@ -23,7 +36,7 @@ export const customSelectStyles = {
   }),
   menu: (provided) => ({
     ...provided,
-    backgroundColor: '#161b22',
+    backgroundColor: findTheme(),
   }),
   valueContainer: (provided) => ({
     ...provided,
