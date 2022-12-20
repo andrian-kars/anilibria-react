@@ -35,4 +35,5 @@ export const common = Object.freeze({
   'nav.team': 'Команда',
   'nav.app': 'Додаток',
   'nav.support': 'Підтримати проект',
+  'nav.settings': 'Відкрити налаштування',
 });
