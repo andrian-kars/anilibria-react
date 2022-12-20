@@ -48,7 +48,6 @@
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "mini-css-extract-plugin": "^2.6.1",
-    "node-sass": "^7.0.1",
     "postcss-loader": "^7.0.1",
     "prettier": "^2.7.1",
     "prop-types": "^15.8.1",
@@ -60,6 +59,10 @@
     "webpack-manifest-plugin": "^5.0.0"
   },
   "dependencies": {
+    "axios": "^1.2.1",
+    "mobx": "^6.7.0",
+    "mobx-react-lite": "^3.4.0",
+    "node-sass": "^8.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-intersection-observer": "^9.4.0",

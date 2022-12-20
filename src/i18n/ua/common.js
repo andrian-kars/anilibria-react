@@ -1,10 +1,10 @@
 export const common = Object.freeze({
   appName: 'Anilibria',
-  title: 'Anilibria - так звучить аніме',
+  title: 'Anilibria - так звучит аниме!',
   'error.400.title': 'Невірний запит',
   'error.400.subTitle': 'The server cannot process your request.',
   'error.403.title': 'Заборонено.',
-  'error.403.subTitle': 'Доступ до цього ресурсу обмежено.',
+  'error.403.subTitle': 'Доступ до ресурсу обмежено.',
   'error.404.title': 'Сторінку не знайдено.',
   'error.404.subTitle': 'Потрібна сторінка не існує.',
   'error.500.title': 'Помилка сервера',
@@ -22,6 +22,11 @@ export const common = Object.freeze({
   'manageTitlePage.recentlyReleased': 'Недавні релізи',
   'manageTitlePage.removeTitle': 'Видалити тайтли',
   'manageTitlePage.void': 'відсутні',
+  // search
+  'search.placeholder': 'Знайти по назві',
+  'search.title': 'Пошук від 3 симолів',
+  'search.nothingFound': 'Нічого не знайдено',
+  'search.Error': 'Помилка',
   //nav
   'nav.main': 'Головна',
   'nav.catalog': 'Релізи',
