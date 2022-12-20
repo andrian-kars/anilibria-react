@@ -1,35 +1,39 @@
-import { memo, useState } from 'react';
-import { Button } from 'src/components/common';
 import PropTypes from 'prop-types';
+import { memo, useState } from 'react';
+import { Button, Input } from 'src/components/common';
+import { useIntl } from 'react-intl';
 
 export const AuthPageForm = memo(({ buttonText, buttonClick }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  function handleEmailChagne(event) {
+  const { formatMessage } = useIntl();
+
+  const handleEmailChagne = (event) => {
     setEmail(event.target.value);
-  }
+  };
 
-  function handlePasswordChagne(event) {
+  const handlePasswordChagne = (event) => {
     setPassword(event.target.value);
-  }
+  };
 
-  function handleFormSubmit(event) {
+  const handleFormSubmit = (event) => {
     event.preventDefault();
     buttonClick(email, password);
-  }
+  };
   return (
     <form>
-      <input
+      <Input
         onChange={handleEmailChagne}
         type="text"
-        placeholder="Enter your email"
+        placeholder={formatMessage({ id: 'loginForm.placeholderEmail' })}
         value={email}
       />
-      <input
+
+      <Input
         onChange={handlePasswordChagne}
         type="password"
-        placeholder="Enter your password"
+        placeholder={formatMessage({ id: 'loginForm.placeholderPassword' })}
         value={password}
       />
       <Button onClick={handleFormSubmit}>{buttonText}</Button>

@@ -1,15 +1,18 @@
-import { Burger, Heading } from 'src/components/common';
+import logo from 'public/assets/images/logo.png';
 import s from './Header.module.scss';
 import { NavLink } from 'react-router-dom';
-import { useIntl } from 'react-intl';
 import { useContext } from 'react';
+import { useIntl } from 'react-intl';
+import { useDimension } from 'src/hooks';
+import { Burger, Heading, Button } from 'src/components/common';
 import { SidesContext } from 'src/context/SidesContext';
 import { Search } from './Search/Search';
-import logo from 'public/assets/images/logo.png';
+import { AUTH_PAGE_LOGIN, TINY_TABLET_BREAKPOINT } from 'src/constants';
 
 export const Header = () => {
   const { formatMessage } = useIntl();
   const { sides, sidesActions } = useContext(SidesContext);
+  const { width } = useDimension();
 
   return (
     <header id="top" className={s.whrapper}>
@@ -21,6 +24,13 @@ export const Header = () => {
       </div>
       <Search />
       <div className={s.right}>
+        {width > TINY_TABLET_BREAKPOINT && (
+          <Button>
+            <NavLink to={AUTH_PAGE_LOGIN}>
+              {formatMessage({ id: 'loginForm.loginButtonText' })}
+            </NavLink>
+          </Button>
+        )}
         <div className={s.burgerNav}>
           <Burger
             isActive={sides.isMobileSidesActive}

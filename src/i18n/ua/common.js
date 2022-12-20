@@ -36,4 +36,8 @@ export const common = Object.freeze({
   'nav.app': 'Додаток',
   'nav.support': 'Підтримати проект',
   'nav.settings': 'Відкрити налаштування',
+  // login
+  'loginForm.loginButtonText': 'Login',
+  'loginForm.placeholderEmail': 'Введіть емейл',
+  'loginForm.placeholderPassword': 'Введіть пароль',
 });

@@ -3,6 +3,7 @@ export const NODE_API_URL = 'http://44.211.77.55:8080/api/';
 // paths
 export const INITIAL_PAGE_PATH = '/';
 export const AUTH_PAGE_PATH = '/auth/:authType';
+export const AUTH_PAGE_LOGIN = '/auth/login';
 export const CATALOG_PAGE_PATH = '/catalog';
 export const RELEASE_PAGE_PATH = '/release/:titleCode';
 export const SCHEDULE_PAGE_PATH = '/schedule';

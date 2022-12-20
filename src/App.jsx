@@ -10,9 +10,9 @@ import {
   AuthPage,
 } from 'src/components/pages';
 import {
+  AUTH_PAGE_PATH,
   ERROR_CODE_404,
   INITIAL_PAGE_PATH,
-  AUTH_PAGE_PATH,
   CATALOG_PAGE_PATH,
   RELEASE_PAGE_PATH,
   SCHEDULE_PAGE_PATH,

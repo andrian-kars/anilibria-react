@@ -1,13 +1,13 @@
 import Select from 'react-select';
+import PropTypes from 'prop-types';
+import cn from 'classnames';
 import s from './CatalogAdvancedSearch.module.scss';
 import { Button } from 'src/components/common';
 import { CatalogSvgs } from './CatalogSvgs';
-import PropTypes from 'prop-types';
 import { useQueries } from 'react-query';
 import { getGenres, getYears } from 'src/api/catalogService';
 import { useState } from 'react';
 import { customSelectStyles } from './custom-select';
-import cn from 'classnames';
 
 const SEASONS = [
   { value: 1, label: 'Зима' },

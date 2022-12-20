@@ -9,3 +9,4 @@ export { BackgroundRadio } from './BackgroundRadio/BackgroundRadio';
 export { AnimeItem } from './AnimeItem/AnimeItem';
 export { LoadMore } from './LoadMore/LoadMore';
 export { PlayerList } from './PlayerList/PlayerList';
+export { Input } from './Input/Input';
