@@ -6,7 +6,9 @@ import { NavigationItem } from './NavigationItem';
 import { NavigationSvgs } from './NavigationSvgs';
 import { ButtonSvg } from 'src/components/common';
 import { useNavigate } from 'react-router-dom';
+import { useDimension } from 'src/hooks';
 import { useIntl } from 'react-intl';
+import { TINY_TABLET_BREAKPOINT } from 'src/constants';
 
 const NAV_ITEMS = [
   [
@@ -28,6 +30,7 @@ const NAV_ITEMS = [
 
 export const Navigation = () => {
   const navigate = useNavigate();
+  const { width } = useDimension();
   const { formatMessage } = useIntl();
 
   const { sides, sidesActions } = useContext(SidesContext);
@@ -42,19 +45,34 @@ export const Navigation = () => {
   return (
     <nav className={cn(s.navigation, sides.isMobileSidesActive && s.showMobile)}>
       <NavigationSvgs />
-      {NAV_ITEMS.map((linkType, i) => (
-        <ul key={i} className={s.whrapper}>
-          {linkType.map((el) => (
-            <NavigationItem
-              key={`${el.to}: ${el.text}`}
-              to={el.to}
-              text={formatMessage({ id: el.textId })}
-              svg={el.svg}
-              onClick={handleModalClose}
-            />
+      {width < TINY_TABLET_BREAKPOINT
+        ? NAV_ITEMS.slice(0, 1).map((linkType, i) => (
+            <ul key={i} className={s.whrapper}>
+              {linkType.map((el) => (
+                <NavigationItem
+                  key={`${el.to}: ${el.text}`}
+                  to={el.to}
+                  text={formatMessage({ id: el.textId })}
+                  svg={el.svg}
+                  onClick={handleModalClose}
+                />
+              ))}
+            </ul>
+          ))
+        : NAV_ITEMS.map((linkType, i) => (
+            <ul key={i} className={s.whrapper}>
+              {linkType.map((el) => (
+                <NavigationItem
+                  key={`${el.to}: ${el.text}`}
+                  to={el.to}
+                  text={formatMessage({ id: el.textId })}
+                  svg={el.svg}
+                  onClick={handleModalClose}
+                />
+              ))}
+            </ul>
           ))}
-        </ul>
-      ))}
+
       {favouriteAnimes && (
         <ul className={cn(s.whrapper, s.recentAnimes)}>
           {favouriteAnimes.slice(0, 5).map(({ titleCode, titleName }) => (
@@ -68,6 +86,7 @@ export const Navigation = () => {
           ))}
         </ul>
       )}
+
       {recentAnimes && (
         <ul className={cn(s.whrapper, s.recentAnimes)}>
           {recentAnimes.slice(0, favouriteAnimes ? 5 : 7).map(({ titleCode, titleName }) => (

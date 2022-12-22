@@ -21,6 +21,7 @@ export const AuthPageForm = memo(({ buttonText, buttonClick }) => {
     event.preventDefault();
     buttonClick(email, password);
   };
+
   return (
     <form>
       <Input
@@ -36,6 +37,7 @@ export const AuthPageForm = memo(({ buttonText, buttonClick }) => {
         placeholder={formatMessage({ id: 'loginForm.placeholderPassword' })}
         value={password}
       />
+
       <Button onClick={handleFormSubmit}>{buttonText}</Button>
     </form>
   );
