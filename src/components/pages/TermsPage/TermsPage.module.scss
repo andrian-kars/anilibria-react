@@ -1,0 +1,8 @@
+@import 'src/styles/_mixins';
+@import 'src/styles/_variables';
+
+.container {
+  @include flex();
+  width: 100%;
+  height: 100vh;
+}

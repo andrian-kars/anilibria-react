@@ -25,11 +25,9 @@ export const Header = () => {
       <Search />
       <div className={s.right}>
         {width > TINY_TABLET_BREAKPOINT && (
-          <Button>
-            <NavLink to={AUTH_PAGE_LOGIN}>
-              {formatMessage({ id: 'loginForm.loginButtonText' })}
-            </NavLink>
-          </Button>
+          <NavLink to={AUTH_PAGE_LOGIN}>
+            <Button>{formatMessage({ id: 'loginForm.loginButtonText' })}</Button>
+          </NavLink>
         )}
         <div className={s.burgerNav}>
           <Burger

@@ -9,6 +9,7 @@ export const RELEASE_PAGE_PATH = '/release/:titleCode';
 export const SCHEDULE_PAGE_PATH = '/schedule';
 export const TEAM_PAGE_PATH = '/team';
 export const SETTINGS_PAGE_PATH = '/settings';
+export const TERMS_PAGE_PATH = '/terms';
 // breakpoints
 export const TABLET_WIDTH_BREAKPOINT = 768;
 export const TINY_TABLET_BREAKPOINT = 512;

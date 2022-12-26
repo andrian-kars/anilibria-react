@@ -6,3 +6,4 @@ export { TeamPage } from './TeamPage/TeamPage';
 export { SettingsPage } from './SettingsPage/SettingsPage';
 export { AuthPage } from './AuthPage/AuthPage';
 export { ErrorPage } from './ErrorPage/ErrorPage';
+export { TermsPage } from './TermsPage/TermsPage';

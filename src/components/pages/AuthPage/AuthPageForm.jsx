@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
 import { memo, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { Button, Input } from 'src/components/common';
 import { useIntl } from 'react-intl';
+import { TERMS_PAGE_PATH } from 'src/constants';
+import s from './AuthPage.module.scss';
 
 export const AuthPageForm = memo(({ buttonText, buttonClick }) => {
   const [email, setEmail] = useState('');
@@ -23,7 +26,7 @@ export const AuthPageForm = memo(({ buttonText, buttonClick }) => {
   };
 
   return (
-    <form>
+    <form className={s.content}>
       <Input
         onChange={handleEmailChagne}
         type="text"
@@ -37,7 +40,7 @@ export const AuthPageForm = memo(({ buttonText, buttonClick }) => {
         placeholder={formatMessage({ id: 'loginForm.placeholderPassword' })}
         value={password}
       />
-
+      <NavLink to={TERMS_PAGE_PATH}>{formatMessage({ id: 'loginForm.terms' })}</NavLink>
       <Button onClick={handleFormSubmit}>{buttonText}</Button>
     </form>
   );

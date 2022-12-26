@@ -8,6 +8,7 @@ import {
   TeamPage,
   SettingsPage,
   AuthPage,
+  TermsPage,
 } from 'src/components/pages';
 import {
   AUTH_PAGE_PATH,
@@ -19,6 +20,7 @@ import {
   TEAM_PAGE_PATH,
   SETTINGS_PAGE_PATH,
   STORAGE_TOKEN,
+  TERMS_PAGE_PATH,
 } from 'src/constants';
 import { Header, Main } from './components/layouts';
 import './styles/index.scss';
@@ -56,6 +58,7 @@ export const App = observer(() => {
             <Route path={SCHEDULE_PAGE_PATH} element={<SchedulePage />} />
             <Route path={TEAM_PAGE_PATH} element={<TeamPage />} />
             <Route path={SETTINGS_PAGE_PATH} element={<SettingsPage />} />
+            <Route path={TERMS_PAGE_PATH} element={<TermsPage />} />
             <Route path="*" element={<ErrorPage errorCode={ERROR_CODE_404} />} />
           </Routes>
         </Main>

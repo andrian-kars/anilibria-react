@@ -40,4 +40,5 @@ export const common = Object.freeze({
   'loginForm.loginButtonText': 'Login',
   'loginForm.placeholderEmail': 'Enter your email',
   'loginForm.placeholderPassword': 'Enter your password',
+  'loginForm.terms': 'Terms of Service',
 });
