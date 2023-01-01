@@ -5,7 +5,7 @@ import { useIntl } from 'react-intl';
 import { useContext } from 'react';
 import { SidesContext } from 'src/context/SidesContext';
 import { Search } from './Search/Search';
-import logo from 'public/assets/images/logo.png';
+import logo from 'src/assets/images/logo.png';
 
 export const Header = () => {
   const { formatMessage } = useIntl();

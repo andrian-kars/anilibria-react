@@ -22,15 +22,13 @@ import {
 } from 'src/constants';
 import { Header, Main } from './components/layouts';
 import './styles/index.scss';
-import { useEffectOnce, usePlayer } from 'src/hooks';
+import { useEffectOnce } from 'src/hooks';
 import { themeAdapter } from 'src/helpers/adapters';
 import { SidesProvider, ReleaseProvider } from 'src/context';
 import authStore from 'src/store/authStore';
 import { observer } from 'mobx-react-lite';
 
 export const App = observer(() => {
-  usePlayer();
-
   useEffectOnce(() => {
     const theme = themeAdapter.theme;
 
