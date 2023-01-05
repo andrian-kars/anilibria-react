@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { useContext, useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { Heading, PlayerList, Text, ButtonSvg } from 'src/components/common';
@@ -7,15 +7,15 @@ import { getTitle } from 'src/api/titleService';
 import s from './ReleasePage.module.scss';
 import { ErrorPage } from '../ErrorPage/ErrorPage';
 import { ERROR_CODE_500 } from 'src/constants';
-import { ReleaseContext } from 'src/context';
-import { STORAGE_FAVOURITE_ANIMES } from 'src/constants';
+import authStore from 'src/store/authStore';
+import { observer } from 'mobx-react-lite';
 
 const MOCKS_FOR_SKELETON = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12];
 
-export const ReleasePage = () => {
+export const ReleasePage = observer(() => {
   const params = useParams().titleCode;
 
-  const { favouriteAnimes, releaseActions } = useContext(ReleaseContext);
+  const { favouriteAnimes, addFavouriteAnime, removeFavouriteAnime } = authStore.releaseStore;
   const isAnimeInFav = Boolean(favouriteAnimes?.find((anime) => anime.titleCode === params));
   const {
     data: title,
@@ -39,8 +39,8 @@ export const ReleasePage = () => {
 
   function handleSaveClick() {
     isAnimeInFav
-      ? releaseActions.deleteAnime(STORAGE_FAVOURITE_ANIMES, params)
-      : releaseActions.setFavouriteToListTop({ titleName, titleCode: params });
+      ? removeFavouriteAnime(params)
+      : addFavouriteAnime({ titleName, titleCode: params });
   }
 
   return (
@@ -156,4 +156,4 @@ export const ReleasePage = () => {
       </div>
     </section>
   );
-};
+});

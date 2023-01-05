@@ -1,14 +1,13 @@
-import { memo, useState, useContext, useEffect } from 'react';
+import { memo, useState, useEffect } from 'react';
 import { Player } from '../Player/Player';
 import s from './PlayerList.module.scss';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
-import { ReleaseContext } from 'src/context';
+import authStore from 'src/store/authStore';
 
 export const PlayerList = memo(({ player, titleName, titleCode }) => {
   const playList = Object.values(player.playlist);
-
-  const { recentAnimes, releaseActions } = useContext(ReleaseContext);
+  const { recentAnimes, addRecentAnime } = authStore.releaseStore;
   const lastEpisode = recentAnimes?.find((el) => el.titleName === titleName)?.choosenEpisode || 0;
   const [choosenEpisode, setChoosenEpisode] = useState(lastEpisode);
 
@@ -20,11 +19,12 @@ export const PlayerList = memo(({ player, titleName, titleCode }) => {
 
   function handleEpisodeChange(newEpisode) {
     setChoosenEpisode(newEpisode);
-    handleStorageUpdate(newEpisode);
+    // do not set if it's first episode
+    newEpisode && handleStorageUpdate(newEpisode);
   }
 
   function handleStorageUpdate(episode) {
-    releaseActions.setReleaseToListTop({ titleName, choosenEpisode: episode, titleCode });
+    addRecentAnime({ titleName, choosenEpisode: episode, titleCode });
   }
 
   return (

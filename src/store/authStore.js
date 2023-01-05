@@ -1,10 +1,13 @@
 import { makeAutoObservable } from 'mobx';
 import { postLogin, postRegistration, postLogout, checkAuthHelper } from 'src/api/node/authService';
 import { STORAGE_TOKEN } from 'src/constants';
+import { ReleaseStore } from './releaseStore';
 
 class AuthStore {
   user = null;
   isAuth = false;
+  // stores
+  releaseStore = new ReleaseStore(this);
 
   constructor() {
     makeAutoObservable(this);

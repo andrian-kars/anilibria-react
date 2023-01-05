@@ -1,7 +1,6 @@
 import cn from 'classnames';
 import s from './Navigation.module.scss';
-import { useCallback, useContext } from 'react';
-import { ReleaseContext } from 'src/context';
+import { useCallback } from 'react';
 import { NavigationItem } from './NavigationItem';
 import { NavigationSvgs } from './NavigationSvgs';
 import { ButtonSvg } from 'src/components/common';
@@ -9,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import layoutStore from 'src/store/layoutStore';
 import { observer } from 'mobx-react-lite';
+import authStore from 'src/store/authStore';
 
 const NAV_ITEMS = [
   [
@@ -32,7 +32,7 @@ export const Navigation = observer(() => {
   const navigate = useNavigate();
   const { formatMessage } = useIntl();
 
-  const { recentAnimes, favouriteAnimes } = useContext(ReleaseContext);
+  const { recentAnimes, favouriteAnimes } = authStore.releaseStore;
   const handleModalClose = useCallback(() => layoutStore.triggerMobileSidesActive(false), []);
 
   function handleSettingsClick() {

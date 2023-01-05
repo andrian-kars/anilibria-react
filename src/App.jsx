@@ -24,9 +24,9 @@ import { Header, Main } from './components/layouts';
 import './styles/index.scss';
 import { useEffectOnce } from 'src/hooks';
 import { themeAdapter } from 'src/helpers/adapters';
-import { ReleaseProvider } from 'src/context';
 import authStore from 'src/store/authStore';
 import { observer } from 'mobx-react-lite';
+import { useEffect } from 'react';
 
 export const App = observer(() => {
   useEffectOnce(() => {
@@ -41,8 +41,13 @@ export const App = observer(() => {
     }
   });
 
+  useEffect(() => {
+    authStore.releaseStore.getRecentAnimes();
+    authStore.releaseStore.getFavouriteAnimes();
+  }, [authStore.isAuth]);
+
   return (
-    <ReleaseProvider>
+    <>
       <Header />
       <Main>
         <Routes>
@@ -56,6 +61,6 @@ export const App = observer(() => {
           <Route path="*" element={<ErrorPage errorCode={ERROR_CODE_404} />} />
         </Routes>
       </Main>
-    </ReleaseProvider>
+    </>
   );
 });
