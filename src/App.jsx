@@ -24,7 +24,7 @@ import { Header, Main } from './components/layouts';
 import './styles/index.scss';
 import { useEffectOnce } from 'src/hooks';
 import { themeAdapter } from 'src/helpers/adapters';
-import { SidesProvider, ReleaseProvider } from 'src/context';
+import { ReleaseProvider } from 'src/context';
 import authStore from 'src/store/authStore';
 import { observer } from 'mobx-react-lite';
 
@@ -42,22 +42,20 @@ export const App = observer(() => {
   });
 
   return (
-    <SidesProvider>
-      <ReleaseProvider>
-        <Header />
-        <Main>
-          <Routes>
-            <Route path={INITIAL_PAGE_PATH} element={<InitialPage />} />
-            <Route path={AUTH_PAGE_PATH} element={<AuthPage />} />
-            <Route path={CATALOG_PAGE_PATH} element={<CatalogPage />} />
-            <Route path={RELEASE_PAGE_PATH} element={<ReleasePage />} />
-            <Route path={SCHEDULE_PAGE_PATH} element={<SchedulePage />} />
-            <Route path={TEAM_PAGE_PATH} element={<TeamPage />} />
-            <Route path={SETTINGS_PAGE_PATH} element={<SettingsPage />} />
-            <Route path="*" element={<ErrorPage errorCode={ERROR_CODE_404} />} />
-          </Routes>
-        </Main>
-      </ReleaseProvider>
-    </SidesProvider>
+    <ReleaseProvider>
+      <Header />
+      <Main>
+        <Routes>
+          <Route path={INITIAL_PAGE_PATH} element={<InitialPage />} />
+          <Route path={AUTH_PAGE_PATH} element={<AuthPage />} />
+          <Route path={CATALOG_PAGE_PATH} element={<CatalogPage />} />
+          <Route path={RELEASE_PAGE_PATH} element={<ReleasePage />} />
+          <Route path={SCHEDULE_PAGE_PATH} element={<SchedulePage />} />
+          <Route path={TEAM_PAGE_PATH} element={<TeamPage />} />
+          <Route path={SETTINGS_PAGE_PATH} element={<SettingsPage />} />
+          <Route path="*" element={<ErrorPage errorCode={ERROR_CODE_404} />} />
+        </Routes>
+      </Main>
+    </ReleaseProvider>
   );
 });

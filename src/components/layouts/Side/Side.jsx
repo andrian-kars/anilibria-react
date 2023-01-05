@@ -1,17 +1,17 @@
 import s from './Side.module.scss';
-import { useContext, useEffect, useCallback, Fragment } from 'react';
+import { useEffect, useCallback, Fragment } from 'react';
 import cn from 'classnames';
-import { SidesContext } from 'src/context/SidesContext';
 import { useInfiniteQuery } from 'react-query';
 import { getAnimeListForSide } from 'src/api/titleService';
 import { AnimeItem, LoadMore } from 'src/components/common';
 import { useInView } from 'react-intersection-observer';
+import layoutStore from 'src/store/layoutStore';
+import { observer } from 'mobx-react-lite';
 
 const PRELOAD = [0, 1, 2, 3, 4, 5, 6];
 
-export const Side = () => {
+export const Side = observer(() => {
   const { ref, inView } = useInView();
-  const { sides, sidesActions } = useContext(SidesContext);
   const { data, error, isLoading, isFetchingNextPage, fetchNextPage, hasNextPage } =
     useInfiniteQuery(
       ['side'],
@@ -30,11 +30,11 @@ export const Side = () => {
     }
   }, [inView]);
 
-  const handleModalClose = useCallback(() => sidesActions.triggerMobileSidesActive(false), []);
+  const handleModalClose = useCallback(() => layoutStore.triggerMobileSidesActive(false), []);
 
   return (
     <>
-      <aside className={cn(s.side, sides.isMobileSidesActive && s.showMobile)}>
+      <aside className={cn(s.side, layoutStore.isMobileSidesActive && s.showMobile)}>
         <div className={s.animes}>
           {isLoading ? (
             PRELOAD.map((el) => <div key={el} className={cn(s.animeItem, 'skeleton')} />)
@@ -69,7 +69,7 @@ export const Side = () => {
           )}
         </div>
       </aside>
-      {sides.isMobileSidesActive && <div className={s.overlay} onClick={handleModalClose} />}
+      {layoutStore.isMobileSidesActive && <div className={s.overlay} onClick={handleModalClose} />}
     </>
   );
-};
+});

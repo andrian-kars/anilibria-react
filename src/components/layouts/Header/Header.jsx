@@ -2,14 +2,13 @@ import { Burger, Heading } from 'src/components/common';
 import s from './Header.module.scss';
 import { NavLink } from 'react-router-dom';
 import { useIntl } from 'react-intl';
-import { useContext } from 'react';
-import { SidesContext } from 'src/context/SidesContext';
 import { Search } from './Search/Search';
 import logo from 'src/assets/images/logo.png';
+import layoutStore from 'src/store/layoutStore';
+import { observer } from 'mobx-react-lite';
 
-export const Header = () => {
+export const Header = observer(() => {
   const { formatMessage } = useIntl();
-  const { sides, sidesActions } = useContext(SidesContext);
 
   return (
     <header id="top" className={s.whrapper}>
@@ -23,11 +22,11 @@ export const Header = () => {
       <div className={s.right}>
         <div className={s.burgerNav}>
           <Burger
-            isActive={sides.isMobileSidesActive}
-            setIsActive={sidesActions.triggerMobileSidesActive}
+            isActive={layoutStore.isMobileSidesActive}
+            setIsActive={layoutStore.triggerMobileSidesActive}
           />
         </div>
       </div>
     </header>
   );
-};
+});

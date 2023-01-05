@@ -10,15 +10,15 @@ class AuthStore {
     makeAutoObservable(this);
   }
 
-  setAuth(bool) {
+  setAuth = (bool) => {
     this.isAuth = bool;
-  }
+  };
 
-  setUser(user) {
+  setUser = (user) => {
     this.user = user;
-  }
+  };
 
-  async registration(email, password) {
+  registration = async (email, password) => {
     try {
       const response = await postRegistration(email, password);
       localStorage.setItem(STORAGE_TOKEN, response.data.accessToken);
@@ -27,9 +27,9 @@ class AuthStore {
     } catch (error) {
       console.log(error.response?.data.message);
     }
-  }
+  };
 
-  async login(email, password) {
+  login = async (email, password) => {
     try {
       const response = await postLogin(email, password);
       localStorage.setItem(STORAGE_TOKEN, response.data.accessToken);
@@ -38,9 +38,9 @@ class AuthStore {
     } catch (error) {
       console.log(error.response?.data.message);
     }
-  }
+  };
 
-  async logout() {
+  logout = async () => {
     try {
       await postLogout();
       localStorage.removeItem(STORAGE_TOKEN);
@@ -49,9 +49,9 @@ class AuthStore {
     } catch (error) {
       console.log(error.response?.data.message);
     }
-  }
+  };
 
-  async checkAuth() {
+  checkAuth = async () => {
     try {
       const data = await checkAuthHelper();
       this.setAuth(true);
@@ -59,7 +59,7 @@ class AuthStore {
     } catch (error) {
       console.log(error.response?.data.message);
     }
-  }
+  };
 }
 
 export default new AuthStore();
