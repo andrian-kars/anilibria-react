@@ -11,7 +11,7 @@ import { useInView } from 'react-intersection-observer';
 import { Fragment, useEffect } from 'react';
 import { LoadMore } from 'src/components/common';
 
-const preLoad = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+const PRELOAD = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
 export const InitialPage = () => {
   const { ref, inView } = useInView();
@@ -24,13 +24,13 @@ export const InitialPage = () => {
       ({ pageParam = 0 }) => getYouTube(pageParam),
 
       {
-        getPreviousPageParam: (firstPage) => firstPage.previousId ?? undefined,
-        getNextPageParam: (_, allPages) => allPages.length * 12,
+        getNextPageParam: (prevPage, allPages) =>
+          prevPage.length === 12 ? allPages.length * 12 : false,
       },
     );
 
   useEffect(() => {
-    if (inView) {
+    if ((inView, hasNextPage)) {
       fetchNextPage();
     }
   }, [inView]);
@@ -45,10 +45,10 @@ export const InitialPage = () => {
     <section className={s.content}>
       <div className={s.youtube}>
         {isLoading
-          ? preLoad.map((el) => <div key={el} className={cn(s.link, 'skeleton')} />)
+          ? PRELOAD.map((el) => <div key={el} className={cn(s.link, 'skeleton')} />)
           : data.pages.map((page, i) => (
               <Fragment key={i}>
-                {page.reverse().map((el) => (
+                {page.map((el) => (
                   <InitialPageYoutubeItem
                     key={`${el.id} - ${el.title}`}
                     id={el.youtube_id}

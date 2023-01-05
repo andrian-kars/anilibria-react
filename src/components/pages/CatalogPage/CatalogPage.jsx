@@ -12,7 +12,7 @@ import { CatalogAdvancedSearch } from './CatalogAdvancedSearch/CatalogAdvancedSe
 import { useEffectOnce } from 'src/hooks';
 
 const PRELOAD = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-const PAGE_TITLE = 'Топ аниме по жанрам';
+const PAGE_TITLE = 'Топ аніме по жанрам';
 
 export const CatalogPage = () => {
   useEffectOnce(() => {
@@ -54,9 +54,8 @@ export const CatalogPage = () => {
         });
       },
       {
-        getNextPageParam: (prevPage, allPages) => {
-          return prevPage.length === 12 ? allPages.length * 12 : false;
-        },
+        getNextPageParam: (prevPage, allPages) =>
+          prevPage.length === 12 ? allPages.length * 12 : false,
       },
     );
 
