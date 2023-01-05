@@ -89,9 +89,9 @@
 
     svg {
       display: block;
-      right: $search-height / (2 * $svg-times) * $font-tablet;
-      width: $search-height / $svg-times * $font-tablet;
-      height: $search-height / $svg-times * $font-tablet;
+      right: calc($search-height / (2 * $svg-times) * $font-tablet);
+      width: calc($search-height / $svg-times * $font-tablet);
+      height: calc($search-height / $svg-times * $font-tablet);
     }
   }
 
@@ -108,9 +108,9 @@
     }
 
     svg {
-      right: $search-height / (2 * $svg-times);
-      width: $search-height / $svg-times;
-      height: $search-height / $svg-times;
+      right: calc($search-height / (2 * $svg-times));
+      width: calc($search-height / $svg-times);
+      height: calc($search-height / $svg-times);
     }
   }
 }
