@@ -1,4 +1,4 @@
-import { anilibriaApiInstance } from './config';
+import { anilibriaApiInstance1 } from './config';
 
 const daysInAWeek = [
   'ПОНЕДЕЛЬНИК',
@@ -15,7 +15,7 @@ const paramsSchedule = {
 };
 
 export const getSchedule = () =>
-  anilibriaApiInstance('getSchedule', paramsSchedule, (data) =>
+  anilibriaApiInstance1('getSchedule', paramsSchedule, (data) =>
     data.map(({ day, list }) => ({
       day: daysInAWeek[day],
       items: list,

@@ -3,10 +3,11 @@ import { useEffectOnce } from 'src/hooks';
 import cn from 'classnames';
 import s from './InitialPage.module.scss';
 import { useInfiniteQuery } from 'react-query';
-import { getYouTube } from 'src/api/youtubeService';
+// import { getYouTube } from 'src/api/youtubeService';
+import { getYouTube } from 'src/api/anilibria/youtubeService';
 import { ErrorPage } from '../ErrorPage/ErrorPage';
 import { InitialPageYoutubeItem } from './InitialPageYoutubeItem';
-import { ERROR_CODE_500 } from 'src/constants';
+import { ERROR_CODE_500, ANILIBRIA_API_URL } from 'src/constants';
 import { useInView } from 'react-intersection-observer';
 import { Fragment, useEffect } from 'react';
 import { LoadMore } from 'src/components/common';
@@ -46,25 +47,28 @@ export const InitialPage = () => {
       <div className={s.youtube}>
         {isLoading
           ? PRELOAD.map((el) => <div key={el} className={cn(s.link, 'skeleton')} />)
-          : data.pages.map((page, i) => (
-              <Fragment key={i}>
-                {page
-                  // removing all streams, since they get deleted from youtube
-                  .filter(
-                    (el) =>
-                      !el.title.toLowerCase().includes('своя игра') &&
-                      !el.title.toLowerCase().includes('19:00'),
-                  )
-                  .map((el) => (
-                    <InitialPageYoutubeItem
-                      key={`${el.id} - ${el.title}`}
-                      id={el.youtube_id}
-                      image={el.image}
-                      title={el.title}
-                    />
-                  ))}
-              </Fragment>
-            ))}
+          : data.pages.map((page, i) => {
+              console.log(page.data);
+              return (
+                <Fragment key={i}>
+                  {page.data.list
+                    // removing all streams, since they get deleted from youtube
+                    .filter(
+                      (el) =>
+                        !el.title.toLowerCase().includes('своя игра') &&
+                        !el.title.toLowerCase().includes('19:00'),
+                    )
+                    .map((el) => (
+                      <InitialPageYoutubeItem
+                        key={`${el.id} - ${el.title}`}
+                        id={el.youtube_id}
+                        image={`https://cache.libria.fun${el.preview.thumbnail}`}
+                        title={el.title}
+                      />
+                    ))}
+                </Fragment>
+              );
+            })}
       </div>
       {!isLoading && (
         <LoadMore

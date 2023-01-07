@@ -1,4 +1,4 @@
-import { anilibriaApiInstance } from './config';
+import { anilibriaApiInstance1 } from './config';
 
 const paramsYoutube = {
   limit: 12,
@@ -6,4 +6,4 @@ const paramsYoutube = {
 };
 
 export const getYouTube = (after = 0) =>
-  anilibriaApiInstance('getYouTube', { ...paramsYoutube, after: after });
+  anilibriaApiInstance1('getYouTube', { ...paramsYoutube, after: after });

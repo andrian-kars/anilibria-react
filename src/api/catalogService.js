@@ -1,8 +1,8 @@
-import { anilibriaApiInstance } from './config';
+import { anilibriaApiInstance1 } from './config';
 
-export const getYears = () => anilibriaApiInstance('getYears');
+export const getYears = () => anilibriaApiInstance1('getYears');
 
-export const getGenres = () => anilibriaApiInstance('getGenres');
+export const getGenres = () => anilibriaApiInstance1('getGenres');
 
 const paramsListFromAdvancedSearch = {
   limit: 12,
@@ -11,7 +11,7 @@ const paramsListFromAdvancedSearch = {
 };
 
 export const getListFromAdvancedSearch = (passedParams) =>
-  anilibriaApiInstance('advancedSearch', {
+  anilibriaApiInstance1('advancedSearch', {
     ...passedParams,
     ...paramsListFromAdvancedSearch,
   });

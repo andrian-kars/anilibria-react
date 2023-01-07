@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { NODE_API_URL, STORAGE_TOKEN, ERROR_CODE_401 } from 'src/constants';
+import { ANILIBRIA_API_URL, NODE_API_URL, STORAGE_TOKEN, ERROR_CODE_401 } from 'src/constants';
 import { checkAuthHelper } from './node/authService';
 
-export const anilibriaApiInstance = (path, params = null, responseModifyCallback = null) => {
+export const anilibriaApiInstance1 = (path, params = null, responseModifyCallback = null) => {
   let paramsToSend = '';
 
   if (params) {
@@ -22,6 +22,10 @@ export const anilibriaApiInstance = (path, params = null, responseModifyCallback
     .then((res) => res.json())
     .then((data) => (responseModifyCallback ? responseModifyCallback(data) : data));
 };
+
+export const anilibriaApiInstance = axios.create({
+  baseURL: ANILIBRIA_API_URL,
+});
 
 export const nodeApiInstance = axios.create({
   withCredentials: true,
