@@ -5,10 +5,12 @@ import { Button, Input } from 'src/components/common';
 import { useIntl } from 'react-intl';
 import { TERMS_PAGE_PATH } from 'src/constants';
 import s from './AuthPage.module.scss';
+import { Checkbox } from '../../common';
 
-export const AuthPageForm = memo(({ buttonText, buttonClick }) => {
+export const AuthPageForm = memo(({ buttonText, buttonClick, isLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [checked, setChecked] = useState(false);
 
   const { formatMessage } = useIntl();
 
@@ -23,6 +25,10 @@ export const AuthPageForm = memo(({ buttonText, buttonClick }) => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     buttonClick(email, password);
+  };
+
+  const handleCheked = () => {
+    setChecked(!checked);
   };
 
   return (
@@ -40,13 +46,22 @@ export const AuthPageForm = memo(({ buttonText, buttonClick }) => {
         placeholder={formatMessage({ id: 'loginForm.placeholderPassword' })}
         value={password}
       />
-      <NavLink to={TERMS_PAGE_PATH}>{formatMessage({ id: 'loginForm.terms' })}</NavLink>
-      <Button onClick={handleFormSubmit}>{buttonText}</Button>
+
+      {!isLogin && (
+        <Checkbox onChange={handleCheked} checked={checked}>
+          <NavLink to={TERMS_PAGE_PATH}>{formatMessage({ id: 'loginForm.terms' })}</NavLink>
+        </Checkbox>
+      )}
+
+      <Button onClick={handleFormSubmit} disabled={isLogin ? false : !checked}>
+        {buttonText}
+      </Button>
     </form>
   );
 });
 
 AuthPageForm.propTypes = {
+  isLogin: PropTypes.bool.isRequired,
   buttonText: PropTypes.string.isRequired,
   buttonClick: PropTypes.func.isRequired,
 };

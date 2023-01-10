@@ -10,3 +10,4 @@ export { AnimeItem } from './AnimeItem/AnimeItem';
 export { LoadMore } from './LoadMore/LoadMore';
 export { PlayerList } from './PlayerList/PlayerList';
 export { Input } from './Input/Input';
+export { Checkbox } from './Checkbox/Checkbox';

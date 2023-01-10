@@ -36,9 +36,13 @@ export const common = Object.freeze({
   'nav.app': 'Додаток',
   'nav.support': 'Підтримати проект',
   'nav.settings': 'Відкрити налаштування',
-  // login
+  // auth
+  'authPage.login': 'Sign In',
+  'authPage.register': 'Create Personal Account',
+  'authPage.userLogged': 'user is logged in as',
+  'authPage.userNotLogged': 'user is not logged in',
   'loginForm.loginButtonText': 'Login',
   'loginForm.placeholderEmail': 'Введіть емейл',
   'loginForm.placeholderPassword': 'Введіть пароль',
-  'loginForm.terms': 'Terms of Service',
+  'loginForm.terms': 'I have read and agree to Anilibria’s Terms of Service',
 });

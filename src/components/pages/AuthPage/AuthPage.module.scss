@@ -1,6 +1,11 @@
 @import 'src/styles/_mixins';
 @import 'src/styles/_variables';
 
+.authSpan {
+  color: $btn-color;
+  cursor: pointer;
+}
+
 .content {
   width: 100%;
   display: flex;

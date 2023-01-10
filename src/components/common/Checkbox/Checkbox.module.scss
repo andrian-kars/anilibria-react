@@ -1,0 +1,10 @@
+@import 'src/styles/_variables';
+@import 'src/styles/_mixins';
+
+.containter {
+  @include flex();
+}
+
+.checkbox {
+  margin-right: 10px;
+}
