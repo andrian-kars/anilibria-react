@@ -45,11 +45,13 @@ export const AuthPage = observer(() => {
   return (
     <section className={s.content}>
       <Heading type="h3" content={pageTitle} className={s.heading} />
+
       <Text className={s.text}>
         {isAuth
           ? `${formatMessage({ id: 'authPage.userLogged' })} ${user.email}`
           : `${formatMessage({ id: 'authPage.userNotLogged' })}`}
       </Text>
+
       <AuthPageForm
         buttonText={pageTitle}
         buttonClick={isLogin ? handleLogin : handleRegistration}
