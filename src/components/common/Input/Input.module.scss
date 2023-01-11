@@ -22,3 +22,13 @@
   border-radius: 4px;
   height: 40px;
 }
+
+.caps {
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  fill: $white-color;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+}
