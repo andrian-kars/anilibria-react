@@ -60,16 +60,16 @@ export const AuthPage = observer(() => {
 
       {isLogin ? (
         <p>
-          Don't have an account?{' '}
+          {formatMessage({ id: 'authPage.bottomLoginQuestion' })}{' '}
           <span className={s.authSpan} onClick={createAccountHandle}>
-            Create One
+            {formatMessage({ id: 'authPage.bottomLoginSpan' })}
           </span>
         </p>
       ) : (
         <p>
-          Already registered?{' '}
+          {formatMessage({ id: 'authPage.bottomRegisterQuestion' })}{' '}
           <span className={s.authSpan} onClick={createAccountHandle}>
-            Log In
+            {formatMessage({ id: 'authPage.bottomRegisterSpan' })}
           </span>
         </p>
       )}
