@@ -6,4 +6,10 @@ const paramsYoutube = {
 };
 
 export const getYouTube = (after = 0) =>
-  anilibriaApiInstance.get('youtube', { params: { ...paramsYoutube, after: 12 } });
+  anilibriaApiInstance
+    .get('youtube', {
+      params: { ...paramsYoutube, after: after > 0 ? after : null },
+    })
+    .then((res) => {
+      return res.data.list;
+    });

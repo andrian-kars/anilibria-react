@@ -7,7 +7,7 @@ import { useInfiniteQuery } from 'react-query';
 import { getYouTube } from 'src/api/anilibria/youtubeService';
 import { ErrorPage } from '../ErrorPage/ErrorPage';
 import { InitialPageYoutubeItem } from './InitialPageYoutubeItem';
-import { ERROR_CODE_500, ANILIBRIA_API_URL } from 'src/constants';
+import { ERROR_CODE_500, ANILIBRIA_STORAGE_URL } from 'src/constants';
 import { useInView } from 'react-intersection-observer';
 import { Fragment, useEffect } from 'react';
 import { LoadMore } from 'src/components/common';
@@ -51,7 +51,7 @@ export const InitialPage = () => {
               console.log(page.data);
               return (
                 <Fragment key={i}>
-                  {page.data.list
+                  {page
                     // removing all streams, since they get deleted from youtube
                     .filter(
                       (el) =>
@@ -62,7 +62,7 @@ export const InitialPage = () => {
                       <InitialPageYoutubeItem
                         key={`${el.id} - ${el.title}`}
                         id={el.youtube_id}
-                        image={`https://cache.libria.fun${el.preview.thumbnail}`}
+                        image={`${ANILIBRIA_STORAGE_URL}${el.preview.thumbnail}`}
                         title={el.title}
                       />
                     ))}
