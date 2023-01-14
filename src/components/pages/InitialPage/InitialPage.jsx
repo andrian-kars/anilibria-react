@@ -47,28 +47,18 @@ export const InitialPage = () => {
       <div className={s.youtube}>
         {isLoading
           ? PRELOAD.map((el) => <div key={el} className={cn(s.link, 'skeleton')} />)
-          : data.pages.map((page, i) => {
-              console.log(page.data);
-              return (
-                <Fragment key={i}>
-                  {page
-                    // removing all streams, since they get deleted from youtube
-                    .filter(
-                      (el) =>
-                        !el.title.toLowerCase().includes('своя игра') &&
-                        !el.title.toLowerCase().includes('19:00'),
-                    )
-                    .map((el) => (
-                      <InitialPageYoutubeItem
-                        key={`${el.id} - ${el.title}`}
-                        id={el.youtube_id}
-                        image={`${ANILIBRIA_STORAGE_URL}${el.preview.thumbnail}`}
-                        title={el.title}
-                      />
-                    ))}
-                </Fragment>
-              );
-            })}
+          : data.pages.map((page, i) => (
+              <Fragment key={i}>
+                {page.map((el) => (
+                  <InitialPageYoutubeItem
+                    key={`${el.id} - ${el.title}`}
+                    id={el.youtube_id}
+                    image={`${ANILIBRIA_STORAGE_URL}${el.preview.thumbnail}`}
+                    title={el.title}
+                  />
+                ))}
+              </Fragment>
+            ))}
       </div>
       {!isLoading && (
         <LoadMore
