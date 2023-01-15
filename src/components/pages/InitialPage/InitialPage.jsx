@@ -11,6 +11,7 @@ import { ERROR_CODE_500, ANILIBRIA_STORAGE_URL } from 'src/constants';
 import { useInView } from 'react-intersection-observer';
 import { Fragment, useEffect } from 'react';
 import { LoadMore } from 'src/components/common';
+import noImage from 'src/assets/images/no-image.jpeg';
 
 const PRELOAD = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
@@ -53,7 +54,11 @@ export const InitialPage = () => {
                   <InitialPageYoutubeItem
                     key={`${el.id} - ${el.title}`}
                     id={el.youtube_id}
-                    image={`${ANILIBRIA_STORAGE_URL}${el.preview.thumbnail}`}
+                    image={
+                      el.preview.thumbnail
+                        ? `${ANILIBRIA_STORAGE_URL}${el.preview.thumbnail}`
+                        : noImage
+                    }
                     title={el.title}
                   />
                 ))}
