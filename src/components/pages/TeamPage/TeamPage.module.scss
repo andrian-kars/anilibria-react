@@ -13,6 +13,7 @@
 .heading {
   font-size: 1.5rem;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .team {
@@ -29,6 +30,7 @@
   background-color: $background-layout;
   text-align: center;
   border-radius: $border-radius;
+  text-transform: uppercase;
 }
 
 .names {
@@ -37,6 +39,14 @@
   flex-wrap: wrap;
   gap: var(--whrapper-padding);
   justify-content: center;
+}
+
+.link p {
+  transition: $simple-transition;
+
+  &:hover {
+    color: $btn-color;
+  }
 }
 
 .dayNameSkeleton {
