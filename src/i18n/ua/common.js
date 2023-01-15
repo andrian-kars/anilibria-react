@@ -27,7 +27,7 @@ export const common = Object.freeze({
   'search.title': 'Пошук від 3 симолів',
   'search.nothingFound': 'Нічого не знайдено',
   'search.Error': 'Помилка',
-  //nav
+  // nav
   'nav.main': 'Головна',
   'nav.catalog': 'Релізи',
   'nav.schedule': 'Розклад',
@@ -35,4 +35,12 @@ export const common = Object.freeze({
   'nav.team': 'Команда',
   'nav.app': 'Додаток',
   'nav.support': 'Підтримати проект',
+  // days
+  'day.monday': 'Понеділок',
+  'day.tuesday': 'Вівторок',
+  'day.wednesday': 'Середа',
+  'day.thursday': 'Четвер',
+  'day.friday': 'Пʼятниця',
+  'day.saturday': 'Субота',
+  'day.sunday': 'Неділя',
 });
