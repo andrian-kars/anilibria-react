@@ -36,7 +36,7 @@ export const App = observer(() => {
       document.body.setAttribute(`data-theme-${key}`, theme[key]);
     }
 
-    if (localStorage.getItem(STORAGE_TOKEN)) {
+    if (localStorage.getItem(STORAGE_TOKEN) && !authStore.isLoading) {
       authStore.checkAuth();
     }
   });
