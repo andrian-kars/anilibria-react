@@ -4,19 +4,22 @@ import { Button } from 'src/components/common';
 import { CatalogSvgs } from './CatalogSvgs';
 import PropTypes from 'prop-types';
 import { useQueries } from 'react-query';
-import { getGenres, getYears } from 'src/api/catalogService';
-import { useState } from 'react';
+import { getGenres, getYears } from 'src/api/anilibria/catalogService';
+import { useMemo, useState } from 'react';
 import { customSelectStyles } from './custom-select';
 import cn from 'classnames';
-
-const SEASONS = [
-  { value: 1, label: 'Зима' },
-  { value: 2, label: 'Весна' },
-  { value: 3, label: 'Лето' },
-  { value: 4, label: 'Осень' },
-];
+import { FormattedMessage, useIntl } from 'react-intl';
 
 export const CatalogAdvancedSearch = ({ setSearchItems, isDisabled }) => {
+  const { formatMessage } = useIntl();
+
+  const seasons = useMemo(() => [
+    { value: 1, label: formatMessage({ id: 'season.winter' }) },
+    { value: 2, label: formatMessage({ id: 'season.spring' }) },
+    { value: 3, label: formatMessage({ id: 'season.summer' }) },
+    { value: 4, label: formatMessage({ id: 'season.fall' }) },
+  ]);
+
   const results = useQueries([
     { queryKey: ['catalogYears', 1], queryFn: getYears },
     { queryKey: ['catalogGenres', 2], queryFn: getGenres },
@@ -67,7 +70,7 @@ export const CatalogAdvancedSearch = ({ setSearchItems, isDisabled }) => {
                 value: el,
                 label: el,
               }))}
-              placeholder="Выбрать жанры"
+              placeholder={formatMessage({ id: 'catalog.chooseGenres' })}
               isMulti={true}
               onChange={(value) => handleOptionsUpdate('genres', value)}
               isDisabled={isDisabled}
@@ -83,7 +86,7 @@ export const CatalogAdvancedSearch = ({ setSearchItems, isDisabled }) => {
                   label: el,
                 }))
                 .reverse()}
-              placeholder="Год"
+              placeholder={formatMessage({ id: 'catalog.chooseYears' })}
               isMulti={true}
               onChange={(value) => handleOptionsUpdate('years', value)}
               isDisabled={isDisabled}
@@ -93,8 +96,8 @@ export const CatalogAdvancedSearch = ({ setSearchItems, isDisabled }) => {
               className={s.select}
               styles={customSelectStyles}
               name="seasons"
-              options={SEASONS}
-              placeholder="Сезон"
+              options={seasons}
+              placeholder={formatMessage({ id: 'catalog.chooseSeasons' })}
               isMulti={true}
               onChange={(value) => handleOptionsUpdate('seasons', value)}
               isDisabled={isDisabled}
@@ -103,7 +106,9 @@ export const CatalogAdvancedSearch = ({ setSearchItems, isDisabled }) => {
 
           <div className={s.submits}>
             <Button disabled={isDisabled} type="submit" onClick={handleTypeUpdate}>
-              {values.type === 'updated' ? 'Новое' : 'Популярное'}
+              {values.type === 'updated'
+                ? formatMessage({ id: 'catalog.new' })
+                : formatMessage({ id: 'catalog.popular' })}
             </Button>
             <Button type="submit" disabled={isDisabled} onClick={handleSearch}>
               Показать
@@ -113,7 +118,7 @@ export const CatalogAdvancedSearch = ({ setSearchItems, isDisabled }) => {
                 <use href={`#${values.releaseFinished ? 'checked' : 'unchecked'}`} />
               </svg>
               <span>
-                Релиз<>&#8209;</>завершен
+                <FormattedMessage id="catalog.releaseIsFinished" />
               </span>
             </Button>
           </div>

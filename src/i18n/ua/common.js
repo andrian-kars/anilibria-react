@@ -43,4 +43,9 @@ export const common = Object.freeze({
   'day.friday': 'Пʼятниця',
   'day.saturday': 'Субота',
   'day.sunday': 'Неділя',
+  // seasons
+  'season.winter': 'Зима',
+  'season.spring': 'Весна',
+  'season.summer': 'Літо',
+  'season.fall': 'Осінь',
 });

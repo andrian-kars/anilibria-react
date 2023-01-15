@@ -5,18 +5,21 @@ import s from './CatalogPage.module.scss';
 import { ERROR_CODE_500 } from 'src/constants';
 import { ErrorPage } from '../ErrorPage/ErrorPage';
 import { useInfiniteQuery } from 'react-query';
-import { getListFromAdvancedSearch } from 'src/api/catalogService';
+import { getListFromAdvancedSearch } from 'src/api/anilibria/catalogService';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { CatalogAdvancedSearch } from './CatalogAdvancedSearch/CatalogAdvancedSearch';
 import { useEffectOnce } from 'src/hooks';
+import { useIntl } from 'react-intl';
 
 const PRELOAD = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-const PAGE_TITLE = 'Топ аніме по жанрам';
 
 export const CatalogPage = () => {
+  const { formatMessage } = useIntl();
+  const pageTitle = formatMessage({ id: 'catalog.title' });
+
   useEffectOnce(() => {
-    document.title = PAGE_TITLE;
+    document.title = pageTitle;
   });
 
   const { ref, inView } = useInView();
@@ -31,7 +34,7 @@ export const CatalogPage = () => {
 
   const { data, error, isLoading, isFetchingNextPage, fetchNextPage, hasNextPage } =
     useInfiniteQuery(
-      [PAGE_TITLE, searchItems],
+      [pageTitle, searchItems],
       ({ pageParam = 0, queryKey }) => {
         const querry = [];
 
@@ -50,7 +53,7 @@ export const CatalogPage = () => {
         return getListFromAdvancedSearch({
           query: querry.join(' and '),
           order_by: queryKey[1].type,
-          after: pageParam,
+          after: pageParam === 0 ? null : pageParam,
         });
       },
       {
@@ -80,7 +83,7 @@ export const CatalogPage = () => {
                   : page.map((el) => (
                       <AnimeItem
                         title={el.names.ru}
-                        episodes={el.torrents.series.string}
+                        episodes={el.torrents.episodes.string}
                         description={el.description}
                         posters={el.posters}
                         code={el.code}
