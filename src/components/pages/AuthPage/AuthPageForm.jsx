@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { Button, Input, Checkbox } from 'src/components/common';
 import { useIntl } from 'react-intl';
 import { TERMS_PAGE_PATH } from 'src/constants';
-import { userSchema } from 'src/Validations/UserValidation';
+import { emailSchema, passwordSchema } from 'src/Validations/UserValidation';
 import s from './AuthPage.module.scss';
 
 export const AuthPageForm = memo(({ buttonText, buttonClick, isLogin }) => {
@@ -12,6 +12,9 @@ export const AuthPageForm = memo(({ buttonText, buttonClick, isLogin }) => {
   const [password, setPassword] = useState('');
   const [passwordShown, setPasswordShown] = useState(false);
   const [checked, setChecked] = useState(false);
+
+  const [checkEmail, setCheckEmail] = useState();
+  const [checkPass, setCheckPass] = useState();
 
   const { formatMessage } = useIntl();
 
@@ -21,18 +24,29 @@ export const AuthPageForm = memo(({ buttonText, buttonClick, isLogin }) => {
 
   const handlePasswordChagne = (event) => {
     setPassword(event.target.value);
+    console.log(password);
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    let formData = {
-      userEmail: email,
-      userPassword: password,
-    };
-    const isValid = await userSchema.isValid(formData);
-    console.log(isValid);
-    if (isValid) {
-      buttonClick(formData);
+
+    const formMail = await emailSchema.isValid({ userEmail: email });
+    const formPass = await passwordSchema.isValid({ userPassword: password });
+
+    if (!formMail) {
+      setCheckEmail(true);
+    } else {
+      setCheckEmail(false);
+    }
+
+    if (!formPass) {
+      setCheckPass(true);
+    } else {
+      setCheckPass(false);
+    }
+
+    if (formMail && formPass) {
+      buttonClick({ userEmail: email, userPassword: password });
     }
   };
 
@@ -46,6 +60,10 @@ export const AuthPageForm = memo(({ buttonText, buttonClick, isLogin }) => {
 
   return (
     <form className={s.content}>
+      <div className={s.warningContainer}>
+        {checkEmail && <p>{formatMessage({ id: 'loginForm.emailInvalid' })}</p>}
+        {checkPass && <p>{formatMessage({ id: 'loginForm.passwordInvalid' })}</p>}
+      </div>
       <Input
         onChange={handleEmailChagne}
         type="email"

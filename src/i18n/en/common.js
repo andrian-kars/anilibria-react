@@ -49,4 +49,6 @@ export const common = Object.freeze({
   'loginForm.placeholderEmail': 'Enter your email',
   'loginForm.placeholderPassword': 'Enter your password',
   'loginForm.terms': 'I have read and agree to Anilibria’s Terms of Service',
+  'loginForm.emailInvalid': 'Your password is invalid',
+  'loginForm.passwordInvalid': 'Your password is invalid',
 });

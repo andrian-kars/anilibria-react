@@ -27,3 +27,10 @@
   text-align: center;
   border-radius: $border-radius;
 }
+
+.warningContainer {
+  @include flex();
+  flex-direction: column;
+  height: 20px;
+  width: 100%;
+}
