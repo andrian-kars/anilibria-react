@@ -1,5 +1,5 @@
 // general
-export const NODE_API_URL = 'http://44.211.77.55:8080/api/';
+export const NODE_API_URL = 'https://stage.andrian-kars.space/api/';
 export const ANILIBRIA_API_URL = 'https://api.anilibria.tv/v3/';
 export const ANILIBRIA_STORAGE_URL = 'https://anilibria.tv';
 // paths
