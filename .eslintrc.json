@@ -13,7 +13,7 @@
   "plugins": ["react"],
   "rules": {
     "indent": 0,
-    "linebreak-style": ["error", "windows"],
+    "linebreak-style": ["error", "unix"],
     "semi": ["error", "always"],
     "react/react-in-jsx-scope": "off",
     "react/display-name": "off",
@@ -21,7 +21,7 @@
     "prettier/prettier": [
       "error",
       {
-        "endOfLine": "crlf",
+        "endOfLine": "lf",
         "jsxBracketSameLine": false,
         "trailingComma": "all"
       }
