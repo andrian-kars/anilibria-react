@@ -1,4 +1,4 @@
-import { anilibriaApiInstance } from './config';
+import { anilibriaApiInstance1 } from './config';
 
 const daysInAWeek = [
   'каждый понедельник',
@@ -21,7 +21,7 @@ export const getTitle = (code) => {
     ...paramFilter,
   };
 
-  return anilibriaApiInstance(
+  return anilibriaApiInstance1(
     'getTitle',
     paramsGetTitle,
     ({
@@ -61,14 +61,14 @@ export const getTitle = (code) => {
 };
 
 export const getRandom = () =>
-  anilibriaApiInstance('getRandomTitle', { filter: 'code' }, ({ code }) => code);
+  anilibriaApiInstance1('getRandomTitle', { filter: 'code' }, ({ code }) => code);
 
 const paramsAnimeListForSide = {
   filter: 'code,names.ru,description,torrents.series.string,posters,torrents.list[0].torrent_id',
 };
 
 export const getAnimeListForSide = (params) =>
-  anilibriaApiInstance('getUpdates', { ...paramsAnimeListForSide, ...params });
+  anilibriaApiInstance1('getUpdates', { ...paramsAnimeListForSide, ...params });
 
 const paramsSearchResults = {
   filter: 'code,names.ru',
@@ -76,4 +76,4 @@ const paramsSearchResults = {
 };
 
 export const getSearchResults = (searchValue) =>
-  anilibriaApiInstance('searchTitles', { ...paramsSearchResults, search: searchValue });
+  anilibriaApiInstance1('searchTitles', { ...paramsSearchResults, search: searchValue });

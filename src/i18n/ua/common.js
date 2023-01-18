@@ -27,7 +27,7 @@ export const common = Object.freeze({
   'search.title': 'Пошук від 3 симолів',
   'search.nothingFound': 'Нічого не знайдено',
   'search.Error': 'Помилка',
-  //nav
+  // nav
   'nav.main': 'Головна',
   'nav.catalog': 'Релізи',
   'nav.schedule': 'Розклад',
@@ -51,4 +51,17 @@ export const common = Object.freeze({
   'loginForm.terms': 'I have read and agree to Anilibria’s Terms of Service',
   'loginForm.emailInvalid': 'Інвалідний емейл',
   'loginForm.passwordInvalid': 'Інвалідний пароль',
+  // days
+  'day.monday': 'Понеділок',
+  'day.tuesday': 'Вівторок',
+  'day.wednesday': 'Середа',
+  'day.thursday': 'Четвер',
+  'day.friday': 'Пʼятниця',
+  'day.saturday': 'Субота',
+  'day.sunday': 'Неділя',
+  // seasons
+  'season.winter': 'Зима',
+  'season.spring': 'Весна',
+  'season.summer': 'Літо',
+  'season.fall': 'Осінь',
 });

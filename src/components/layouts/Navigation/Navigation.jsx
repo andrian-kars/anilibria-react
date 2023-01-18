@@ -1,14 +1,16 @@
 import cn from 'classnames';
 import s from './Navigation.module.scss';
-import { useCallback, useContext } from 'react';
-import { SidesContext, ReleaseContext } from 'src/context';
+import { useCallback } from 'react';
 import { NavigationItem } from './NavigationItem';
 import { NavigationSvgs } from './NavigationSvgs';
 import { ButtonSvg } from 'src/components/common';
 import { useNavigate } from 'react-router-dom';
 import { useDimension } from 'src/hooks';
 import { useIntl } from 'react-intl';
+import { authStore } from 'src/store/authStore';
+import { layoutStore } from 'src/store/layoutStore';
 import { TINY_TABLET_BREAKPOINT, SETTINGS_PAGE_PATH, AUTH_PAGE_LOGIN } from 'src/constants';
+import { observer } from 'mobx-react-lite';
 
 const NAV_ITEMS = [
   [
@@ -28,14 +30,13 @@ const NAV_ITEMS = [
   ],
 ];
 
-export const Navigation = () => {
+export const Navigation = observer(() => {
   const navigate = useNavigate();
   const { width } = useDimension();
   const { formatMessage } = useIntl();
 
-  const { sides, sidesActions } = useContext(SidesContext);
-  const { recentAnimes, favouriteAnimes } = useContext(ReleaseContext);
-  const handleModalClose = useCallback(() => sidesActions.triggerMobileSidesActive(false), []);
+  const { recentAnimes, favouriteAnimes } = authStore.releaseStore;
+  const handleModalClose = useCallback(() => layoutStore.triggerMobileSidesActive(false), []);
 
   const handleSettingsClick = () => {
     navigate(SETTINGS_PAGE_PATH);
@@ -48,7 +49,7 @@ export const Navigation = () => {
   };
 
   return (
-    <nav className={cn(s.navigation, sides.isMobileSidesActive && s.showMobile)}>
+    <nav className={cn(s.navigation, layoutStore.isMobileSidesActive && s.showMobile)}>
       <NavigationSvgs />
       {width < TINY_TABLET_BREAKPOINT
         ? NAV_ITEMS.slice(0, 1).map((linkType, i) => (
@@ -135,4 +136,4 @@ export const Navigation = () => {
       )}
     </nav>
   );
-};
+});

@@ -1,17 +1,16 @@
 import logo from 'public/assets/images/logo.png';
 import s from './Header.module.scss';
 import { NavLink } from 'react-router-dom';
-import { useContext } from 'react';
 import { useIntl } from 'react-intl';
 import { useDimension } from 'src/hooks';
 import { Burger, Heading, Button } from 'src/components/common';
-import { SidesContext } from 'src/context/SidesContext';
 import { Search } from './Search/Search';
+import { layoutStore } from 'src/store/layoutStore';
 import { AUTH_PAGE_LOGIN, TINY_TABLET_BREAKPOINT } from 'src/constants';
+import { observer } from 'mobx-react-lite';
 
-export const Header = () => {
+export const Header = observer(() => {
   const { formatMessage } = useIntl();
-  const { sides, sidesActions } = useContext(SidesContext);
   const { width } = useDimension();
 
   return (
@@ -31,11 +30,11 @@ export const Header = () => {
         )}
         <div className={s.burgerNav}>
           <Burger
-            isActive={sides.isMobileSidesActive}
-            setIsActive={sidesActions.triggerMobileSidesActive}
+            isActive={layoutStore.isMobileSidesActive}
+            setIsActive={layoutStore.triggerMobileSidesActive}
           />
         </div>
       </div>
     </header>
   );
-};
+});

@@ -1,7 +1,6 @@
 import { Text, Heading } from 'src/components/common';
 import s from './SettingsPage.module.scss';
-import { ReleaseContext } from 'src/context';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { themeAdapter } from 'src/helpers/adapters';
 import { SettingsPageSvgs } from './SettingsPageSvgs';
 import { ButtonSvg } from 'src/components/common';
@@ -9,6 +8,8 @@ import { STORAGE_RECENT_ANIMES, STORAGE_FAVOURITE_ANIMES } from 'src/constants';
 import { NavLink } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import { BackgroundRadio } from 'src/components/common';
+import authStore from 'src/store/authStore';
+import { observer } from 'mobx-react-lite';
 
 const BACKGROUND_THEME_CHOICES = [
   {
@@ -31,18 +32,39 @@ const BACKGROUND_THEME_CHOICES = [
   },
 ];
 
-export const SettingsPage = () => {
-  const { recentAnimes, favouriteAnimes, releaseActions } = useContext(ReleaseContext);
+export const SettingsPage = observer(() => {
+  const {
+    recentAnimes,
+    favouriteAnimes,
+    removeRecentAnime,
+    removeFavouriteAnime,
+    removeRecentAnimes,
+    removeFavouriteAnimes,
+  } = authStore.releaseStore;
   const { formatMessage } = useIntl();
 
   const [theme, setTheme] = useState(themeAdapter.theme);
 
   const handleAnimesClear = (type) => {
-    releaseActions.clearAnimes(type);
+    switch (type) {
+      case STORAGE_RECENT_ANIMES:
+        removeRecentAnimes();
+        break;
+      case STORAGE_FAVOURITE_ANIMES:
+        removeFavouriteAnimes();
+        break;
+    }
   };
 
   const handleAnimeDelete = (type, code) => {
-    releaseActions.deleteAnime(type, code);
+    switch (type) {
+      case STORAGE_RECENT_ANIMES:
+        removeRecentAnime(code);
+        break;
+      case STORAGE_FAVOURITE_ANIMES:
+        removeFavouriteAnime(code);
+        break;
+    }
   };
 
   const onChangeHandler = (e) => {
@@ -142,4 +164,4 @@ export const SettingsPage = () => {
       ))}
     </section>
   );
-};
+});
