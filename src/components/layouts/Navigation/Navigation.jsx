@@ -7,8 +7,8 @@ import { ButtonSvg } from 'src/components/common';
 import { useNavigate } from 'react-router-dom';
 import { useDimension } from 'src/hooks';
 import { useIntl } from 'react-intl';
-import { authStore } from 'src/store/authStore';
-import { layoutStore } from 'src/store/layoutStore';
+import authStore from 'src/store/authStore';
+import layoutStore from 'src/store/layoutStore';
 import { TINY_TABLET_BREAKPOINT, SETTINGS_PAGE_PATH, AUTH_PAGE_LOGIN } from 'src/constants';
 import { observer } from 'mobx-react-lite';
 
