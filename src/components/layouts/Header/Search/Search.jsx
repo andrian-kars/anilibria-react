@@ -2,7 +2,7 @@ import s from './Search.module.scss';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useQuery } from 'react-query';
-import { getSearchResults } from 'src/api/titleService';
+import { getSearchResults } from 'src/api/anilibria/titleService';
 import { useIntl } from 'react-intl';
 
 export const Search = () => {

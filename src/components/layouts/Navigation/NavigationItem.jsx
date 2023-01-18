@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 import s from './Navigation.module.scss';
 import PropTypes from 'prop-types';
-import { getRandom } from 'src/api/titleService';
+import { getRandom } from 'src/api/anilibria/titleService';
 
 export const NavigationItem = ({ to, text, svg = null, onClick = null }) => {
   const navigate = useNavigate();

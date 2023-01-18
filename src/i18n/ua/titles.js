@@ -12,4 +12,13 @@ export const titles = Object.freeze({
   'catalog.new': 'Нове',
   'catalog.popular': 'Популярне',
   'catalog.releaseIsFinished': 'Завершені релізи',
+  // release:
+  'release.day.start': 'Нова серія',
+  'release.day.0': 'кожен понеділок',
+  'release.day.1': 'кожен вівторок',
+  'release.day.2': 'кожну середу',
+  'release.day.3': 'кожен четвер',
+  'release.day.4': 'кожну пʼятницю',
+  'release.day.5': 'кожну суботу',
+  'release.day.6': 'кожну неділю',
 });

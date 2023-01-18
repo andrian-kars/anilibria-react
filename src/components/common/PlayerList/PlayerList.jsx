@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import authStore from 'src/store/authStore';
 
 export const PlayerList = memo(({ player, titleName, titleCode }) => {
-  const playList = Object.values(player.playlist);
+  const playList = Object.values(player.list);
   const { recentAnimes, addRecentAnime } = authStore.releaseStore;
   const lastEpisode = recentAnimes?.find((el) => el.titleName === titleName)?.choosenEpisode || 0;
   const [choosenEpisode, setChoosenEpisode] = useState(lastEpisode);
@@ -33,14 +33,14 @@ export const PlayerList = memo(({ player, titleName, titleCode }) => {
         <p className="additional-error">Серии добавляются</p>
       ) : (
         <>
-          <div className={s.series}>
+          <div className={s.episode}>
             {playList.map((el, i) => (
               <button
                 className={cn(choosenEpisode === i && s.active)}
                 key={i}
                 onClick={() => handleEpisodeChange(i)}
               >
-                {el.serie}
+                {el.episode}
               </button>
             ))}
           </div>

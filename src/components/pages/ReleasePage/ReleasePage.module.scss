@@ -52,20 +52,38 @@
   }
 }
 
-.poster {
+.posterWrapper {
   display: none;
+  position: relative;
+
+  @media (min-width: $tablet) {
+    display: block;
+  }
+}
+
+.poster {
   width: var(--anime-item-width);
   height: var(--anime-item-height);
   border: 2px solid $btn-color;
   border-radius: $border-radius;
 
-  @media (min-width: $tablet) {
-    display: block;
-  }
-
   @media (min-width: $desktop) {
     border-width: 4px;
   }
+}
+
+.posterInfo {
+  @include position(absolute, 1px, 1px, none, 1px);
+  background-color: $primary-color;
+  opacity: 0.8;
+  padding: 2px 5px;
+
+  @media (min-width: $desktop) {
+    @include position(absolute, 2px, 2px, none, 2px);
+    padding: 4px 10px;
+  }
+
+  text-align: center;
 }
 
 .description,

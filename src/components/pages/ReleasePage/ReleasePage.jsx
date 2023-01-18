@@ -3,16 +3,19 @@ import { useEffect, useMemo } from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { Heading, PlayerList, Text, ButtonSvg } from 'src/components/common';
-import { getTitle } from 'src/api/titleService';
+import { getTitle } from 'src/api/anilibria/titleService';
 import s from './ReleasePage.module.scss';
 import { ErrorPage } from '../ErrorPage/ErrorPage';
 import { ERROR_CODE_500 } from 'src/constants';
 import authStore from 'src/store/authStore';
 import { observer } from 'mobx-react-lite';
+import { useIntl } from 'react-intl';
 
 const MOCKS_FOR_SKELETON = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12];
 
 export const ReleasePage = observer(() => {
+  const { formatMessage } = useIntl();
+
   const params = useParams().titleCode;
 
   const { favouriteAnimes, addFavouriteAnime, removeFavouriteAnime } = authStore.releaseStore;
@@ -134,11 +137,24 @@ export const ReleasePage = observer(() => {
           {isLoading ? (
             <div className={cn('skeleton', s.poster)} />
           ) : (
-            <img
-              className={cn(s.poster, 'skeleton')}
-              src={title.poster}
-              alt={`Poster ${title[0]}`}
-            />
+            <div className={s.posterWrapper}>
+              <img
+                className={cn(s.poster, 'skeleton')}
+                src={title.poster}
+                alt={`Poster ${title[0]}`}
+              />
+              {title.status.code !== 2 && (
+                <div className={s.posterInfo}>
+                  {title.announce ? (
+                    <Text>{title.announce}</Text>
+                  ) : (
+                    <Text>{`${formatMessage({ id: 'release.day.start' })} ${formatMessage({
+                      id: `release.day.${title.time.day}`,
+                    })}`}</Text>
+                  )}
+                </div>
+              )}
+            </div>
           )}
         </div>
         {isLoading ? (
