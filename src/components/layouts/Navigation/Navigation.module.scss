@@ -103,6 +103,12 @@
   }
 }
 
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: $bigger-gap;
+}
+
 .button {
   display: flex;
   margin: var(--whrapper-padding) auto 0;

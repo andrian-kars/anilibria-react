@@ -41,7 +41,8 @@
     "prettier": "^2.7.1",
     "prop-types": "^15.8.1",
     "sass": "^1.57.1",
-    "vite": "^4.0.3"
+    "vite": "^4.0.3",
+    "yup": "^0.32.11"
   },
   "dependencies": {
     "axios": "^1.2.1",

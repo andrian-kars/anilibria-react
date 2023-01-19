@@ -1,0 +1,34 @@
+@import 'src/styles/_mixins';
+@import 'src/styles/_variables';
+
+.wrapper {
+  position: relative;
+}
+
+.icon {
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  fill: $white-color;
+  top: 50%;
+  left: 8px;
+  transform: translateY(-50%);
+}
+
+.input {
+  width: 250px;
+  padding: 0 40px;
+  border: 1px solid $btn-color;
+  border-radius: 4px;
+  height: 40px;
+}
+
+.caps {
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  fill: $white-color;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+}

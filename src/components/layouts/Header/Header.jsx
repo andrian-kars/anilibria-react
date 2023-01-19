@@ -1,14 +1,18 @@
-import { Burger, Heading } from 'src/components/common';
+import logo from 'src/assets/images/logo.png';
 import s from './Header.module.scss';
 import { NavLink } from 'react-router-dom';
 import { useIntl } from 'react-intl';
+import { useDimension } from 'src/hooks';
+import { Burger, Heading, Button } from 'src/components/common';
 import { Search } from './Search/Search';
-import logo from 'src/assets/images/logo.png';
 import layoutStore from 'src/store/layoutStore';
+import { AUTH_PAGE_LOGIN, TINY_TABLET_BREAKPOINT } from 'src/constants';
 import { observer } from 'mobx-react-lite';
+import authStore from 'src/store/authStore';
 
 export const Header = observer(() => {
   const { formatMessage } = useIntl();
+  const { width } = useDimension();
 
   return (
     <header id="top" className={s.whrapper}>
@@ -20,6 +24,11 @@ export const Header = observer(() => {
       </div>
       <Search />
       <div className={s.right}>
+        {width > TINY_TABLET_BREAKPOINT && !authStore.isAuth && !authStore.isLoading && (
+          <NavLink to={AUTH_PAGE_LOGIN}>
+            <Button>{formatMessage({ id: 'loginForm.loginButtonText' })}</Button>
+          </NavLink>
+        )}
         <div className={s.burgerNav}>
           <Burger
             isActive={layoutStore.isMobileSidesActive}

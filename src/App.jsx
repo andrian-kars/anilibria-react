@@ -8,6 +8,7 @@ import {
   TeamPage,
   SettingsPage,
   AuthPage,
+  TermsPage,
 } from 'src/components/pages';
 import {
   ERROR_CODE_404,
@@ -19,6 +20,7 @@ import {
   TEAM_PAGE_PATH,
   SETTINGS_PAGE_PATH,
   STORAGE_TOKEN,
+  TERMS_PAGE_PATH,
 } from 'src/constants';
 import { Header, Main } from './components/layouts';
 import './styles/index.scss';
@@ -36,8 +38,10 @@ export const App = observer(() => {
       document.body.setAttribute(`data-theme-${key}`, theme[key]);
     }
 
-    if (localStorage.getItem(STORAGE_TOKEN) && !authStore.isLoading) {
+    if (localStorage.getItem(STORAGE_TOKEN)) {
       authStore.checkAuth();
+    } else {
+      authStore.setIsLoading(false);
     }
   });
 
@@ -51,13 +55,16 @@ export const App = observer(() => {
       <Header />
       <Main>
         <Routes>
-          <Route path={INITIAL_PAGE_PATH} element={<InitialPage />} />
           <Route path={AUTH_PAGE_PATH} element={<AuthPage />} />
+          <Route path={TERMS_PAGE_PATH} element={<TermsPage />} />
+
+          <Route path={INITIAL_PAGE_PATH} element={<InitialPage />} />
           <Route path={CATALOG_PAGE_PATH} element={<CatalogPage />} />
           <Route path={RELEASE_PAGE_PATH} element={<ReleasePage />} />
           <Route path={SCHEDULE_PAGE_PATH} element={<SchedulePage />} />
           <Route path={TEAM_PAGE_PATH} element={<TeamPage />} />
           <Route path={SETTINGS_PAGE_PATH} element={<SettingsPage />} />
+
           <Route path="*" element={<ErrorPage errorCode={ERROR_CODE_404} />} />
         </Routes>
       </Main>

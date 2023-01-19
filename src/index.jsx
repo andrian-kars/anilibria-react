@@ -13,14 +13,12 @@ const locale = LOCALES.UKRAINIAN;
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <Router>
-      <ScrollToTop />
-      <IntlProvider messages={messages[locale]} locale={locale} defaultLocale={LOCALES.UKRAINIAN}>
-        <QueryClientProvider client={queryClient}>
-          <App />
-        </QueryClientProvider>
-      </IntlProvider>
-    </Router>
-  </React.StrictMode>,
+  <Router>
+    <ScrollToTop />
+    <IntlProvider messages={messages[locale]} locale={locale} defaultLocale={LOCALES.UKRAINIAN}>
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
+    </IntlProvider>
+  </Router>,
 );

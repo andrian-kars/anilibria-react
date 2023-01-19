@@ -1,4 +1,4 @@
-import { Text, Heading } from 'src/components/common';
+import { Text, Heading, Button } from 'src/components/common';
 import s from './SettingsPage.module.scss';
 import { useState } from 'react';
 import { themeAdapter } from 'src/helpers/adapters';
@@ -80,6 +80,10 @@ export const SettingsPage = observer(() => {
     document.body.setAttribute(`data-theme-${name}`, value);
   };
 
+  const handleLogout = () => {
+    authStore.logout();
+  };
+
   return (
     <section className={s.content}>
       <Heading
@@ -102,6 +106,19 @@ export const SettingsPage = observer(() => {
           ))}
         </div>
       </div>
+
+      {authStore.isAuth && (
+        <>
+          <Heading
+            type="h3"
+            content={formatMessage({ id: 'manageTitlePage.account.title' })}
+            className={s.heading}
+          />
+          <Button onClick={handleLogout}>
+            {formatMessage({ id: 'manageTitlePage.account.logout' })}
+          </Button>
+        </>
+      )}
 
       <SettingsPageSvgs />
       <Heading

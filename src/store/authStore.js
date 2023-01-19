@@ -6,7 +6,7 @@ import { ReleaseStore } from './releaseStore';
 class AuthStore {
   user = null;
   isAuth = false;
-  isLoading = false;
+  isLoading = true;
   // stores
   releaseStore = new ReleaseStore(this);
 

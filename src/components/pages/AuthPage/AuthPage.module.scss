@@ -1,11 +1,27 @@
 @import 'src/styles/_mixins';
 @import 'src/styles/_variables';
 
+.authSpan {
+  color: $btn-color;
+  cursor: pointer;
+}
+
 .content {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+  margin-top: 100px;
   align-self: flex-start;
+  padding: $bigger-gap;
+  background-color: $background-layout;
+  border-radius: $border-radius;
+
+  @media (min-width: $tiny-tablet) {
+    padding: calc($bigger-gap * 2);
+  }
+}
+
+.formContent,
+.content {
+  flex-direction: column;
+  display: flex;
   align-items: center;
   gap: var(--whrapper-padding);
 }
@@ -21,4 +37,11 @@
   background-color: $background-layout;
   text-align: center;
   border-radius: $border-radius;
+}
+
+.warningContainer {
+  @include flex();
+  flex-direction: column;
+  height: 20px;
+  width: 100%;
 }

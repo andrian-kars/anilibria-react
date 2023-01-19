@@ -3,7 +3,6 @@ import { useEffectOnce } from 'src/hooks';
 import cn from 'classnames';
 import s from './InitialPage.module.scss';
 import { useInfiniteQuery } from 'react-query';
-// import { getYouTube } from 'src/api/youtubeService';
 import { getYouTube } from 'src/api/anilibria/youtubeService';
 import { ErrorPage } from '../ErrorPage/ErrorPage';
 import { InitialPageYoutubeItem } from './InitialPageYoutubeItem';

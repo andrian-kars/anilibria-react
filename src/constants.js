@@ -5,11 +5,14 @@ export const ANILIBRIA_STORAGE_URL = 'https://anilibria.tv';
 // paths
 export const INITIAL_PAGE_PATH = '/';
 export const AUTH_PAGE_PATH = '/auth/:authType';
+export const AUTH_PAGE_LOGIN = '/auth/login';
+export const AUTH_PAGE_REGISTRATION = '/auth/registration';
 export const CATALOG_PAGE_PATH = '/catalog';
 export const RELEASE_PAGE_PATH = '/release/:titleCode';
 export const SCHEDULE_PAGE_PATH = '/schedule';
 export const TEAM_PAGE_PATH = '/team';
 export const SETTINGS_PAGE_PATH = '/settings';
+export const TERMS_PAGE_PATH = '/terms';
 // breakpoints
 export const TABLET_WIDTH_BREAKPOINT = 768;
 export const TINY_TABLET_BREAKPOINT = 512;
