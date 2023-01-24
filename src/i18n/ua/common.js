@@ -53,6 +53,7 @@ export const common = Object.freeze({
   'loginForm.terms': 'I have read and agree to Terms of Service',
   'loginForm.emailInvalid': 'Інвалідний емейл',
   'loginForm.passwordInvalid': 'Інвалідний пароль',
+  'loginForm.emailAndPassInvalid': 'Інвалідний емейл і пароль',
   // days
   'day.monday': 'Понеділок',
   'day.tuesday': 'Вівторок',

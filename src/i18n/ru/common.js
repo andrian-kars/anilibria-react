@@ -51,4 +51,5 @@ export const common = Object.freeze({
   'loginForm.terms': 'I have read and agree to Terms of Service',
   'loginForm.emailInvalid': 'Your password is invalid',
   'loginForm.passwordInvalid': 'Your password is invalid',
+  'loginForm.emailAndPassInvalid': 'Your email and password invalid',
 });

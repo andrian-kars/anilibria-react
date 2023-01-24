@@ -7,8 +7,8 @@
 }
 
 .content {
-  margin-top: 100px;
-  align-self: flex-start;
+  justify-content: center;
+  align-content: center;
   padding: $bigger-gap;
   background-color: $background-layout;
   border-radius: $border-radius;
@@ -20,6 +20,7 @@
 
 .formContent,
 .content {
+  width: 45vh;
   flex-direction: column;
   display: flex;
   align-items: center;
@@ -44,4 +45,7 @@
   flex-direction: column;
   height: 20px;
   width: 100%;
+  p {
+    color: $btn-color;
+  }
 }

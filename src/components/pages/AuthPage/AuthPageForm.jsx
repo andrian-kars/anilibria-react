@@ -13,11 +13,10 @@ export const AuthPageForm = memo(({ buttonText, onSubmit, isLogin }) => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [passwordShown, setPasswordShown] = useState(false);
-  const [checked, setChecked] = useState(false);
+  const [warningMessage, setWarningMessage] = useState('');
 
-  const [checkEmail, setCheckEmail] = useState();
-  const [checkPass, setCheckPass] = useState();
+  const [isPasswordShown, setIsPasswordShown] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   const handleEmailChagne = (event) => {
     setEmail(event.target.value);
@@ -33,8 +32,16 @@ export const AuthPageForm = memo(({ buttonText, onSubmit, isLogin }) => {
     const formMail = await emailSchema.isValid({ userEmail: email });
     const formPass = await passwordSchema.isValid({ userPassword: password });
 
-    setCheckEmail(!formMail);
-    setCheckPass(!formPass);
+    if (!formMail && !formPass) {
+      setWarningMessage(formatMessage({ id: 'loginForm.emailAndPassInvalid' }));
+    } else {
+      if (!formMail) {
+        setWarningMessage(formatMessage({ id: 'loginForm.emailInvalid' }));
+      }
+      if (!formPass) {
+        setWarningMessage(formatMessage({ id: 'loginForm.passwordInvalid' }));
+      }
+    }
 
     if (formMail && formPass) {
       onSubmit(email, password);
@@ -42,14 +49,13 @@ export const AuthPageForm = memo(({ buttonText, onSubmit, isLogin }) => {
   };
 
   const handleCheked = () => {
-    setChecked(!checked);
+    setIsChecked(!isChecked);
   };
 
   return (
     <form className={s.formContent}>
       <div className={s.warningContainer}>
-        {checkEmail && <p>{formatMessage({ id: 'loginForm.emailInvalid' })}</p>}
-        {checkPass && <p>{formatMessage({ id: 'loginForm.passwordInvalid' })}</p>}
+        {warningMessage.length !== 0 && <p>{warningMessage}</p>}
       </div>
       <Input
         onChange={handleEmailChagne}
@@ -61,21 +67,24 @@ export const AuthPageForm = memo(({ buttonText, onSubmit, isLogin }) => {
 
       <Input
         onChange={handlePasswordChagne}
-        type={passwordShown ? 'text' : 'password'}
+        type={isPasswordShown ? 'text' : 'password'}
         placeholder={formatMessage({ id: 'loginForm.placeholderPassword' })}
         value={password}
         icon={
-          <ShowHidePasswordIcon setPasswordShown={setPasswordShown} passwordShown={passwordShown} />
+          <ShowHidePasswordIcon
+            setPasswordShown={setIsPasswordShown}
+            passwordShown={isPasswordShown}
+          />
         }
       />
 
       {!isLogin && (
-        <Checkbox onChange={handleCheked} checked={checked}>
+        <Checkbox onChange={handleCheked} checked={isChecked}>
           <NavLink to={TERMS_PAGE_PATH}>{formatMessage({ id: 'loginForm.terms' })}</NavLink>
         </Checkbox>
       )}
 
-      <Button onClick={handleFormSubmit} disabled={isLogin ? false : !checked}>
+      <Button onClick={handleFormSubmit} disabled={isLogin ? false : !isChecked}>
         {buttonText}
       </Button>
     </form>
