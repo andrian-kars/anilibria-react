@@ -39,7 +39,7 @@ export const Input = memo(
 );
 
 Input.propTypes = {
-  icon: PropTypes.PropTypes.element.isRequired,
+  icon: PropTypes.PropTypes.element,
   type: PropTypes.string,
   value: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
