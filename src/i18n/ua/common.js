@@ -68,4 +68,6 @@ export const common = Object.freeze({
   'season.spring': 'Весна',
   'season.summer': 'Літо',
   'season.fall': 'Осінь',
+  // terms page
+  'termsPage.goBackButton': 'Назад до реїстрації',
 });

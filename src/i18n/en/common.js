@@ -53,4 +53,6 @@ export const common = Object.freeze({
   'loginForm.emailInvalid': 'Your password is invalid',
   'loginForm.passwordInvalid': 'Your password is invalid',
   'loginForm.emailAndPassInvalid': 'Your email and password invalid',
+  // terms page
+  'termsPage.goBackButton': 'Назад до реїстрації',
 });
