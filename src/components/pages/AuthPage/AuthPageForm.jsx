@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { memo, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Button, Input, Checkbox } from 'src/components/common';
-import { useIntl } from 'react-intl';
+import { Button, Input, Checkbox, Text } from 'src/components/common';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { TERMS_PAGE_PATH } from 'src/constants';
 import { emailSchema, passwordSchema } from './AuthPageSchema';
 import s from './AuthPage.module.scss';
@@ -78,12 +78,12 @@ export const AuthPageForm = memo(({ buttonText, onSubmit, isLogin }) => {
 
       {!isLogin && (
         <Checkbox onChange={handleCheked} checked={isChecked}>
-          <p>
-            {formatMessage({ id: 'loginForm.termsText' })}
+          <Text>
+            <FormattedMessage id={'loginForm.termsText'} />
             <NavLink className={s.link} to={TERMS_PAGE_PATH}>
               {formatMessage({ id: 'loginForm.termsLink' })}
             </NavLink>
-          </p>
+          </Text>
         </Checkbox>
       )}
 
