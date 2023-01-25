@@ -78,13 +78,16 @@ export const AuthPageForm = memo(({ buttonText, onSubmit, isLogin }) => {
 
       {!isLogin && (
         <Checkbox onChange={handleCheked} checked={isChecked}>
-          <NavLink to={TERMS_PAGE_PATH}>{formatMessage({ id: 'loginForm.terms' })}</NavLink>
+          <p>
+            {formatMessage({ id: 'loginForm.termsText' })}
+            <NavLink className={s.link} to={TERMS_PAGE_PATH}>
+              {formatMessage({ id: 'loginForm.termsLink' })}
+            </NavLink>
+          </p>
         </Checkbox>
       )}
 
-      <Button onClick={handleFormSubmit} disabled={isLogin ? false : !isChecked}>
-        {buttonText}
-      </Button>
+      <Button onClick={handleFormSubmit}>{buttonText}</Button>
     </form>
   );
 });
