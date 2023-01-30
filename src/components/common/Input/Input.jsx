@@ -3,7 +3,7 @@ import s from './Input.module.scss';
 import { memo } from 'react';
 
 export const Input = memo(
-  ({ type = 'text', value, placeholder, onChange, disabled = false, icon }) => {
+  ({ type = 'text', value, placeholder, title, onChange, onFocus, disabled = false, icon }) => {
     return (
       <div className={s.wrapper}>
         <div className={s.icon}>{icon}</div>
@@ -12,7 +12,9 @@ export const Input = memo(
           type={type}
           value={value}
           placeholder={placeholder}
+          title={title}
           onChange={onChange}
+          onFocus={onFocus}
           disabled={disabled}
         />
       </div>
@@ -23,8 +25,10 @@ export const Input = memo(
 Input.propTypes = {
   icon: PropTypes.PropTypes.element,
   type: PropTypes.string,
+  title: PropTypes.string,
   value: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  onFocus: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
 };

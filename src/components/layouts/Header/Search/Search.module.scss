@@ -15,22 +15,6 @@
   border-radius: $border-radius;
   font-size: 1rem * $font-tablet;
 
-  input {
-    position: relative;
-    height: $search-height * $size-mobile;
-    width: 300px * $font-mobile;
-    padding: 0 $search-vertical-padding * $size-mobile;
-    border: 1px solid $background-color;
-    border-radius: $border-radius;
-    z-index: $nice-index;
-
-    &:hover,
-    &:active,
-    &:focus {
-      border-color: $active-and-input-color;
-    }
-  }
-
   ul {
     position: absolute;
     left: 0;
