@@ -23,12 +23,12 @@ export const Input = memo(
 );
 
 Input.propTypes = {
+  placeholder: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
   icon: PropTypes.PropTypes.element,
   type: PropTypes.string,
   title: PropTypes.string,
-  value: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  onFocus: PropTypes.func.isRequired,
+  value: PropTypes.string,
+  onFocus: PropTypes.func,
   disabled: PropTypes.bool,
 };

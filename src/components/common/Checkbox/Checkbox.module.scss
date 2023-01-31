@@ -1,10 +1,40 @@
 @import 'src/styles/_variables';
 @import 'src/styles/_mixins';
 
-.containter {
-  @include flex();
+label:active {
+  border: none;
 }
 
 .checkbox {
-  margin-right: $gap;
+  @include flex($j: space-between);
+  flex-direction: row;
+  margin: 0.55em 0;
+  cursor: pointer;
+  input {
+    position: absolute;
+    height: 0;
+    width: 0;
+  }
+}
+
+.box {
+  border: 1px solid $btn-color;
+  border-radius: $border-radius;
+  width: 25px;
+  height: 25px;
+  background-color: $primary-color;
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.check::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 12px;
+  border: solid $btn-color;
+  border-width: 0 3px 3px 0;
+  left: 8px;
+  top: 4px;
+  transform: rotate(45deg);
 }
