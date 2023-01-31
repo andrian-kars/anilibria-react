@@ -2,28 +2,22 @@
 @import 'src/styles/_variables';
 
 .wrapper {
-  @include flex($j: space-around);
+  @include flex($j: space-between);
   align-items: center;
-  width: 36vh;
+  width: 34vh;
   height: 50px;
   border: 1px solid $btn-color;
   border-radius: $border-radius;
-  padding: 0 1vh;
 }
 
 .icon {
   height: 22px;
-  width: 28px;
+  width: 24px;
   fill: $white-color;
-  margin-right: 1vh;
+  transform: scale(1.2);
+  margin: 0 1vh;
 }
 
 .input {
   width: 100%;
-}
-
-.caps {
-  height: 24px;
-  width: 24px;
-  fill: $white-color;
 }

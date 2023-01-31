@@ -54,7 +54,7 @@ export const AuthPageForm = memo(({ buttonText, onSubmit, isLogin }) => {
 
   return (
     <form className={s.formContent}>
-      <div className={s.warningContainer}>{warningMessage && <p>{warningMessage}</p>}</div>
+      <div className={s.warningContainer}>{warningMessage && <Text>{warningMessage}</Text>}</div>
       <Input
         onChange={handleEmailChagne}
         type="email"

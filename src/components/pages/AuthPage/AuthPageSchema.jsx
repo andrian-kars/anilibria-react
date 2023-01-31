@@ -5,5 +5,5 @@ export const emailSchema = yup.object().shape({
 });
 
 export const passwordSchema = yup.object().shape({
-  userPassword: yup.string().min(4).required(),
+  userPassword: yup.string().min(9).required(),
 });

@@ -46,14 +46,6 @@
   }
 
   $svg-times: 2;
-  svg {
-    display: none;
-    position: absolute;
-    top: 50%;
-    fill: $white-color;
-    transform: translateY(-50%);
-    z-index: 1;
-  }
 
   @media (min-width: $tablet) {
     input {
