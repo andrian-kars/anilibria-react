@@ -2,9 +2,9 @@
 @import 'src/styles/_variables';
 
 .wrapper {
-  @include flex($j: space-between);
+  @include flex();
   align-items: center;
-  width: 34vh;
+  width: 30vh;
   height: 50px;
   border: 1px solid $btn-color;
   border-radius: $border-radius;
@@ -15,7 +15,7 @@
   height: 22px;
   width: 24px;
   fill: $white-color;
-  transform: scale(1.2);
+  transform: scale(1.3);
   margin: 0 1vh;
 }
 

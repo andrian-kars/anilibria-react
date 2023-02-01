@@ -8,7 +8,7 @@ export const Checkbox = memo(({ children, checked, onChange }) => (
       <input
         type="checkbox"
         checked={checked}
-        className={`${checked ? s.check : ''}`}
+        className={checked ? s.check : ''}
         onChange={onChange}
       />
     </div>

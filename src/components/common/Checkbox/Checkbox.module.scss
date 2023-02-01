@@ -19,11 +19,14 @@ label:active {
 
 .box {
   border: 1px solid $btn-color;
+  background: linear-gradient($primary-color, $primary-color) padding-box,
+  linear-gradient(to right, darkorchid, $btn-color) border-box;
   border-radius: $border-radius;
+  border: 1px solid transparent;
   width: 25px;
   height: 25px;
   background-color: $primary-color;
-  margin-right: 4px;
+  margin-right: 1vh;
   cursor: pointer;
 }
 
@@ -37,4 +40,5 @@ label:active {
   left: 8px;
   top: 4px;
   transform: rotate(45deg);
+  cursor: pointer;
 }
