@@ -50,9 +50,11 @@ export const common = Object.freeze({
   'authPage.bottomRegisterSpan': 'Увійдіть',
   'loginForm.placeholderEmail': 'Введіть емейл',
   'loginForm.placeholderPassword': 'Введіть пароль',
-  'loginForm.terms': 'I have read and agree to Terms of Service',
+  'loginForm.termsText': 'I have read and agree to ',
+  'loginForm.termsLink': 'Terms of Service',
   'loginForm.emailInvalid': 'Інвалідний емейл',
   'loginForm.passwordInvalid': 'Інвалідний пароль',
+  'loginForm.emailAndPassInvalid': 'Інвалідний емейл і пароль',
   // days
   'day.monday': 'Понеділок',
   'day.tuesday': 'Вівторок',
@@ -66,4 +68,6 @@ export const common = Object.freeze({
   'season.spring': 'Весна',
   'season.summer': 'Літо',
   'season.fall': 'Осінь',
+  // terms page
+  'termsPage.goBackButton': 'Назад до реїстрації',
 });

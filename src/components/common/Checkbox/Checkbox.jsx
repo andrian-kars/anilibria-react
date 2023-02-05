@@ -3,10 +3,18 @@ import s from './Checkbox.module.scss';
 import { memo } from 'react';
 
 export const Checkbox = memo(({ children, checked, onChange }) => (
-  <div className={s.containter}>
-    <input className={s.checkbox} type="checkbox" checked={checked} onChange={onChange} />
-    {children}
-  </div>
+  <label className={s.checkbox}>
+    <div className={s.box}>
+      <input
+        type="checkbox"
+        checked={checked}
+        className={checked ? s.check : ''}
+        onChange={onChange}
+      />
+    </div>
+
+    <div>{children}</div>
+  </label>
 ));
 
 Checkbox.propTypes = {

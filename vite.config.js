@@ -8,6 +8,6 @@ export default defineConfig({
       src: path.resolve(__dirname, './src'),
     },
   },
-  base: 'anilibria/',
+  base: '/anilibria/',
   plugins: [react()],
 });

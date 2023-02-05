@@ -40,8 +40,8 @@ export const TeamPage = () => {
         : [
             {
               type: 'engineer',
-              items: ['andrian-kars', 'YadelskyiDev'],
-              links: ['https://github.com/andrian-kars', 'https://github.com/YadelskyiDev'],
+              items: ['andrian-kars', 'viktor-yadelskyi'],
+              links: ['https://github.com/andrian-kars', 'https://github.com/viktor-yadelskyi'],
             },
             ...team,
           ].map(({ type, items, links }) => (
