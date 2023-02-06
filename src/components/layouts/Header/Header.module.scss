@@ -10,6 +10,11 @@
   box-shadow: $bottom-shadow;
   z-index: $bigger-nice-index;
   transition: $theme-transition;
+
+  @media (max-width: $tiny-tablet) {
+    @include flex(space-evenly);
+    padding: 0;
+  }
 }
 
 .heading {

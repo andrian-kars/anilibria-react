@@ -1,15 +1,16 @@
 import PropTypes from 'prop-types';
-import { memo, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { memo, useState, useEffect } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import { Button, Input, Checkbox, Text } from 'src/components/common';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { TERMS_PAGE_PATH } from 'src/constants';
+import { TERMS_PAGE_PATH, AUTH_PAGE_REGISTRATION } from 'src/constants';
 import { emailSchema, passwordSchema } from './AuthPageSchema';
 import s from './AuthPage.module.scss';
 import { EmailIcon, ShowHidePasswordIcon } from './AuthSVGs';
 
 export const AuthPageForm = memo(({ buttonText, onSubmit, isLogin }) => {
   const { formatMessage } = useIntl();
+  const location = useLocation();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -17,6 +18,15 @@ export const AuthPageForm = memo(({ buttonText, onSubmit, isLogin }) => {
 
   const [isPasswordShown, setIsPasswordShown] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
+
+  useEffect(()=> {
+    setWarningMessage('');
+    if(location.pathname === AUTH_PAGE_REGISTRATION){
+      setIsChecked(false);
+    }else{
+      setIsChecked(true);
+    }
+  },[location])
 
   const handleEmailChagne = (event) => {
     setEmail(event.target.value);
@@ -43,7 +53,7 @@ export const AuthPageForm = memo(({ buttonText, onSubmit, isLogin }) => {
       }
     }
 
-    if (formMail && formPass) {
+    if (formMail && formPass && isChecked) {
       onSubmit(email, password);
     }
   };

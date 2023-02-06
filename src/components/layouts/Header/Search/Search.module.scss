@@ -1,7 +1,7 @@
 @import 'src/styles/_variables';
 
 .search {
-  $search-height: 43px;
+  $search-height: 50px;
   $search-offset: 5px;
   $search-vertical-padding: 12px;
   $search-horizontal-padding: 8px;
@@ -11,8 +11,6 @@
   $font-mobile: 0.5;
 
   position: relative;
-  background-color: var(--background);
-  border-radius: $border-radius;
   font-size: 1rem * $font-tablet;
 
   ul {
@@ -45,15 +43,9 @@
     height: 100%;
   }
 
-  $svg-times: 2;
+  $svg-times: 1;
 
   @media (min-width: $tablet) {
-    input {
-      width: 300px * $font-tablet;
-      height: $search-height * $size-tablet;
-      padding: 0 $search-vertical-padding;
-    }
-
     ul {
       top: $search-height * $size-tablet + $search-offset;
     }
@@ -62,31 +54,12 @@
     span {
       padding: $search-horizontal-padding $search-vertical-padding;
     }
-
-    svg {
-      display: block;
-      right: calc($search-height / (2 * $svg-times) * $font-tablet);
-      width: calc($search-height / $svg-times * $font-tablet);
-      height: calc($search-height / $svg-times * $font-tablet);
-    }
   }
 
   @media (min-width: $desktop) {
     font-size: 1rem;
-
-    input {
-      width: 300px;
-      height: $search-height;
-    }
-
     ul {
       top: $search-height + $search-offset;
-    }
-
-    svg {
-      right: calc($search-height / (2 * $svg-times));
-      width: calc($search-height / $svg-times);
-      height: calc($search-height / $svg-times);
     }
   }
 }
