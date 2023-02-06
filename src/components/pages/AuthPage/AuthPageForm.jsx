@@ -42,15 +42,22 @@ export const AuthPageForm = memo(({ buttonText, onSubmit, isLogin }) => {
     const formMail = await emailSchema.isValid({ userEmail: email });
     const formPass = await passwordSchema.isValid({ userPassword: password });
 
-    if (!formMail && !formPass) {
-      setWarningMessage(formatMessage({ id: 'loginForm.emailAndPassInvalid' }));
-    } else {
-      if (!formMail) {
-        setWarningMessage(formatMessage({ id: 'loginForm.emailInvalid' }));
-      }
-      if (!formPass) {
-        setWarningMessage(formatMessage({ id: 'loginForm.passwordInvalid' }));
-      }
+
+    switch (false){
+      case (formPass || formMail || isChecked): setWarningMessage('pass mail checkbox');
+      break;
+      case (formPass || formMail):  setWarningMessage(formatMessage({ id: 'loginForm.emailAndPassInvalid' }));
+      break;
+      case (formMail || isChecked): setWarningMessage('mail checkbox');
+      break;
+      case (formPass || isChecked): setWarningMessage('pass checkbox');
+      break;
+      case(formMail): setWarningMessage(formatMessage({ id: 'loginForm.emailInvalid' }));
+      break;
+      case(formPass): setWarningMessage(formatMessage({ id: 'loginForm.passwordInvalid' }));
+      break;
+      case isChecked: setWarningMessage('checkbox');
+      break;
     }
 
     if (formMail && formPass && isChecked) {
