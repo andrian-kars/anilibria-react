@@ -8,7 +8,7 @@ import { emailSchema, passwordSchema } from './AuthPageSchema';
 import s from './AuthPage.module.scss';
 import { EmailIcon, ShowHidePasswordIcon } from './AuthSVGs';
 
-export const AuthPageForm = memo(({ buttonText, onSubmit, isLogin }) => {
+export const AuthPageForm = memo(({ buttonText, onSubmit, isLogin, errorMessage }) => {
   const { formatMessage } = useIntl();
   const location = useLocation();
 
@@ -62,6 +62,9 @@ export const AuthPageForm = memo(({ buttonText, onSubmit, isLogin }) => {
 
     if (formMail && formPass && isChecked) {
       onSubmit(email, password);
+      if(errorMessage){
+        setWarningMessage(errorMessage);
+      }
     }
   };
 

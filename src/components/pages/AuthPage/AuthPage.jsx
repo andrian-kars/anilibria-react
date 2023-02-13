@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useCallback, useState  } from 'react';
 import s from './AuthPage.module.scss';
 import { Text, Heading } from 'src/components/common';
 import store from 'src/store/authStore';
@@ -6,7 +6,6 @@ import { observer } from 'mobx-react-lite';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthPageForm } from './AuthPageForm';
 import { INITIAL_PAGE_PATH, AUTH_PAGE_LOGIN, AUTH_PAGE_REGISTRATION } from 'src/constants';
-import { useCallback } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 const LOGIN = 'login';
@@ -19,13 +18,30 @@ export const AuthPage = observer(() => {
   const { isAuth } = store;
   const isLogin = authType === LOGIN;
 
+  const [errorMessage, setErrorMessage] = useState();
+
   const pageTitle = isLogin
     ? formatMessage({ id: 'authPage.login' })
     : formatMessage({ id: 'authPage.register' });
 
-  const handleLogin = useCallback((email, password) => {
-    store.login(email, password);
-  }, []);
+  const handleLogin = async (email, password) => {
+      await store.login(email, password);
+  };
+
+    const loadData = async () => {
+    try {
+      let response;
+      if(isLogin){
+        response = await store.login(email, password);
+      }else{
+        response = await store.registration(email, password);
+      }
+      setResults(response.data)
+      setErrorMessage(null)
+    } catch (err) {
+      setErrorMessage(err.message)
+    }
+  }
 
   const handleRegistration = useCallback((email, password) => {
     store.registration(email, password);
@@ -41,7 +57,8 @@ export const AuthPage = observer(() => {
     } else {
       document.title = pageTitle;
     }
-  }, [isAuth, authType]);
+    loadData();
+  }, [isAuth, authType, errorMessage]);
 
   return (
     <section className={s.content}>
@@ -50,6 +67,7 @@ export const AuthPage = observer(() => {
       <AuthPageForm
         buttonText={pageTitle}
         onSubmit={isLogin ? handleLogin : handleRegistration}
+        errorMessage={errorMessage}
         isLogin={isLogin}
       />
 
