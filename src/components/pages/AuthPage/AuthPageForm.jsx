@@ -68,7 +68,6 @@ export const AuthPageForm = memo(({ buttonText, onSubmit, isLogin, errorMessage 
 
     if (formMail && formPass && isChecked) {
       onSubmit(email, password);
-      setWarningMessage(errorMessage);
     }
   };
 
