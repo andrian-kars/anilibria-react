@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useState  } from 'react';
+import { useEffect } from 'react';
 import s from './AuthPage.module.scss';
 import { Text, Heading } from 'src/components/common';
 import store from 'src/store/authStore';
@@ -15,37 +15,20 @@ export const AuthPage = observer(() => {
   const authType = useParams().authType;
 
   const { formatMessage } = useIntl();
-  const { isAuth } = store;
+  const { isAuth, errorMessage } = store;
   const isLogin = authType === LOGIN;
-
-  const [errorMessage, setErrorMessage] = useState();
 
   const pageTitle = isLogin
     ? formatMessage({ id: 'authPage.login' })
     : formatMessage({ id: 'authPage.register' });
 
-  const handleLogin = async (email, password) => {
-      await store.login(email, password);
+  const handleLogin = (email, password) => {
+    store.login(email, password);
   };
 
-    const loadData = async () => {
-    try {
-      let response;
-      if(isLogin){
-        response = await store.login(email, password);
-      }else{
-        response = await store.registration(email, password);
-      }
-      setResults(response.data)
-      setErrorMessage(null)
-    } catch (err) {
-      setErrorMessage(err.message)
-    }
-  }
-
-  const handleRegistration = useCallback((email, password) => {
+  const handleRegistration = (email, password) => {
     store.registration(email, password);
-  }, []);
+  };
 
   const createAccountHandle = () => {
     isLogin ? navigate(AUTH_PAGE_REGISTRATION) : navigate(AUTH_PAGE_LOGIN);
@@ -57,8 +40,7 @@ export const AuthPage = observer(() => {
     } else {
       document.title = pageTitle;
     }
-    loadData();
-  }, [isAuth, authType, errorMessage]);
+  }, [isAuth, authType]);
 
   return (
     <section className={s.content}>

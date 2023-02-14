@@ -14,19 +14,19 @@ export const AuthPageForm = memo(({ buttonText, onSubmit, isLogin, errorMessage 
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [warningMessage, setWarningMessage] = useState('');
+  const [warningMessage, setWarningMessage] = useState(errorMessage || '');
 
   const [isPasswordShown, setIsPasswordShown] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
 
-  useEffect(()=> {
-    setWarningMessage('');
-    if(location.pathname === AUTH_PAGE_REGISTRATION){
+  useEffect(() => {
+    setWarningMessage(errorMessage);
+    if (location.pathname === AUTH_PAGE_REGISTRATION) {
       setIsChecked(false);
-    }else{
+    } else {
       setIsChecked(true);
     }
-  },[location])
+  }, [location, errorMessage]);
 
   const handleEmailChagne = (event) => {
     setEmail(event.target.value);
@@ -42,29 +42,33 @@ export const AuthPageForm = memo(({ buttonText, onSubmit, isLogin, errorMessage 
     const formMail = await emailSchema.isValid({ userEmail: email });
     const formPass = await passwordSchema.isValid({ userPassword: password });
 
-
-    switch (false){
-      case (formPass || formMail || isChecked): setWarningMessage('pass mail checkbox');
-      break;
-      case (formPass || formMail):  setWarningMessage(formatMessage({ id: 'loginForm.emailAndPassInvalid' }));
-      break;
-      case (formMail || isChecked): setWarningMessage('mail checkbox');
-      break;
-      case (formPass || isChecked): setWarningMessage('pass checkbox');
-      break;
-      case(formMail): setWarningMessage(formatMessage({ id: 'loginForm.emailInvalid' }));
-      break;
-      case(formPass): setWarningMessage(formatMessage({ id: 'loginForm.passwordInvalid' }));
-      break;
-      case isChecked: setWarningMessage('checkbox');
-      break;
+    switch (false) {
+      case formPass || formMail || isChecked:
+        setWarningMessage('pass mail checkbox');
+        break;
+      case formPass || formMail:
+        setWarningMessage(formatMessage({ id: 'loginForm.emailAndPassInvalid' }));
+        break;
+      case formMail || isChecked:
+        setWarningMessage('mail checkbox');
+        break;
+      case formPass || isChecked:
+        setWarningMessage('pass checkbox');
+        break;
+      case formMail:
+        setWarningMessage(formatMessage({ id: 'loginForm.emailInvalid' }));
+        break;
+      case formPass:
+        setWarningMessage(formatMessage({ id: 'loginForm.passwordInvalid' }));
+        break;
+      case isChecked:
+        setWarningMessage('checkbox');
+        break;
     }
 
     if (formMail && formPass && isChecked) {
       onSubmit(email, password);
-      if(errorMessage){
-        setWarningMessage(errorMessage);
-      }
+      setWarningMessage(errorMessage);
     }
   };
 
@@ -116,4 +120,5 @@ AuthPageForm.propTypes = {
   isLogin: PropTypes.bool.isRequired,
   buttonText: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
+  errorMessage: PropTypes.string,
 };
