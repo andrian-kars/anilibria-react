@@ -1,4 +1,5 @@
 {
+  "homepage:": "http://andrian-kars.github.io/anilibria-react",
   "name": "anilibria",
   "version": "2.0.0",
   "private": true,
@@ -9,7 +10,9 @@
     "start": "vite --open",
     "build": "vite build",
     "preview": "vite preview --open",
-    "lint": "eslint --ext .jsx --ext .js src/"
+    "lint": "eslint --ext .jsx --ext .js src/",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d dist"
   },
   "lint": "eslint .",
   "lint:fix": "eslint --fix",
@@ -36,6 +39,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
+    "gh-pages": "^5.0.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
