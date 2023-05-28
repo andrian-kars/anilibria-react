@@ -16,12 +16,17 @@ export const Header = observer(() => {
 
   return (
     <header id="top" className={s.whrapper}>
-      <div className={s.left}>
+
+      { width >= TINY_TABLET_BREAKPOINT &&      <div className={s.left}>
         <NavLink to={'/'} className={s.whrapperHomeLink}>
           <img className={s.logo} src={logo} alt="logo" />
-          <Heading type="h1" content={formatMessage({ id: 'appName' })} className={s.heading} />
+          
+             <Heading type="h1" content={formatMessage({ id: 'appName' })} className={s.heading} />
+          
+         
         </NavLink>
-      </div>
+      </div>}
+ 
       <Search />
       <div className={s.right}>
         {width > TINY_TABLET_BREAKPOINT && !authStore.isAuth && !authStore.isLoading && (

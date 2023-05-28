@@ -6,7 +6,6 @@ import { observer } from 'mobx-react-lite';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthPageForm } from './AuthPageForm';
 import { INITIAL_PAGE_PATH, AUTH_PAGE_LOGIN, AUTH_PAGE_REGISTRATION } from 'src/constants';
-import { useCallback } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 const LOGIN = 'login';
@@ -16,20 +15,20 @@ export const AuthPage = observer(() => {
   const authType = useParams().authType;
 
   const { formatMessage } = useIntl();
-  const { isAuth } = store;
+  const { isAuth, errorMessage } = store;
   const isLogin = authType === LOGIN;
 
   const pageTitle = isLogin
     ? formatMessage({ id: 'authPage.login' })
     : formatMessage({ id: 'authPage.register' });
 
-  const handleLogin = useCallback((email, password) => {
+  const handleLogin = (email, password) => {
     store.login(email, password);
-  }, []);
+  };
 
-  const handleRegistration = useCallback((email, password) => {
+  const handleRegistration = (email, password) => {
     store.registration(email, password);
-  }, []);
+  };
 
   const createAccountHandle = () => {
     isLogin ? navigate(AUTH_PAGE_REGISTRATION) : navigate(AUTH_PAGE_LOGIN);
@@ -50,6 +49,7 @@ export const AuthPage = observer(() => {
       <AuthPageForm
         buttonText={pageTitle}
         onSubmit={isLogin ? handleLogin : handleRegistration}
+        errorMessage={errorMessage}
         isLogin={isLogin}
       />
 

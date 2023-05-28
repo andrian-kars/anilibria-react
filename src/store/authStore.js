@@ -7,6 +7,7 @@ class AuthStore {
   user = null;
   isAuth = false;
   isLoading = true;
+  errorMessage = null;
   // stores
   releaseStore = new ReleaseStore(this);
 
@@ -26,6 +27,10 @@ class AuthStore {
     this.isLoading = bool;
   };
 
+  setErrorMessage = (err) => {
+    this.errorMessage = err;
+  };
+
   registration = async (email, password) => {
     try {
       this.setIsLoading(true);
@@ -33,8 +38,9 @@ class AuthStore {
       localStorage.setItem(STORAGE_TOKEN, response.data.accessToken);
       this.setAuth(true);
       this.setUser(response.data.user);
+      this.setErrorMessage(null);
     } catch (error) {
-      console.log(error.response?.data.message);
+      this.setErrorMessage(error.response?.data.message);
     } finally {
       this.setIsLoading(false);
     }
@@ -47,8 +53,9 @@ class AuthStore {
       localStorage.setItem(STORAGE_TOKEN, response.data.accessToken);
       this.setAuth(true);
       this.setUser(response.data.user);
+      this.setErrorMessage(null);
     } catch (error) {
-      console.log(error.response?.data.message);
+      this.setErrorMessage(error.response?.data.message);
     } finally {
       this.setIsLoading(false);
     }
@@ -61,8 +68,9 @@ class AuthStore {
       localStorage.removeItem(STORAGE_TOKEN);
       this.setAuth(false);
       this.setUser(null);
+      this.setErrorMessage(null);
     } catch (error) {
-      console.log(error.response?.data.message);
+      this.setErrorMessage(error.response?.data.message);
     } finally {
       this.setIsLoading(false);
     }
@@ -74,8 +82,9 @@ class AuthStore {
       const data = await checkAuthHelper();
       this.setAuth(true);
       this.setUser(data.user);
+      this.setErrorMessage(null);
     } catch (error) {
-      console.log(error.response?.data.message);
+      this.setErrorMessage(error.response?.data.message);
     } finally {
       this.setIsLoading(false);
     }
